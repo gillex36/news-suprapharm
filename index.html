@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Suprapharm News &bull; Le Digest Quotidien</title>
+  <title>Suprapharm News &bull; Digest Quotidien des 5 Thèmes Clés</title>
   <style>
     /* Responsive Mobile */
     @media only screen and (max-width: 640px) {
@@ -26,6 +26,7 @@
       .nav-link {
         font-size: 10px !important;
         padding: 4px 8px !important;
+        margin: 2px !important;
       }
       .meta-bar {
         flex-direction: column !important;
@@ -62,12 +63,9 @@
       border-color: #1f3b32 !important;
     }
     body.dark .nav-link {
+      background-color: #132e25 !important;
       color: #d1fae5 !important;
-    }
-    body.dark .nav-link-pharma {
-      background: #064e3b !important;
-      color: #a7f3d0 !important;
-      border-color: #059669 !important;
+      border-color: #1f3b32 !important;
     }
     body.dark .lead-box {
       background-color: #0f241d !important;
@@ -127,8 +125,7 @@
       body:not(.light) .meta-bar { border-color: #1f3b32 !important; color: #94a3b8 !important; }
       body:not(.light) .timestamp-badge { background-color: #132e25 !important; color: #34d399 !important; border: 1px solid #1f3b32 !important; }
       body:not(.light) .nav-bar { background-color: #0b1c16 !important; border-color: #1f3b32 !important; }
-      body:not(.light) .nav-link { color: #d1fae5 !important; }
-      body:not(.light) .nav-link-pharma { background: #064e3b !important; color: #a7f3d0 !important; border-color: #059669 !important; }
+      body:not(.light) .nav-link { background-color: #132e25 !important; color: #d1fae5 !important; border-color: #1f3b32 !important; }
       body:not(.light) .lead-box { background-color: #0f241d !important; border-color: #059669 !important; }
       body:not(.light) .lead-text { color: #d1fae5 !important; }
       body:not(.light) .article-card { background-color: #0b1c16 !important; border-color: #1f3b32 !important; }
@@ -150,76 +147,72 @@
     <!-- BARRE UTILITAIRE HAUT DE PAGE : BOUTON THEME -->
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 1px;">
-        SUPRAPHARM &bull; EDITION SPECIALE
+        SUPRAPHARM &bull; L'OFFICINE EN DIRECT
       </div>
       <button id="themeToggleBtn" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Basculer thème sombre/clair" style="cursor: pointer; background: #ffffff; color: #047857; border: 1px solid #a7f3d0; padding: 5px 12px; border-radius: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 1px 3px rgba(5,150,105,0.08); transition: all 0.2s ease;">
         <span id="themeToggleIcon">🌙</span> <span id="themeToggleText">Mode sombre</span>
       </button>
     </div>
 
-    <!-- BANNIERE OFFICIELLE SUPRAPHARM -->
+    <!-- BANNIERE OFFICIELLE SOBRE SUPRAPHARM -->
     <div style="margin-bottom: 18px; text-align: center;">
-      <img src="https://news.suprapharm.fr/banner.jpg" alt="Suprapharm - L'information matinale à ne pas rater" class="banner-img" style="width: 100%; height: auto; border-radius: 6px; display: block; box-shadow: 0 2px 8px rgba(0,0,0,0.08);" />
+      <img src="https://news.suprapharm.fr/banner.jpg" alt="Suprapharm - L'information matinale à ne pas rater" class="banner-img" style="width: 100%; height: auto; border-radius: 6px; display: block; box-shadow: 0 1px 4px rgba(0,0,0,0.05); border: 1px solid #e5e7eb;" />
     </div>
 
     <!-- BARRE META (DATE & HORODATAGE) -->
     <div class="meta-bar" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #047857; text-transform: uppercase; letter-spacing: 0.8px; padding: 8px 12px; background: #ecfdf5; border-radius: 4px; border: 1px solid #d1fae5; margin-bottom: 22px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
       <span>📅 Lundi 14 septembre 2026 &bull; ⏱️ 4 min de lecture</span>
       <span class="timestamp-badge" style="background: #ffffff; color: #065f46; padding: 3px 10px; border-radius: 12px; font-weight: 700; font-size: 10px; border: 1px solid #a7f3d0;">
-        🕐 Mis à jour le 14/09/2026 à 00h08
+        🕐 Mis à jour le 14/09/2026 à 00h21
       </span>
     </div>
 
-    <!-- ONGLETS DE NAVIGATION PAR RUBRIQUES -->
+    <!-- ONGLETS DE NAVIGATION PAR LES 5 THÈMES OFFICINAUX -->
     <div class="nav-bar" style="text-align: center; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px; padding: 10px 8px; margin-bottom: 28px; line-height: 2;">
       
-    <a href="#theme-1" class="nav-link " style="text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 12px; display: inline-block; margin: 2px 3px; color: #374151; font-weight: 600;">
-      🏛️ Actualité générale
-    </a>
-   
-    <a href="#theme-2" class="nav-link " style="text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 12px; display: inline-block; margin: 2px 3px; color: #374151; font-weight: 600;">
-      📈 Finance & Placements
-    </a>
-   
-    <a href="#theme-3" class="nav-link " style="text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 12px; display: inline-block; margin: 2px 3px; color: #374151; font-weight: 600;">
-      🤖 IA & Vibe Coding
-    </a>
-   
-    <a href="#theme-4" class="nav-link " style="text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 12px; display: inline-block; margin: 2px 3px; color: #374151; font-weight: 600;">
-      💻 Numérique & Tech
-    </a>
-   
-    <a href="#theme-5" class="nav-link " style="text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 12px; display: inline-block; margin: 2px 3px; color: #374151; font-weight: 600;">
-      🎬 Culture, Livres & Cinéma
-    </a>
-   
-    <a href="#theme-6" class="nav-link nav-link-pharma" style="text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 12px; display: inline-block; margin: 2px 3px; background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; border-radius: 14px; font-weight: 800;">
-      💊 Pharmacie & Officine
-    </a>
-  
+  <a href="#theme-1" class="nav-link" style="text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 12px; display: inline-block; margin: 3px 4px; background: #ffffff; color: #047857; border: 1px solid #d1fae5; border-radius: 20px; font-weight: 700; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
+    💊 Médicaments & Traitements
+  </a>
+ 
+  <a href="#theme-2" class="nav-link" style="text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 12px; display: inline-block; margin: 3px 4px; background: #ffffff; color: #047857; border: 1px solid #d1fae5; border-radius: 20px; font-weight: 700; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
+    💉 Vaccins & Prévention
+  </a>
+ 
+  <a href="#theme-3" class="nav-link" style="text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 12px; display: inline-block; margin: 3px 4px; background: #ffffff; color: #047857; border: 1px solid #d1fae5; border-radius: 20px; font-weight: 700; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
+    ⚖️ Réglementation & Ordre
+  </a>
+ 
+  <a href="#theme-4" class="nav-link" style="text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 12px; display: inline-block; margin: 3px 4px; background: #ffffff; color: #047857; border: 1px solid #d1fae5; border-radius: 20px; font-weight: 700; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
+    📑 Conventions & Facturation
+  </a>
+ 
+  <a href="#theme-5" class="nav-link" style="text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 12px; display: inline-block; margin: 3px 4px; background: #ffffff; color: #047857; border: 1px solid #d1fae5; border-radius: 20px; font-weight: 700; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
+    🏥 Vie de l'Officine & Pratique
+  </a>
+
     </div>
 
     <!-- GRANDE UNE -->
     
   <a name="lead-story"></a>
-  <div id="lead-story" class="lead-box" style="background: #ffffff; border: 1px solid #10b981; border-top: 4px solid #059669; padding: 24px; margin-bottom: 34px; border-radius: 4px; box-shadow: 0 2px 8px rgba(5, 150, 105, 0.08); position: relative;">
+  <div id="lead-story" class="lead-box" style="background: #ffffff; border: 1px solid #10b981; border-top: 4px solid #059669; padding: 24px; margin-bottom: 34px; border-radius: 6px; box-shadow: 0 2px 8px rgba(5, 150, 105, 0.08); position: relative;">
     <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
       <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1.2px; background: #ecfdf5; padding: 3px 10px; border-radius: 12px;">
-        ★ LA GRANDE SYNTHÈSE DU JOUR &bull; Source : Le Moniteur des Pharmacies
+        ★ LA GRANDE SYNTHÈSE DU JOUR &bull; Source : VIDAL Actus
       </span>
       <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 700; color: #059669;">
         RECOMMANDÉ PAR SUPRAPHARM
       </span>
     </div>
     <h2 class="lead-title" style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 24px; font-weight: 900; line-height: 1.25; margin: 0 0 14px 0; color: #111827;">
-      <a href="https://www.lemoniteurdespharmacies.fr/business/rh-et-management/carriere/management-la-reconnaissance-un-investissement-rentable" target="_blank" style="color: inherit; text-decoration: none;">La reconnaissance au travail s'impose comme un levier stratégique pour un management efficace</a>
+      <a href="https://www.vidal.fr/actualites/38295-rdc-plus-de-7-000-cas-d-ebola-recenses.html" target="_blank" style="color: inherit; text-decoration: none;">Alerte sanitaire internationale : l'épidémie d'Ebola en RDC s'intensifie</a>
     </h2>
     <p class="lead-text" style="font-family: Georgia, serif; font-size: 15px; line-height: 1.6; color: #374151; margin: 0 0 18px 0;">
-      Une étude met en lumière l'importance de la reconnaissance des employés, la qualifiant d'investissement rentable pour les managers. Elle combat l'idée selon laquelle les félicitations sont superflues pour un travail rémunéré, démontrant l'impact positif de l'appréciation sur la motivation et la performance.
+      La recrudescence des cas d'Ebola en République Démocratique du Congo représente une veille sanitaire mondiale essentielle pour les officines. Les équipes doivent rester informées des risques de santé publique et des recommandations pour les voyageurs.
     </p>
     <div>
-      <a href="https://www.lemoniteurdespharmacies.fr/business/rh-et-management/carriere/management-la-reconnaissance-un-investissement-rentable" target="_blank" class="lead-cta" style="display: inline-block; background: #059669; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; padding: 10px 20px; text-decoration: none; border-radius: 4px; box-shadow: 0 2px 6px rgba(5, 150, 105, 0.25);">
-        En savoir plus sur Le Moniteur des Pharmacies &rarr;
+      <a href="https://www.vidal.fr/actualites/38295-rdc-plus-de-7-000-cas-d-ebola-recenses.html" target="_blank" class="lead-cta" style="display: inline-block; background: #059669; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; padding: 10px 20px; text-decoration: none; border-radius: 4px; box-shadow: 0 2px 6px rgba(5, 150, 105, 0.25);">
+        En savoir plus sur VIDAL Actus &rarr;
       </a>
     </div>
   </div>
@@ -229,74 +222,127 @@
     
     <a name="theme-1"></a>
     <div id="theme-1" style="margin-bottom: 38px; padding-top: 10px;">
-      <div class="theme-header" style="border-bottom: 2px solid #111827; padding-bottom: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;">
+      <div class="theme-header" style="border-bottom: 2px solid #059669; padding-bottom: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;">
         <h3 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin: 0; color: inherit;">
-          🏛️ Actualité générale
+          💊 Médicaments & Traitements
         </h3>
-        
+        <span style="font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 10px; font-weight: 700; color: #6b7280;">
+          6 article(s)
+        </span>
       </div>
 
       
-        <div class="analysis-box" style="background: #fdfbf7; border-left: 3px solid #111827; padding: 14px 18px; margin-bottom: 20px; font-family: Georgia, serif; border-radius: 2px;">
+        <div class="analysis-box" style="background: #fdfbf7; border-left: 3px solid #059669; padding: 14px 18px; margin-bottom: 20px; font-family: Georgia, serif; border-radius: 2px;">
           <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #555555; margin-bottom: 8px;">
             L'analyse de la rédaction
           </div>
           <ul style="margin: 0; padding-left: 18px;">
-            <li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Enjeux sociaux** : Marine Le Pen, en se recentrant sur des thèmes comme le logement et le pouvoir d'achat, tente de capitaliser sur les préoccupations quotidiennes des Français pour élargir sa base électorale au-delà des questions identitaires.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Défis budgétaires** : La proposition d'une contribution des retraités souligne la difficulté du gouvernement à équilibrer les finances publiques et met en lumière les arbitrages douloureux nécessaires, potentiellement au risque de tensions sociales.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Performance nationale** : La défaite des Bleues en finale de la Coupe du monde de basket rappelle que même au plus haut niveau, la domination sportive américaine reste un défi majeur, tout en valorisant la progression et la capacité de l'équipe française à atteindre l'élite mondiale.</li>
+            <li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Point clé** : La gestion des retraits d'AMM et des modifications de listes OTC exige une vigilance constante des officines pour la sécurité des patients et la conformité réglementaire.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Point clé** : L'évolution des franchises médicales impacte directement le reste à charge des patients, nécessitant une communication claire et empathique de la part de l'équipe officinale.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Point clé** : Les avancées scientifiques, comme les recherches sur le microbiote et Parkinson, soulignent l'importance pour les pharmaciens de maintenir à jour leurs connaissances pour un conseil éclairé.</li>
           </ul>
         </div>
       
 
       <div>
         
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #1e3a8a; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #059669; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #1e3a8a; text-transform: uppercase; letter-spacing: 1px;">
-              🏛️ Source : Franceinfo
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 1px;">
+              💊 Source : VIDAL Actus
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
-            <a href="https://www.franceinfo.fr/sports/basket/coupe-du-monde/pas-de-premier-titre-pour-l-equipe-de-france-battue-par-les-etats-unis-en-finale-de-la-coupe-du-monde-de-basket_8191088.html#xtor=RSS-3-[lestitres]" target="_blank" style="color: inherit; text-decoration: none;">Les Bleues échouent face aux États-Unis en finale de la Coupe du monde de basket</a>
+            <a href="https://www.vidal.fr/actualites/38295-rdc-plus-de-7-000-cas-d-ebola-recenses.html" target="_blank" style="color: inherit; text-decoration: none;">Alerte sanitaire internationale : l'épidémie d'Ebola en RDC s'intensifie</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            L'équipe de France féminine de basket-ball n'a pas réussi à remporter son premier titre mondial, s'inclinant face à la puissante formation américaine. Malgré une performance notable en atteignant leur première finale, les Françaises n'ont pu défaire leurs adversaires dominatrices dimanche soir.
+            La recrudescence des cas d'Ebola en République Démocratique du Congo représente une veille sanitaire mondiale essentielle pour les officines. Les équipes doivent rester informées des risques de santé publique et des recommandations pour les voyageurs.
           </p>
-          <a href="https://www.franceinfo.fr/sports/basket/coupe-du-monde/pas-de-premier-titre-pour-l-equipe-de-france-battue-par-les-etats-unis-en-finale-de-la-coupe-du-monde-de-basket_8191088.html#xtor=RSS-3-[lestitres]" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0284c7; text-decoration: underline;">
-            En savoir plus sur Franceinfo &rarr;
+          <a href="https://www.vidal.fr/actualites/38295-rdc-plus-de-7-000-cas-d-ebola-recenses.html" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
+            En savoir plus sur VIDAL Actus &rarr;
           </a>
         </div>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #1e3a8a; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #059669; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #1e3a8a; text-transform: uppercase; letter-spacing: 1px;">
-              🏛️ Source : Franceinfo
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 1px;">
+              💊 Source : VIDAL Actus
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
-            <a href="https://www.franceinfo.fr/politique/marine-le-pen/reportage-nous-nous-devons-plus-que-jamais-de-mener-la-bataille-sociale-en-meeting-a-henin-beaumont-marine-le-pen-tente-de-retrouver-les-accents-de-sa-campagne-presidentielle-de-2022_8189702.html#xtor=RSS-3-[lestitres]" target="_blank" style="color: inherit; text-decoration: none;">Marine Le Pen relance sa stratégie sociale lors de sa rentrée politique à Hénin-Beaumont</a>
+            <a href="https://www.vidal.fr/actualites/38296-franchises-medicales-le-plafond-annuel-passe-a-140-euros-le-1er-octobre.html" target="_blank" style="color: inherit; text-decoration: none;">Augmentation du plafond annuel des franchises médicales dès le 1er octobre</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            Marine Le Pen a effectué sa rentrée politique à Hénin-Beaumont, où elle a réaffirmé son engagement sur les enjeux sociaux. La dirigeante du Rassemblement National a notamment mis l'accent sur la problématique du logement et a promis de maintenir le pouvoir d'achat au cœur de ses préoccupations.
+            Le relèvement du plafond annuel des franchises médicales à 140 euros impactera directement le reste à charge des patients pour leurs traitements. Les pharmaciens et leur équipe devront communiquer clairement ces changements lors de la délivrance pour éviter toute confusion.
           </p>
-          <a href="https://www.franceinfo.fr/politique/marine-le-pen/reportage-nous-nous-devons-plus-que-jamais-de-mener-la-bataille-sociale-en-meeting-a-henin-beaumont-marine-le-pen-tente-de-retrouver-les-accents-de-sa-campagne-presidentielle-de-2022_8189702.html#xtor=RSS-3-[lestitres]" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0284c7; text-decoration: underline;">
-            En savoir plus sur Franceinfo &rarr;
+          <a href="https://www.vidal.fr/actualites/38296-franchises-medicales-le-plafond-annuel-passe-a-140-euros-le-1er-octobre.html" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
+            En savoir plus sur VIDAL Actus &rarr;
           </a>
         </div>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #1e3a8a; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #059669; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #1e3a8a; text-transform: uppercase; letter-spacing: 1px;">
-              🏛️ Source : Le Figaro
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 1px;">
+              💊 Source : VIDAL Actus
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
-            <a href="https://www.lefigaro.fr/conjoncture/desindexation-des-pensions-evolution-de-l-abattement-fiscal-l-offensive-de-sebastien-lecornu-sur-le-dossier-explosif-des-retraites-20260913" target="_blank" style="color: inherit; text-decoration: none;">Le gouvernement envisage une contribution des retraités de 6 milliards d'euros d'ici 2027</a>
+            <a href="https://www.vidal.fr/actualites/38279-microbiote-et-parkinson-une-nouvelle-piste.html" target="_blank" style="color: inherit; text-decoration: none;">Maladie de Parkinson : le microbiote intestinal, une piste thérapeutique prometteuse</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            Le ministre Sébastien Lecornu ouvre un débat sensible sur les retraites en proposant de faire participer davantage les seniors au redressement des finances publiques. L'objectif est de générer 6 milliards d'euros d'économies d'ici 2027, potentiellement via une désindexation des pensions ou l'évolution de l'abattement fiscal.
+            Les nouvelles recherches explorant le lien entre le microbiote et la maladie de Parkinson ouvrent des perspectives pour de futurs traitements. L'officine doit suivre ces avancées pour informer les patients sur les évolutions scientifiques et les compléments alimentaires pertinents.
           </p>
-          <a href="https://www.lefigaro.fr/conjoncture/desindexation-des-pensions-evolution-de-l-abattement-fiscal-l-offensive-de-sebastien-lecornu-sur-le-dossier-explosif-des-retraites-20260913" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0284c7; text-decoration: underline;">
-            En savoir plus sur Le Figaro &rarr;
+          <a href="https://www.vidal.fr/actualites/38279-microbiote-et-parkinson-une-nouvelle-piste.html" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
+            En savoir plus sur VIDAL Actus &rarr;
+          </a>
+        </div>
+      
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #059669; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 1px;">
+              💊 Source : Meddispar
+            </span>
+          </div>
+          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
+            <a href="http://www.meddispar.fr//Actualites/2026/TAVNEOS-NE-DOIT-PLUS-ETRE-PRESCRIT-NI-DELIVRE-DEPUIS-LE-04-AOUT-2026" target="_blank" style="color: inherit; text-decoration: none;">Retrait définitif du marché : Tavneos (avacopan) ne doit plus être dispensé à partir du 4 août 2026</a>
+          </h4>
+          <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
+            Le retrait d'AMM de Tavneos (avacopan) impose aux officines de cesser toute délivrance à compter du 4 août 2026 et de rappeler les lots en stock. Une communication urgente est nécessaire avec les patients concernés et les prescripteurs pour organiser le relais thérapeutique.
+          </p>
+          <a href="http://www.meddispar.fr//Actualites/2026/TAVNEOS-NE-DOIT-PLUS-ETRE-PRESCRIT-NI-DELIVRE-DEPUIS-LE-04-AOUT-2026" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
+            En savoir plus sur Meddispar &rarr;
+          </a>
+        </div>
+      
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #059669; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 1px;">
+              💊 Source : Meddispar
+            </span>
+          </div>
+          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
+            <a href="http://www.meddispar.fr//Actualites/2026/Modification-de-la-liste-des-medicaments-de-medication-officinale-mentionnee-a-l-article-R.-5121-202-du-CSP2" target="_blank" style="color: inherit; text-decoration: none;">Évolution de la liste des médicaments en accès direct à l'officine</a>
+          </h4>
+          <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
+            Une mise à jour de la liste des médicaments de médication officinale modifie la disponibilité de certains produits en accès direct, notamment la spécialité Lysopaïne maux de gorge ambroxol menthe 20 mg sans sucre. L'équipe doit s'assurer de la conformité du rayonnage et de ses conseils face à ces ajustements réglementaires.
+          </p>
+          <a href="http://www.meddispar.fr//Actualites/2026/Modification-de-la-liste-des-medicaments-de-medication-officinale-mentionnee-a-l-article-R.-5121-202-du-CSP2" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
+            En savoir plus sur Meddispar &rarr;
+          </a>
+        </div>
+      
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #059669; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 1px;">
+              💊 Source : Meddispar
+            </span>
+          </div>
+          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
+            <a href="http://www.meddispar.fr//Actualites/2026/Un-cadre-de-prescription-compassionnelle-CPC-pour-les-specialites-Methadone-AP-HP" target="_blank" style="color: inherit; text-decoration: none;">Méthadone AP-HP : Instauration d'un Cadre de Prescription Compassionnelle (CPC)</a>
+          </h4>
+          <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
+            La mise en place d'un CPC pour les spécialités Méthadone AP-HP, dans l'indication « Traitement de fond de douleurs d’origine cancéreuse d’intensité modérée à sévère chez les... », encadre sa délivrance pour une indication spécifique. L'équipe officinale doit maîtriser ce nouveau dispositif pour une dispensation sécurisée et conforme aux directives.
+          </p>
+          <a href="http://www.meddispar.fr//Actualites/2026/Un-cadre-de-prescription-compassionnelle-CPC-pour-les-specialites-Methadone-AP-HP" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
+            En savoir plus sur Meddispar &rarr;
           </a>
         </div>
       
@@ -311,74 +357,76 @@
   
     <a name="theme-2"></a>
     <div id="theme-2" style="margin-bottom: 38px; padding-top: 10px;">
-      <div class="theme-header" style="border-bottom: 2px solid #111827; padding-bottom: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;">
+      <div class="theme-header" style="border-bottom: 2px solid #0284c7; padding-bottom: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;">
         <h3 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin: 0; color: inherit;">
-          📈 Finance & Placements
+          💉 Vaccins & Prévention
         </h3>
-        
+        <span style="font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 10px; font-weight: 700; color: #6b7280;">
+          3 article(s)
+        </span>
       </div>
 
       
-        <div class="analysis-box" style="background: #fdfbf7; border-left: 3px solid #111827; padding: 14px 18px; margin-bottom: 20px; font-family: Georgia, serif; border-radius: 2px;">
+        <div class="analysis-box" style="background: #fdfbf7; border-left: 3px solid #0284c7; padding: 14px 18px; margin-bottom: 20px; font-family: Georgia, serif; border-radius: 2px;">
           <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #555555; margin-bottom: 8px;">
             L'analyse de la rédaction
           </div>
           <ul style="margin: 0; padding-left: 18px;">
-            <li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Volatilité de l'IA** : L'attention portée aux marchés de l'IA à Wall Street, couplée aux appels à la prudence des figures emblématiques du secteur, révèle une tension entre le potentiel économique exponentiel et les interrogations sur le contrôle et l'éthique de cette technologie émergente.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Réformes des retraites** : Les déclarations du ministre du Travail illustrent la complexité et la sensibilité politique des ajustements des pensions, où la nécessité d'un "effort" se heurte à des principes comme la désindexation, créant un terrain glissant pour la cohésion sociale et la crédibilité des politiques publiques.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Analyse éditoriale surprenante** : L'inclusion d'un événement sportif dans cette section, bien que surprenante, peut souligner l'omniprésence du sport dans l'actualité générale, parfois au-delà des catégories thématiques strictes, ou une erreur de classification de la source d'origine que nous nous devons de relater fidèlement.</li>
+            <li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Point clé** : Les tensions d'approvisionnement en vaccins imposent une gestion rigoureuse des stocks et une communication transparente avec les patients pour la continuité des parcours vaccinaux.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Point clé** : L'approbation de nouveaux vaccins, notamment pour les populations vulnérables comme les nourrissons via la vaccination maternelle, élargit significativement le rôle du pharmacien dans la prévention.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Point clé** : La persistance de maladies comme la poliomyélite à l'échelle mondiale rappelle l'importance du rôle de l'officine dans l'information sanitaire internationale et le conseil aux voyageurs.</li>
           </ul>
         </div>
       
 
       <div>
         
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #047857; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #0284c7; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
-              📈 Source : Yahoo Finance FR
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #0284c7; text-transform: uppercase; letter-spacing: 1px;">
+              💉 Source : MesVaccins.net
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
-            <a href="https://fr.news.yahoo.com/sport/ligue-1-au-bout-ladieu-210836456.html" target="_blank" style="color: inherit; text-decoration: none;">Le PSG s'impose face à Brest et décroche sa première victoire de la saison</a>
+            <a href="https://www.mesvaccins.net/web/news/24407-le-pakistan-signale-un-quatrieme-cas-de-poliomyelite-a-poliovirus-sauvage-de-type-1-cette-annee" target="_blank" style="color: inherit; text-decoration: none;">Rappel mondial : des cas de poliomyélite persistent, vigilance requise</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            Le Paris Saint-Germain a enregistré son premier succès en Ligue 1 en battant Brest, marquant ainsi une étape importante après le départ d'Éric Roy. Cette victoire permet au club de lancer sa saison sur une note positive.
+            La déclaration de nouveaux cas de poliomyélite au Pakistan souligne l'importance de la vaccination universelle et de la vigilance sanitaire internationale. Les pharmaciens doivent renforcer les conseils aux voyageurs et sensibiliser à la persistance de cette maladie éradicable.
           </p>
-          <a href="https://fr.news.yahoo.com/sport/ligue-1-au-bout-ladieu-210836456.html" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0284c7; text-decoration: underline;">
-            En savoir plus sur Yahoo Finance FR &rarr;
+          <a href="https://www.mesvaccins.net/web/news/24407-le-pakistan-signale-un-quatrieme-cas-de-poliomyelite-a-poliovirus-sauvage-de-type-1-cette-annee" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
+            En savoir plus sur MesVaccins.net &rarr;
           </a>
         </div>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #047857; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #0284c7; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
-              📈 Source : Yahoo Finance FR
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #0284c7; text-transform: uppercase; letter-spacing: 1px;">
+              💉 Source : MesVaccins.net
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
-            <a href="https://fr.finance.yahoo.com/actualites/commerce-l-ia-%C3%A0-wall-205604627.html" target="_blank" style="color: inherit; text-decoration: none;">L'effervescence de l'IA à Wall Street tempérée par des appels à la prudence des leaders technologiques</a>
+            <a href="https://www.mesvaccins.net/web/news/24404-tension-d-approvisionnement-sur-le-vaccin-m-m-rvaxpro" target="_blank" style="color: inherit; text-decoration: none;">Vaccin ROR (M-M-Rvaxpro) : tension d'approvisionnement anticipée</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            Le marché boursier observe avec attention l'essor des entreprises d'intelligence artificielle, malgré les préoccupations croissantes concernant son développement rapide. Des figures influentes comme Sam Altman et Elon Musk ont exhorté à ralentir l'évolution de l'IA, soulevant des questions éthiques et de régulation.
+            La tension d'approvisionnement sur le vaccin M-M-Rvaxpro nécessite une gestion proactive des stocks et des commandes à l'officine. Il est crucial d'informer les patients et de coordonner les rendez-vous de vaccination pour minimiser l'impact sur le calendrier vaccinal.
           </p>
-          <a href="https://fr.finance.yahoo.com/actualites/commerce-l-ia-%C3%A0-wall-205604627.html" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0284c7; text-decoration: underline;">
-            En savoir plus sur Yahoo Finance FR &rarr;
+          <a href="https://www.mesvaccins.net/web/news/24404-tension-d-approvisionnement-sur-le-vaccin-m-m-rvaxpro" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
+            En savoir plus sur MesVaccins.net &rarr;
           </a>
         </div>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #047857; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #0284c7; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
-              📈 Source : BFM Bourse
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #0284c7; text-transform: uppercase; letter-spacing: 1px;">
+              💉 Source : MesVaccins.net
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
-            <a href="https://www.bfmtv.com/economie/patrimoine/retraite/la-desindexation-je-n-aime-pas-lache-le-ministre-du-travail-jean-pierre-farandou-qui-ne-trouve-pourtant-pas-illogique-de-faire-appel-a-un-effort-des-retraites_AD-202609130208.html" target="_blank" style="color: inherit; text-decoration: none;">Le ministre du Travail évalue l'effort des retraités pour le budget 2027, tout en exprimant des réserves sur la désindexation</a>
+            <a href="https://www.mesvaccins.net/web/news/24403-l-oms-approuve-un-vaccin-multidoses-contre-le-vrs-destine-aux-femmes-enceintes-pour-proteger-davantage-de-nourrissons" target="_blank" style="color: inherit; text-decoration: none;">Innovation en prévention : l'OMS approuve un vaccin VRS pour les femmes enceintes</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            Jean-Pierre Farandou, ministre du Travail, a jugé qu'il n'était « pas illogique de faire appel à un effort des retraités » en vue du budget 2027. Bien qu'il ait déclaré par ailleurs son désaccord avec « la désindexation », il a ouvert le débat sur de nouvelles pistes pour contribuer à l'équilibre des finances publiques.
+            L'approbation par l'OMS d'un vaccin VRS multidoses pour les femmes enceintes représente une avancée majeure pour la protection des nourrissons. L'officine devra se préparer à intégrer ce nouveau vaccin dans les schémas de vaccination et à conseiller activement les futures mères.
           </p>
-          <a href="https://www.bfmtv.com/economie/patrimoine/retraite/la-desindexation-je-n-aime-pas-lache-le-ministre-du-travail-jean-pierre-farandou-qui-ne-trouve-pourtant-pas-illogique-de-faire-appel-a-un-effort-des-retraites_AD-202609130208.html" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0284c7; text-decoration: underline;">
-            En savoir plus sur BFM Bourse &rarr;
+          <a href="https://www.mesvaccins.net/web/news/24403-l-oms-approuve-un-vaccin-multidoses-contre-le-vrs-destine-aux-femmes-enceintes-pour-proteger-davantage-de-nourrissons" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
+            En savoir plus sur MesVaccins.net &rarr;
           </a>
         </div>
       
@@ -393,74 +441,76 @@
   
     <a name="theme-3"></a>
     <div id="theme-3" style="margin-bottom: 38px; padding-top: 10px;">
-      <div class="theme-header" style="border-bottom: 2px solid #111827; padding-bottom: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;">
+      <div class="theme-header" style="border-bottom: 2px solid #b45309; padding-bottom: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;">
         <h3 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin: 0; color: inherit;">
-          🤖 IA & Vibe Coding
+          ⚖️ Réglementation & Ordre
         </h3>
-        
+        <span style="font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 10px; font-weight: 700; color: #6b7280;">
+          3 article(s)
+        </span>
       </div>
 
       
-        <div class="analysis-box" style="background: #fdfbf7; border-left: 3px solid #111827; padding: 14px 18px; margin-bottom: 20px; font-family: Georgia, serif; border-radius: 2px;">
+        <div class="analysis-box" style="background: #fdfbf7; border-left: 3px solid #b45309; padding: 14px 18px; margin-bottom: 20px; font-family: Georgia, serif; border-radius: 2px;">
           <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #555555; margin-bottom: 8px;">
             L'analyse de la rédaction
           </div>
           <ul style="margin: 0; padding-left: 18px;">
-            <li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Pression sur les infrastructures IA** : La suspension rapide de l'abonnement Astra d'OpenAI met en évidence l'engouement massif pour les services d'IA avancés, mais aussi la difficulté pour les fournisseurs de gérer une croissance exponentielle et de dimensionner leurs infrastructures en conséquence.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Démocratisation de l'IA** : Le lancement de l'application Gemini native sur Windows par Google marque une étape importante dans l'intégration des assistants IA dans les systèmes d'exploitation quotidiens, rendant ces technologies plus accessibles et omniprésentes pour un public plus large.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Mutation du travail freelance** : L'impact des agents IA sur le marché du freelance digital révèle une segmentation croissante des missions, où l'automatisation des tâches répétitives force les professionnels à se spécialiser davantage vers des projets à plus forte valeur ajoutée, transformant ainsi le paysage des compétences requises.</li>
+            <li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Point clé** : L'élargissement du champ de compétences du pharmacien, comme en nutrition, exige des formations continues et une intégration proactive de ces services au quotidien de l'officine.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Point clé** : La sécurité des patients sous traitements complexes, tels que les chimiothérapies, renforce la nécessité d'une expertise officinale pointue et d'une coordination interprofessionnelle.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Point clé** : L'observation des pratiques internationales et la participation à des événements majeurs permettent aux pharmaciens d'anticiper les évolutions potentielles de leur rôle.</li>
           </ul>
         </div>
       
 
       <div>
         
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #6d28d9; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #b45309; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #6d28d9; text-transform: uppercase; letter-spacing: 1px;">
-              🤖 Source : Siècle Digital
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #b45309; text-transform: uppercase; letter-spacing: 1px;">
+              ⚖️ Source : Ordre des Pharmaciens
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
-            <a href="https://siecledigital.fr/2026/09/11/openai-victime-du-succes-dastra-labonnement-chatgpt-a-200-dollars-suspendu/" target="_blank" style="color: inherit; text-decoration: none;">OpenAI suspend l'abonnement Astra de ChatGPT face à une demande exceptionnelle</a>
+            <a href="https://www.ordre.pharmacien.fr/les-communications/focus-sur/les-actualites/fip-2026-les-enseignements-du-modele-quebecois" target="_blank" style="color: inherit; text-decoration: none;">Modèle québécois et FIP 2026 : inspirations pour l'évolution de la pratique officinale</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            L'offre d'abonnement haut de gamme d'OpenAI, Astra, à 200 dollars, a été temporairement suspendue une semaine seulement après son lancement. Cette décision fait suite à un afflux massif de demandes d'utilisateurs, surpassant les capacités initiales de l'entreprise.
+            L'étude du modèle québécois en pharmacie offre des perspectives enrichissantes pour l'évolution de la profession en France, notamment en vue de FIP 2026. Cela incite l'équipe officinale à réfléchir sur de nouvelles pistes de développement et d'optimisation des services.
           </p>
-          <a href="https://siecledigital.fr/2026/09/11/openai-victime-du-succes-dastra-labonnement-chatgpt-a-200-dollars-suspendu/" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0284c7; text-decoration: underline;">
-            En savoir plus sur Siècle Digital &rarr;
+          <a href="https://www.ordre.pharmacien.fr/les-communications/focus-sur/les-actualites/fip-2026-les-enseignements-du-modele-quebecois" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
+            En savoir plus sur Ordre des Pharmaciens &rarr;
           </a>
         </div>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #6d28d9; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #b45309; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #6d28d9; text-transform: uppercase; letter-spacing: 1px;">
-              🤖 Source : Siècle Digital
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #b45309; text-transform: uppercase; letter-spacing: 1px;">
+              ⚖️ Source : Ordre des Pharmaciens
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
-            <a href="https://siecledigital.fr/2026/09/11/google-lance-une-application-gemini-native-sur-windows/" target="_blank" style="color: inherit; text-decoration: none;">Google déploie une application native Gemini pour les utilisateurs de Windows</a>
+            <a href="https://www.ordre.pharmacien.fr/les-communications/focus-sur/les-actualites/nutrition-quel-role-pour-le-pharmacien-d-officine" target="_blank" style="color: inherit; text-decoration: none;">Le pharmacien d'officine, un acteur clé du conseil en nutrition</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            Six mois après son déploiement sur Mac, Google rend son assistant intelligent Gemini directement accessible via une application native sur Windows. Cette intégration permet aux utilisateurs d'interagir avec Gemini grâce à un simple raccourci clavier.
+            La reconnaissance du rôle du pharmacien en nutrition ouvre des opportunités pour renforcer le conseil patient et diversifier les services de l'officine. L'équipe doit développer ses compétences en la matière pour apporter une expertise globale et intégrée aux patients.
           </p>
-          <a href="https://siecledigital.fr/2026/09/11/google-lance-une-application-gemini-native-sur-windows/" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0284c7; text-decoration: underline;">
-            En savoir plus sur Siècle Digital &rarr;
+          <a href="https://www.ordre.pharmacien.fr/les-communications/focus-sur/les-actualites/nutrition-quel-role-pour-le-pharmacien-d-officine" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
+            En savoir plus sur Ordre des Pharmaciens &rarr;
           </a>
         </div>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #6d28d9; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #b45309; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #6d28d9; text-transform: uppercase; letter-spacing: 1px;">
-              🤖 Source : Leptidigital
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #b45309; text-transform: uppercase; letter-spacing: 1px;">
+              ⚖️ Source : Ordre des Pharmaciens
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
-            <a href="https://www.leptidigital.fr/gestion-entreprise/redacteurs-devs-seo-impacts-tjm-freelances-agents-ia-91549/?utm_source=rss&utm_medium=rss&utm_campaign=redacteurs-devs-seo-impacts-tjm-freelances-agents-ia" target="_blank" style="color: inherit; text-decoration: none;">L'intelligence artificielle redéfinit le marché du freelance digital et les taux journaliers moyens</a>
+            <a href="https://www.ordre.pharmacien.fr/les-communications/focus-sur/les-actualites/chimiotherapies-a-base-de-fluoropyrimidines-capecitabine-et-5-fu-surveiller-les-effets-indesirables-et-adapter-les-doses" target="_blank" style="color: inherit; text-decoration: none;">Chimiothérapies par fluoropyrimidines : vigilance renforcée sur les effets indésirables</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            L'avènement des agents IA transforme en profondeur le secteur du freelance numérique, sans pour autant le faire s'effondrer. Le marché se polarise, les tâches standardisées et de courte durée étant de plus en plus attribuées à l'IA, tandis que les projets complexes et valorisants nécessitent toujours l'expertise humaine, souvent à des tarifs plus élevés.
+            La surveillance accrue des effets indésirables des chimiothérapies à base de fluoropyrimidines est cruciale pour la sécurité des patients. L'officine doit collaborer étroitement avec les prescripteurs pour optimiser la prise en charge et l'adaptation posologique.
           </p>
-          <a href="https://www.leptidigital.fr/gestion-entreprise/redacteurs-devs-seo-impacts-tjm-freelances-agents-ia-91549/?utm_source=rss&utm_medium=rss&utm_campaign=redacteurs-devs-seo-impacts-tjm-freelances-agents-ia" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0284c7; text-decoration: underline;">
-            En savoir plus sur Leptidigital &rarr;
+          <a href="https://www.ordre.pharmacien.fr/les-communications/focus-sur/les-actualites/chimiotherapies-a-base-de-fluoropyrimidines-capecitabine-et-5-fu-surveiller-les-effets-indesirables-et-adapter-les-doses" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
+            En savoir plus sur Ordre des Pharmaciens &rarr;
           </a>
         </div>
       
@@ -475,74 +525,127 @@
   
     <a name="theme-4"></a>
     <div id="theme-4" style="margin-bottom: 38px; padding-top: 10px;">
-      <div class="theme-header" style="border-bottom: 2px solid #111827; padding-bottom: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;">
+      <div class="theme-header" style="border-bottom: 2px solid #6366f1; padding-bottom: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;">
         <h3 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin: 0; color: inherit;">
-          💻 Numérique & Tech
+          📑 Conventions & Facturation
         </h3>
-        
+        <span style="font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 10px; font-weight: 700; color: #6b7280;">
+          6 article(s)
+        </span>
       </div>
 
       
-        <div class="analysis-box" style="background: #fdfbf7; border-left: 3px solid #111827; padding: 14px 18px; margin-bottom: 20px; font-family: Georgia, serif; border-radius: 2px;">
+        <div class="analysis-box" style="background: #fdfbf7; border-left: 3px solid #6366f1; padding: 14px 18px; margin-bottom: 20px; font-family: Georgia, serif; border-radius: 2px;">
           <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #555555; margin-bottom: 8px;">
             L'analyse de la rédaction
           </div>
           <ul style="margin: 0; padding-left: 18px;">
-            <li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Consommation technologique** : Les articles sur les promotions de smartphones et d'enceintes Hi-Fi illustrent la dynamique constante du marché des biens de consommation électroniques, caractérisée par une obsolescence rapide et des cycles de renouvellement fréquents stimulés par des offres attractives.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Innovation versus usabilité** : Le test de la tablette e-ink Paperslate Pro souligne un défi récurrent dans l'innovation technologique : la capacité à transformer une idée prometteuse en un produit réellement performant et agréable à utiliser, surtout face à des attentes élevées en termes de fluidité.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Marché concurrentiel** : Que ce soit pour les smartphones ou les enceintes, la "concurrence agressive" ou le "marché très concurrentiel" sont des constantes qui poussent les fabricants à innover et à proposer des produits équilibrés, tout en rendant le choix du consommateur plus complexe.</li>
+            <li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Point clé** : Les ajustements des financements pour l'apprentissage et les outils d'aide à la rémunération sont cruciaux pour la pérennité de l'emploi et de la formation en officine.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Point clé** : Les arrêts de commercialisation de médicaments essentiels, comme ceux pour le diabète, exigent une anticipation maximale et une coordination tripartite pour la continuité des soins.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Point clé** : L'implication des syndicats dans la gestion des alertes sanitaires et la clarification des procédures administratives démontre leur rôle de soutien indispensable aux officines.</li>
           </ul>
         </div>
       
 
       <div>
         
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #0284c7; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #6366f1; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #0284c7; text-transform: uppercase; letter-spacing: 1px;">
-              💻 Source : Les Numériques
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #6366f1; text-transform: uppercase; letter-spacing: 1px;">
+              📑 Source : USPO
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
-            <a href="https://www.lesnumeriques.com/telephone-portable/bon-plan-le-smartphone-samsung-galaxy-a57-5g-128-go-a-339-00-21-n261795.html" target="_blank" style="color: inherit; text-decoration: none;">Le smartphone Samsung Galaxy A57 5G, un équilibre entre confort et autonomie, bénéficie d'une promotion</a>
+            <a href="https://uspo.fr/contrats-dapprentissage-actualisation-des-niveaux-de-prise-en-charge/" target="_blank" style="color: inherit; text-decoration: none;">Contrats d'apprentissage : ajustement des niveaux de prise en charge financière</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            Le Samsung Galaxy A57 5G, reconnu pour son confort d'utilisation et son autonomie, est actuellement proposé à un prix réduit de 339,00 €. Ce terminal milieu de gamme offre un compromis intéressant, bien qu'il fasse face à une concurrence active sur le marché.
+            L'actualisation des niveaux de prise en charge (NPEC) pour les contrats d'apprentissage a un impact direct sur la gestion financière de l'officine. Les employeurs doivent revoir leurs budgets prévisionnels et s'informer des aides disponibles pour l'accueil de leurs futurs préparateurs.
           </p>
-          <a href="https://www.lesnumeriques.com/telephone-portable/bon-plan-le-smartphone-samsung-galaxy-a57-5g-128-go-a-339-00-21-n261795.html" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0284c7; text-decoration: underline;">
-            En savoir plus sur Les Numériques &rarr;
+          <a href="https://uspo.fr/contrats-dapprentissage-actualisation-des-niveaux-de-prise-en-charge/" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
+            En savoir plus sur USPO &rarr;
           </a>
         </div>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #0284c7; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #6366f1; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #0284c7; text-transform: uppercase; letter-spacing: 1px;">
-              💻 Source : Les Numériques
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #6366f1; text-transform: uppercase; letter-spacing: 1px;">
+              📑 Source : USPO
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
-            <a href="https://www.lesnumeriques.com/enceintes-hi-fi/bon-plan-l-enceinte-hi-fi-passive-focal-aria-evo-x-n01-5-etoiles-a-1-190-00-17-n261794.html" target="_blank" style="color: inherit; text-decoration: none;">Les enceintes Hi-Fi Focal Aria Evo X N°1, saluées par la critique, affichent une réduction de prix</a>
+            <a href="https://uspo.fr/sante-sexuelle-feuille-de-route/" target="_blank" style="color: inherit; text-decoration: none;">Santé sexuelle : la feuille de route ministérielle 2026-2030 et le rôle de l'officine</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            Les nouvelles enceintes bibliothèques Focal Aria Evo X N°1, héritières des Aria 906 et saluées pour leur qualité sonore, sont désormais disponibles avec une remise significative de 17%. Ces modèles illustrent le savoir-faire acoustique de la marque dans sa gamme intermédiaire.
+            La publication de la feuille de route sur la santé sexuelle offre une opportunité pour les officines de structurer et d'élargir leurs actions de prévention et de conseil. L'équipe peut ainsi s'intégrer davantage aux objectifs nationaux de santé publique.
           </p>
-          <a href="https://www.lesnumeriques.com/enceintes-hi-fi/bon-plan-l-enceinte-hi-fi-passive-focal-aria-evo-x-n01-5-etoiles-a-1-190-00-17-n261794.html" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0284c7; text-decoration: underline;">
-            En savoir plus sur Les Numériques &rarr;
+          <a href="https://uspo.fr/sante-sexuelle-feuille-de-route/" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
+            En savoir plus sur USPO &rarr;
           </a>
         </div>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #0284c7; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #6366f1; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #0284c7; text-transform: uppercase; letter-spacing: 1px;">
-              💻 Source : Frandroid
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #6366f1; text-transform: uppercase; letter-spacing: 1px;">
+              📑 Source : USPO
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
-            <a href="https://www.frandroid.com/test/3170433_test-de-la-paperslate-pro-une-tablette-e-ink-prometteuse-mais-freinee-par-ses-propres-lenteurs" target="_blank" style="color: inherit; text-decoration: none;">La tablette e-ink Paperslate Pro offre une alternative au papier mais souffre de lenteurs</a>
+            <a href="https://uspo.fr/traitements-du-diabete-novonordisk-plusieurs-arrets-de-commercialisation/" target="_blank" style="color: inherit; text-decoration: none;">Diabète : arrêts de commercialisation de plusieurs traitements Novo Nordisk</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            La Paperslate Pro se positionne comme un bloc-notes numérique à encre électronique visant à remplacer le carnet traditionnel en éliminant les distractions des tablettes classiques. Malgré un concept prometteur sur un marché compétitif, les tests révèlent que ses performances sont entravées par des lenteurs d'exécution.
+            Les arrêts de commercialisation de plusieurs traitements antidiabétiques de Novo Nordisk nécessitent une gestion proactive de l'officine pour éviter les ruptures de traitement. Il est impératif d'anticiper les alternatives et d'informer sans délai les patients et les médecins.
           </p>
-          <a href="https://www.frandroid.com/test/3170433_test-de-la-paperslate-pro-une-tablette-e-ink-prometteuse-mais-freinee-par-ses-propres-lenteurs" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0284c7; text-decoration: underline;">
-            En savoir plus sur Frandroid &rarr;
+          <a href="https://uspo.fr/traitements-du-diabete-novonordisk-plusieurs-arrets-de-commercialisation/" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
+            En savoir plus sur USPO &rarr;
+          </a>
+        </div>
+      
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #6366f1; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #6366f1; text-transform: uppercase; letter-spacing: 1px;">
+              📑 Source : FSPF
+            </span>
+          </div>
+          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
+            <a href="https://www.fspf.fr/alerte-de-lansm-sur-les-contraceptifs-a-base-de-desogestrel-consultez-notre-fiche-pratique/" target="_blank" style="color: inherit; text-decoration: none;">Alerte ANSM : re-évaluation du risque des contraceptifs au désogestrel et fiche pratique FSPF</a>
+          </h4>
+          <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
+            Suite à l'alerte de l'ANSM concernant les contraceptifs au désogestrel, la FSPF propose une fiche pratique pour accompagner les pharmaciens. Les officines doivent se référer à cette guidance pour un conseil éclairé et sécurisé des patientes.
+          </p>
+          <a href="https://www.fspf.fr/alerte-de-lansm-sur-les-contraceptifs-a-base-de-desogestrel-consultez-notre-fiche-pratique/" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
+            En savoir plus sur FSPF &rarr;
+          </a>
+        </div>
+      
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #6366f1; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #6366f1; text-transform: uppercase; letter-spacing: 1px;">
+              📑 Source : FSPF
+            </span>
+          </div>
+          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
+            <a href="https://www.fspf.fr/carte-vitale-pour-les-mineurs-les-modalites-de-delivrance-enfin-publiees/" target="_blank" style="color: inherit; text-decoration: none;">Carte Vitale pour les mineurs dès 12 ans : nouvelles modalités de délivrance</a>
+          </h4>
+          <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
+            Les modalités de délivrance de la Carte Vitale pour les mineurs de plus de 12 ans sont désormais fixées, simplifiant leur identification et la facturation. L'équipe officinale doit être informée de ces nouvelles procédures pour fluidifier la prise en charge administrative.
+          </p>
+          <a href="https://www.fspf.fr/carte-vitale-pour-les-mineurs-les-modalites-de-delivrance-enfin-publiees/" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
+            En savoir plus sur FSPF &rarr;
+          </a>
+        </div>
+      
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #6366f1; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #6366f1; text-transform: uppercase; letter-spacing: 1px;">
+              📑 Source : FSPF
+            </span>
+          </div>
+          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
+            <a href="https://www.fspf.fr/comment-calculer-la-remuneration-de-vos-apprentis-decouvrez-le-nouvel-outil-propose-par-la-fspf/" target="_blank" style="color: inherit; text-decoration: none;">Nouvel outil FSPF pour le calcul de la rémunération des apprentis en pharmacie</a>
+          </h4>
+          <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
+            La FSPF met à disposition un outil pratique pour aider les pharmaciens à calculer précisément la rémunération de leurs apprentis préparateurs. Cet outil simplifie la gestion RH et garantit la conformité aux réglementations en vigueur.
+          </p>
+          <a href="https://www.fspf.fr/comment-calculer-la-remuneration-de-vos-apprentis-decouvrez-le-nouvel-outil-propose-par-la-fspf/" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
+            En savoir plus sur FSPF &rarr;
           </a>
         </div>
       
@@ -557,238 +660,124 @@
   
     <a name="theme-5"></a>
     <div id="theme-5" style="margin-bottom: 38px; padding-top: 10px;">
-      <div class="theme-header" style="border-bottom: 2px solid #111827; padding-bottom: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;">
+      <div class="theme-header" style="border-bottom: 2px solid #10b981; padding-bottom: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;">
         <h3 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin: 0; color: inherit;">
-          🎬 Culture, Livres & Cinéma
+          🏥 Vie de l'Officine & Pratique
         </h3>
-        
+        <span style="font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 10px; font-weight: 700; color: #6b7280;">
+          6 article(s)
+        </span>
       </div>
 
       
-        <div class="analysis-box" style="background: #fdfbf7; border-left: 3px solid #111827; padding: 14px 18px; margin-bottom: 20px; font-family: Georgia, serif; border-radius: 2px;">
+        <div class="analysis-box" style="background: #fdfbf7; border-left: 3px solid #10b981; padding: 14px 18px; margin-bottom: 20px; font-family: Georgia, serif; border-radius: 2px;">
           <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #555555; margin-bottom: 8px;">
             L'analyse de la rédaction
           </div>
           <ul style="margin: 0; padding-left: 18px;">
-            <li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Reconnaissance cinématographique** : Les multiples récompenses décernées à "Club Kid" et "Méli-Mélo" au Festival de Deauville mettent en lumière la richesse et la diversité de la production cinématographique, souvent révélée et valorisée par ces événements majeurs qui façonnent la reconnaissance artistique.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Impact des œuvres marquantes** : Le témoignage de Milo Machado-Graner illustre la force transformatrice du cinéma sur la vie et la carrière des acteurs, particulièrement lorsque des films comme "Anatomie d'une chute" atteignent une résonance critique et publique internationale, servant de catalyseur pour de jeunes talents.</li>
+            <li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Point clé** : Un management positif et la reconnaissance de l'équipe sont des leviers majeurs pour la motivation, la rétention du personnel et l'efficience globale de l'officine.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Point clé** : L'élargissement des missions de prévention, comme la vaccination HPV, et la participation aux consultations publiques renforcent le rôle du pharmacien comme acteur de santé publique.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Point clé** : La maîtrise des spécificités de produits et la veille sur les innovations thérapeutiques sont essentielles pour un conseil patient toujours plus précis et adapté.</li>
           </ul>
         </div>
       
 
       <div>
         
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #b45309; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #10b981; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #b45309; text-transform: uppercase; letter-spacing: 1px;">
-              🎬 Source : Télérama Cinéma
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #10b981; text-transform: uppercase; letter-spacing: 1px;">
+              🏥 Source : Le Moniteur des Pharmacies
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
-            <a href="https://www.telerama.fr/cinema/festival-de-deauville-les-remarques-club-kid-et-meli-melo-doublement-recompenses-7032874.php" target="_blank" style="color: inherit; text-decoration: none;">"Club Kid" et "Méli-Mélo" brillent au palmarès du Festival du cinéma américain de Deauville</a>
+            <a href="https://www.lemoniteurdespharmacies.fr/business/rh-et-management/carriere/management-la-reconnaissance-un-investissement-rentable" target="_blank" style="color: inherit; text-decoration: none;">Reconnaissance au travail : un levier essentiel pour la performance et le bien-être en officine</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            Le film "Club Kid" de Jordan Firstman a été doublement récompensé au 52e Festival du cinéma américain de Deauville, remportant le Grand Prix et le Prix du public. De son côté, "Méli-Mélo" a également été distingué, s'adjugeant le Prix du jury et le Prix de la critique.
-          </p>
-          <a href="https://www.telerama.fr/cinema/festival-de-deauville-les-remarques-club-kid-et-meli-melo-doublement-recompenses-7032874.php" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0284c7; text-decoration: underline;">
-            En savoir plus sur Télérama Cinéma &rarr;
-          </a>
-        </div>
-      
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #b45309; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #b45309; text-transform: uppercase; letter-spacing: 1px;">
-              🎬 Source : Télérama Cinéma
-            </span>
-          </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
-            <a href="https://www.telerama.fr/cinema/jouer-dans-anatomie-d-une-chute-m-a-permis-de-comprendre-que-c-etait-un-vrai-travail-7032873.php" target="_blank" style="color: inherit; text-decoration: none;">Milo Machado-Graner témoigne de l'impact transformateur d'"Anatomie d'une chute" sur sa carrière d'acteur</a>
-          </h4>
-          <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            Milo Machado-Graner, actuellement à l'affiche d'"Adieu monde cruel", s'est confié sur la manière dont son rôle dans le film "Anatomie d'une chute" a profondément influencé sa perception du métier d'acteur. L'étudiant de 18 ans a exprimé que cette expérience décisive lui a fait réaliser l'exigence du travail d'acteur.
-          </p>
-          <a href="https://www.telerama.fr/cinema/jouer-dans-anatomie-d-une-chute-m-a-permis-de-comprendre-que-c-etait-un-vrai-travail-7032873.php" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0284c7; text-decoration: underline;">
-            En savoir plus sur Télérama Cinéma &rarr;
-          </a>
-        </div>
-      
-      </div>
-
-      <div style="text-align: right; margin-top: 8px;">
-        <a href="#top" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280; text-decoration: none;">
-          &uarr; Retour au sommaire
-        </a>
-      </div>
-    </div>
-  
-    <a name="theme-6"></a>
-    <div id="theme-6" style="margin-bottom: 38px; padding-top: 10px;">
-      <div class="theme-header" style="border-bottom: 2px solid #059669; padding-bottom: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;">
-        <h3 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin: 0; color: inherit;">
-          💊 Pharmacie & Officine
-        </h3>
-        <span style="font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 10px; font-weight: 800; background: #059669; color: #ffffff; padding: 2px 8px; border-radius: 10px; text-transform: uppercase;">Priorité Officine</span>
-      </div>
-
-      
-        <div class="analysis-box" style="background: #fdfbf7; border-left: 3px solid #059669; padding: 14px 18px; margin-bottom: 20px; font-family: Georgia, serif; border-radius: 2px;">
-          <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #555555; margin-bottom: 8px;">
-            L'analyse de la rédaction
-          </div>
-          <ul style="margin: 0; padding-left: 18px;">
-            <li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Management moderne en officine** : L'article sur la reconnaissance en management révèle une prise de conscience dans le secteur officinal de l'importance des facteurs humains et de la motivation des équipes au-delà de la seule rémunération, pour une meilleure efficacité et rétention des talents.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Information médicamenteuse** : Les sujets sur le minoxidil et NovaBiotic soulignent le rôle crucial des pharmaciens dans l'information et le conseil aux patients, qu'il s'agisse de la sécurité d'un traitement courant ou de solutions nutritionnelles spécifiques pour les enfants.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Enjeux de santé publique** : Les articles abordant la vaccination HPV, la consultation sur santé/climat, l'Ebola en RDC ou les franchises médicales, ainsi que le microbiote et Parkinson, démontrent la multiplicité des défis de santé publique et la nécessité d'une veille constante et d'actions coordonnées du secteur pharmaceutique.</li>
-          </ul>
-        </div>
-      
-
-      <div>
-        
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #059669; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 1px;">
-              💊 Source : Le Moniteur des Pharmacies
-            </span>
-          </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
-            <a href="https://www.lemoniteurdespharmacies.fr/business/rh-et-management/carriere/management-la-reconnaissance-un-investissement-rentable" target="_blank" style="color: inherit; text-decoration: none;">La reconnaissance au travail s'impose comme un levier stratégique pour un management efficace</a>
-          </h4>
-          <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            Une étude met en lumière l'importance de la reconnaissance des employés, la qualifiant d'investissement rentable pour les managers. Elle combat l'idée selon laquelle les félicitations sont superflues pour un travail rémunéré, démontrant l'impact positif de l'appréciation sur la motivation et la performance.
+            La reconnaissance des efforts de l'équipe est un investissement managérial profitable, stimulant la motivation et la productivité. Un management attentif contribue à un environnement de travail positif et à une meilleure fidélisation du personnel.
           </p>
           <a href="https://www.lemoniteurdespharmacies.fr/business/rh-et-management/carriere/management-la-reconnaissance-un-investissement-rentable" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
             En savoir plus sur Le Moniteur des Pharmacies &rarr;
           </a>
         </div>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #059669; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #10b981; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 1px;">
-              💊 Source : Le Moniteur des Pharmacies
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #10b981; text-transform: uppercase; letter-spacing: 1px;">
+              🏥 Source : Le Moniteur des Pharmacies
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
-            <a href="https://www.lemoniteurdespharmacies.fr/conseils/fiches-pratiques/quelles-sont-les-contre-indications-et-les-interactions-medicamenteuses-du-minoxidil-par-voie-topique" target="_blank" style="color: inherit; text-decoration: none;">Le minoxidil topique : comprendre ses contre-indications et interactions pour un usage sécurisé</a>
+            <a href="https://www.lemoniteurdespharmacies.fr/conseils/fiches-pratiques/quelles-sont-les-contre-indications-et-les-interactions-medicamenteuses-du-minoxidil-par-voie-topique" target="_blank" style="color: inherit; text-decoration: none;">Minoxidil topique : maîtriser les contre-indications et interactions pour un conseil éclairé</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            Face à l'alopécie androgénétique, le minoxidil par voie topique est une solution courante, agissant sur la croissance capillaire. Un examen détaillé de ses contre-indications et de ses interactions médicamenteuses est essentiel pour garantir une utilisation sûre et efficace.
+            Une connaissance approfondie des contre-indications et interactions du minoxidil topique est indispensable pour un conseil pharmaceutique sécurisé. L'équipe doit être formée pour identifier les risques potentiels et optimiser l'usage chez les patients.
           </p>
           <a href="https://www.lemoniteurdespharmacies.fr/conseils/fiches-pratiques/quelles-sont-les-contre-indications-et-les-interactions-medicamenteuses-du-minoxidil-par-voie-topique" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
             En savoir plus sur Le Moniteur des Pharmacies &rarr;
           </a>
         </div>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #059669; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #10b981; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 1px;">
-              💊 Source : Le Moniteur des Pharmacies
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #10b981; text-transform: uppercase; letter-spacing: 1px;">
+              🏥 Source : Le Moniteur des Pharmacies
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
-            <a href="https://www.lemoniteurdespharmacies.fr/therapeutique/produits/autres/diarrhees-sous-antibiotiques-novabiotic-la-nutrition-infantile-des-lage-de-6-mois" target="_blank" style="color: inherit; text-decoration: none;">NovaBiotic, une nouvelle solution nutritionnelle pour les nourrissons et enfants atteints de diarrhées sous antibiotiques</a>
+            <a href="https://www.lemoniteurdespharmacies.fr/therapeutique/produits/autres/diarrhees-sous-antibiotiques-novabiotic-la-nutrition-infantile-des-lage-de-6-mois" target="_blank" style="color: inherit; text-decoration: none;">NovaBiotic : une nouvelle solution diététique pour les diarrhées infantiles sous antibiotiques</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            NovaBiotic propose une option diététique spécifique pour les nourrissons et jeunes enfants à partir de six mois, visant à gérer les diarrhées induites par les antibiotiques. Ce produit est conçu pour être intégré en alternance avec l'alimentation lactée habituelle pour maintenir l'équilibre intestinal.
+            NovaBiotic offre une option pour la prise en charge diététique des diarrhées post-antibiotiques chez les nourrissons dès 6 mois. Les pharmaciens peuvent conseiller ce produit aux parents, enrichissant ainsi leur arsenal pour la santé infantile.
           </p>
           <a href="https://www.lemoniteurdespharmacies.fr/therapeutique/produits/autres/diarrhees-sous-antibiotiques-novabiotic-la-nutrition-infantile-des-lage-de-6-mois" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
             En savoir plus sur Le Moniteur des Pharmacies &rarr;
           </a>
         </div>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #059669; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #10b981; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 1px;">
-              💊 Source : VIDAL Actus
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #10b981; text-transform: uppercase; letter-spacing: 1px;">
+              🏥 Source : Le Quotidien du Pharmacien
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
-            <a href="https://www.vidal.fr/actualites/38295-rdc-plus-de-7-000-cas-d-ebola-recenses.html" target="_blank" style="color: inherit; text-decoration: none;">La République Démocratique du Congo fait face à une nouvelle vague d'Ebola avec plus de 7 000 cas</a>
+            <a href="http://www.lequotidiendupharmacien.fr/derniers-jours-pour-participer-la-grand-consultation-sante-du-shift-project" target="_blank" style="color: inherit; text-decoration: none;">Dernière chance pour participer à la Grande Consultation Santé du Shift Project</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            La République Démocratique du Congo est confrontée à une recrudescence inquiétante de l'épidémie d'Ebola, avec plus de 7 000 cas enregistrés. Cette situation met en lumière les défis persistants en matière de santé publique et de gestion des crises sanitaires dans la région.
-          </p>
-          <a href="https://www.vidal.fr/actualites/38295-rdc-plus-de-7-000-cas-d-ebola-recenses.html" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur VIDAL Actus &rarr;
-          </a>
-        </div>
-      
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #059669; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 1px;">
-              💊 Source : VIDAL Actus
-            </span>
-          </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
-            <a href="https://www.vidal.fr/actualites/38296-franchises-medicales-le-plafond-annuel-passe-a-140-euros-le-1er-octobre.html" target="_blank" style="color: inherit; text-decoration: none;">Le plafond annuel des franchises médicales relevé à 140 euros dès le 1er octobre</a>
-          </h4>
-          <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            À partir du 1er octobre, le plafond annuel des franchises médicales sera augmenté pour atteindre 140 euros. Cette mesure impactera directement la participation financière des patients aux dépenses de santé.
-          </p>
-          <a href="https://www.vidal.fr/actualites/38296-franchises-medicales-le-plafond-annuel-passe-a-140-euros-le-1er-octobre.html" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur VIDAL Actus &rarr;
-          </a>
-        </div>
-      
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #059669; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 1px;">
-              💊 Source : VIDAL Actus
-            </span>
-          </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
-            <a href="https://www.vidal.fr/actualites/38279-microbiote-et-parkinson-une-nouvelle-piste.html" target="_blank" style="color: inherit; text-decoration: none;">Le lien entre microbiote intestinal et maladie de Parkinson fait l'objet de nouvelles recherches prometteuses</a>
-          </h4>
-          <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            Des études récentes explorent une potentielle nouvelle piste thérapeutique et diagnostique pour la maladie de Parkinson, en s'intéressant au rôle du microbiote intestinal. Cette approche ouvre des perspectives innovantes pour la compréhension et le traitement de cette pathologie neurodégénérative.
-          </p>
-          <a href="https://www.vidal.fr/actualites/38279-microbiote-et-parkinson-une-nouvelle-piste.html" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur VIDAL Actus &rarr;
-          </a>
-        </div>
-      
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #059669; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 1px;">
-              💊 Source : Le Quotidien du Pharmacien
-            </span>
-          </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
-            <a href="http://www.lequotidiendupharmacien.fr/derniers-jours-pour-participer-la-grand-consultation-sante-du-shift-project" target="_blank" style="color: inherit; text-decoration: none;">Dernière ligne droite pour les professionnels de santé participant à la consultation du Shift Project sur santé et climat</a>
-          </h4>
-          <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            La grande consultation nationale du Shift Project, interrogeant les liens entre santé, énergie et changement climatique, touche à sa fin le 20 septembre 2026. Près de 3 000 pharmaciens ont déjà contribué à cette enquête cruciale, invitant les derniers professionnels à partager leur avis.
+            La participation à la consultation du Shift Project est une opportunité pour les pharmaciens d'influencer la réflexion sur les enjeux santé-environnement. C'est l'occasion pour l'officine de faire entendre sa voix sur des sujets cruciaux pour l'avenir de la santé.
           </p>
           <a href="http://www.lequotidiendupharmacien.fr/derniers-jours-pour-participer-la-grand-consultation-sante-du-shift-project" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
             En savoir plus sur Le Quotidien du Pharmacien &rarr;
           </a>
         </div>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #059669; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #10b981; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 1px;">
-              💊 Source : Le Quotidien du Pharmacien
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #10b981; text-transform: uppercase; letter-spacing: 1px;">
+              🏥 Source : Le Quotidien du Pharmacien
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
-            <a href="http://www.lequotidiendupharmacien.fr/exercice-pro/negociations-conventionnelles-la-fspf-veut-passer-la-vitesse-superieure" target="_blank" style="color: inherit; text-decoration: none;">La FSPF presse pour l'accélération des négociations conventionnelles avec la Sécurité sociale</a>
+            <a href="http://www.lequotidiendupharmacien.fr/exercice-pro/negociations-conventionnelles-la-fspf-veut-passer-la-vitesse-superieure" target="_blank" style="color: inherit; text-decoration: none;">Négociations conventionnelles : la FSPF presse l'accélération des discussions</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            La Fédération des Syndicats Pharmaceutiques de France (FSPF) exprime sa satisfaction quant à la lettre de cadrage ministérielle du 9 septembre, mais insiste sur l'urgence d'engager concrètement les négociations conventionnelles. Elle estime qu'il est temps d'accélérer le processus pour définir l'avenir des relations entre pharmaciens et assurance maladie.
+            La FSPF appelle à une accélération des négociations conventionnelles, un enjeu majeur pour l'avenir économique et professionnel des officines. L'équipe doit suivre ces discussions qui détermineront le cadre de son exercice et de sa rémunération future.
           </p>
           <a href="http://www.lequotidiendupharmacien.fr/exercice-pro/negociations-conventionnelles-la-fspf-veut-passer-la-vitesse-superieure" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
             En savoir plus sur Le Quotidien du Pharmacien &rarr;
           </a>
         </div>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #059669; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
+        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #10b981; border-radius: 4px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 1px;">
-              💊 Source : Le Quotidien du Pharmacien
+            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #10b981; text-transform: uppercase; letter-spacing: 1px;">
+              🏥 Source : Le Quotidien du Pharmacien
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111827;">
-            <a href="http://www.lequotidiendupharmacien.fr/exercice-pro/vaccination-hpv-linca-encourage-les-pharmaciens-aller-vers-les-jeunes" target="_blank" style="color: inherit; text-decoration: none;">L'Inca sollicite les pharmaciens pour renforcer la vaccination HPV auprès des jeunes et de leurs parents</a>
+            <a href="http://www.lequotidiendupharmacien.fr/exercice-pro/vaccination-hpv-linca-encourage-les-pharmaciens-aller-vers-les-jeunes" target="_blank" style="color: inherit; text-decoration: none;">Vaccination HPV : l'Inca encourage l'engagement proactif des pharmaciens auprès des jeunes</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            L'Institut national du cancer (Inca) exhorte les pharmaciens à jouer un rôle proactif dans la promotion de la vaccination contre le Papillomavirus Humain (HPV) auprès des jeunes jusqu'à 26 ans et de leurs parents. Cette initiative vise à améliorer la couverture vaccinale en informant sur la possibilité de se faire vacciner directement en officine.
+            L'Institut National du Cancer incite les pharmaciens à promouvoir activement la vaccination HPV auprès des jeunes et de leurs parents. C'est une mission de santé publique essentielle où l'officine joue un rôle de proximité crucial dans la prévention des cancers.
           </p>
           <a href="http://www.lequotidiendupharmacien.fr/exercice-pro/vaccination-hpv-linca-encourage-les-pharmaciens-aller-vers-les-jeunes" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
             En savoir plus sur Le Quotidien du Pharmacien &rarr;
