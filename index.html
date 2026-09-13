@@ -4,896 +4,892 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Suprapharm News &bull; Digest Quotidien</title>
+  <title>Suprapharm Quotidien &bull; Revue de presse d'officine</title>
   <style>
     /* Responsive Mobile */
     @media only screen and (max-width: 640px) {
       .digest-container {
-        padding: 14px 12px !important;
-        border-left: none !important;
-        border-right: none !important;
-        border-radius: 0 !important;
+        padding: 16px 14px !important;
+        border: none !important;
+        box-shadow: none !important;
       }
       .banner-img {
         max-width: 100% !important;
       }
       .lead-title {
-        font-size: 20px !important;
+        font-size: 22px !important;
       }
       .nav-bar {
-        padding: 8px 4px !important;
+        padding: 8px 0 !important;
       }
       .nav-link {
         font-size: 10px !important;
-        padding: 4px 8px !important;
-        margin: 2px !important;
+        padding: 4px 6px !important;
       }
-      .meta-bar {
+      .nav-sep {
+        display: none !important;
+      }
+      .top-meta-bar {
         flex-direction: column !important;
-        align-items: center !important;
+        align-items: flex-start !important;
         gap: 6px !important;
-        text-align: center !important;
       }
     }
 
-    /* Styles Mode Sombre (Manuel via bouton ou automatique) */
+    /* Thème Sombre */
     body.dark {
-      background-color: #061510 !important;
+      background-color: #0b1310 !important;
       color: #e2e8f0 !important;
     }
     body.dark .digest-container {
-      background-color: #0f241d !important;
-      border-color: #1f3b32 !important;
+      background-color: #101c17 !important;
+      border-color: #1f352b !important;
       box-shadow: 0 4px 20px rgba(0,0,0,0.6) !important;
     }
-    body.dark .lead-title, body.dark h1, body.dark h2, body.dark h3, body.dark h4 {
-      color: #f0fdf4 !important;
-    }
-    body.dark .meta-bar {
-      border-color: #1f3b32 !important;
-      color: #94a3b8 !important;
-    }
-    body.dark .timestamp-badge {
-      background-color: #132e25 !important;
-      color: #34d399 !important;
-      border: 1px solid #1f3b32 !important;
-    }
-    body.dark .nav-bar {
-      background-color: #0b1c16 !important;
-      border-color: #1f3b32 !important;
-    }
-    body.dark .nav-link {
-      background-color: #132e25 !important;
-      color: #d1fae5 !important;
-      border-color: #1f3b32 !important;
-    }
-    body.dark .lead-box {
-      background-color: #0f241d !important;
-      border-color: #059669 !important;
+    body.dark .lead-title, body.dark .article-title, body.dark h1, body.dark h2, body.dark h3 {
+      color: #f8fafc !important;
     }
     body.dark .lead-text {
-      color: #d1fae5 !important;
-    }
-    body.dark .article-card {
-      background-color: #0b1c16 !important;
-      border-color: #1f3b32 !important;
-    }
-    body.dark .article-snippet {
       color: #cbd5e1 !important;
     }
-    body.dark .article-link {
-      color: #34d399 !important;
-    }
-    body.dark .article-date {
+    body.dark .article-snippet {
       color: #94a3b8 !important;
     }
-    body.dark .theme-header {
-      border-bottom-color: #1f3b32 !important;
+    body.dark .top-meta-bar {
+      border-color: #1f352b !important;
+      color: #94a3b8 !important;
     }
-    body.dark .web-cta-box {
-      background-color: #0b1c16 !important;
-      border-color: #1f3b32 !important;
+    body.dark .header-divider {
+      border-color: #1f352b !important;
+    }
+    body.dark .nav-bar {
+      border-color: #1f352b !important;
+    }
+    body.dark .nav-link {
+      color: #cbd5e1 !important;
+    }
+    body.dark .nav-sep {
+      color: #334155 !important;
+    }
+    body.dark .rubrique-title {
+      color: #34d399 !important;
+    }
+    body.dark .rubrique-header {
+      border-bottom-color: #059669 !important;
+    }
+    body.dark .lead-section {
+      border-bottom-color: #1f352b !important;
+    }
+    body.dark .press-article {
+      border-bottom-color: #1a2c24 !important;
+    }
+    body.dark .lead-tag, body.dark .source-tag {
+      color: #34d399 !important;
+    }
+    body.dark .editorial-link {
+      color: #34d399 !important;
+    }
+    body.dark .article-meta, body.dark .article-date, body.dark .rubrique-count, body.dark .back-to-top {
+      color: #64748b !important;
+    }
+    body.dark .web-edition-box {
+      background-color: #0b1310 !important;
+      border-color: #1f352b !important;
     }
     body.dark .footer-colophon {
-      border-top-color: #1f3b32 !important;
-      color: #6b7280 !important;
+      border-top-color: #1f352b !important;
+      color: #64748b !important;
     }
     body.dark .theme-toggle-btn {
-      background: #132e25 !important;
-      color: #f0fdf4 !important;
-      border-color: #1f3b32 !important;
+      background: #101c17 !important;
+      color: #e2e8f0 !important;
+      border-color: #1f352b !important;
     }
 
-    /* Mode Sombre Automatique du système (si pas forcé en clair) */
+    /* Mode Sombre Automatique système */
     @media (prefers-color-scheme: dark) {
       body:not(.light) {
-        background-color: #061510 !important;
+        background-color: #0b1310 !important;
         color: #e2e8f0 !important;
       }
       body:not(.light) .digest-container {
-        background-color: #0f241d !important;
-        border-color: #1f3b32 !important;
+        background-color: #101c17 !important;
+        border-color: #1f352b !important;
         box-shadow: 0 4px 20px rgba(0,0,0,0.6) !important;
       }
-      body:not(.light) .lead-title, body:not(.light) h1, body:not(.light) h2, body:not(.light) h3, body:not(.light) h4 {
-        color: #f0fdf4 !important;
+      body:not(.light) .lead-title, body:not(.light) .article-title, body:not(.light) h1, body:not(.light) h2, body:not(.light) h3 {
+        color: #f8fafc !important;
       }
-      body:not(.light) .meta-bar { border-color: #1f3b32 !important; color: #94a3b8 !important; }
-      body:not(.light) .timestamp-badge { background-color: #132e25 !important; color: #34d399 !important; border: 1px solid #1f3b32 !important; }
-      body:not(.light) .nav-bar { background-color: #0b1c16 !important; border-color: #1f3b32 !important; }
-      body:not(.light) .nav-link { background-color: #132e25 !important; color: #d1fae5 !important; border-color: #1f3b32 !important; }
-      body:not(.light) .lead-box { background-color: #0f241d !important; border-color: #059669 !important; }
-      body:not(.light) .lead-text { color: #d1fae5 !important; }
-      body:not(.light) .article-card { background-color: #0b1c16 !important; border-color: #1f3b32 !important; }
-      body:not(.light) .article-snippet { color: #cbd5e1 !important; }
-      body:not(.light) .article-link { color: #34d399 !important; }
-      body:not(.light) .article-date { color: #94a3b8 !important; }
-      body:not(.light) .theme-header { border-bottom-color: #1f3b32 !important; }
-      body:not(.light) .web-cta-box { background-color: #0b1c16 !important; border-color: #1f3b32 !important; }
-      body:not(.light) .footer-colophon { border-top-color: #1f3b32 !important; color: #6b7280 !important; }
-      body:not(.light) .theme-toggle-btn { background: #132e25 !important; color: #f0fdf4 !important; border-color: #1f3b32 !important; }
+      body:not(.light) .lead-text { color: #cbd5e1 !important; }
+      body:not(.light) .article-snippet { color: #94a3b8 !important; }
+      body:not(.light) .top-meta-bar { border-color: #1f352b !important; color: #94a3b8 !important; }
+      body:not(.light) .header-divider { border-color: #1f352b !important; }
+      body:not(.light) .nav-bar { border-color: #1f352b !important; }
+      body:not(.light) .nav-link { color: #cbd5e1 !important; }
+      body:not(.light) .nav-sep { color: #334155 !important; }
+      body:not(.light) .rubrique-title { color: #34d399 !important; }
+      body:not(.light) .rubrique-header { border-bottom-color: #059669 !important; }
+      body:not(.light) .lead-section { border-bottom-color: #1f352b !important; }
+      body:not(.light) .press-article { border-bottom-color: #1a2c24 !important; }
+      body:not(.light) .lead-tag, body:not(.light) .source-tag { color: #34d399 !important; }
+      body:not(.light) .editorial-link { color: #34d399 !important; }
+      body:not(.light) .article-meta, body:not(.light) .article-date, body:not(.light) .rubrique-count, body:not(.light) .back-to-top { color: #64748b !important; }
+      body:not(.light) .web-edition-box { background-color: #0b1310 !important; border-color: #1f352b !important; }
+      body:not(.light) .footer-colophon { border-top-color: #1f352b !important; color: #64748b !important; }
+      body:not(.light) .theme-toggle-btn { background: #101c17 !important; color: #e2e8f0 !important; border-color: #1f352b !important; }
     }
   </style>
 </head>
-<body style="margin: 0; padding: 20px 0; background-color: #f0fdf4; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #111827;">
+<body style="margin: 0; padding: 24px 0; background-color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #0f172a; line-height: 1.5;">
   <a name="top"></a>
-  <div class="digest-container" style="max-width: 680px; margin: 0 auto; background: #ffffff; border: 1px solid #d1fae5; border-radius: 8px; padding: 24px 28px; box-shadow: 0 4px 16px rgba(5, 150, 105, 0.08);">
+  <div class="digest-container" style="max-width: 720px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 4px; padding: 32px 36px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
     
-    <!-- BARRE UTILITAIRE HAUT DE PAGE : BOUTON THEME -->
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 1px;">
-        SUPRAPHARM &bull; L'OFFICINE EN DIRECT
+    <!-- LIGNE DATE & COMMANDE THEME (DISCRÈTE, STYLE PRESSE) -->
+    <div class="top-meta-bar" style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid #e2e8f0; margin-bottom: 18px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: 0.8px;">
+      <div>
+        <span>Lundi 14 septembre 2026</span> &bull; <span>Édition mise à jour le 14/09/2026 à 00h51</span>
       </div>
-      <button id="themeToggleBtn" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Basculer thème sombre/clair" style="cursor: pointer; background: #ffffff; color: #047857; border: 1px solid #a7f3d0; padding: 5px 12px; border-radius: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 1px 3px rgba(5,150,105,0.08); transition: all 0.2s ease;">
-        <span id="themeToggleIcon">🌙</span> <span id="themeToggleText">Mode sombre</span>
-      </button>
+      <div>
+        <button id="themeToggleBtn" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Changer le thème" style="cursor: pointer; background: #f8fafc; color: #334155; border: 1px solid #cbd5e1; padding: 4px 10px; border-radius: 3px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.15s ease;">
+          <span id="themeToggleText">Mode sombre</span>
+        </button>
+      </div>
     </div>
 
-    <!-- BANNIERE EN TÊTE DE PAGE RECADRÉE (CAPTURE 1) -->
-    <div style="margin: 10px 0 20px 0; text-align: center;">
-      <img src="https://news.suprapharm.fr/banner.png" alt="Suprapharm - L'information matinale à ne pas rater" class="banner-img" style="max-width: 480px; width: 100%; height: auto; display: block; margin: 0 auto;" />
-    </div>
+    <!-- MANCHETTE OFFICIELLE SUPRAPHARM RECADRÉE -->
+    <header style="text-align: center; margin: 8px 0 20px 0;">
+      <img src="https://news.suprapharm.fr/banner.png" alt="L'actualité de la pharmacie avec un grand S - Suprapharm" class="banner-img" style="max-width: 520px; width: 100%; height: auto; display: block; margin: 0 auto;" />
+    </header>
 
-    <!-- BARRE META (DATE & HORODATAGE) -->
-    <div class="meta-bar" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #047857; text-transform: uppercase; letter-spacing: 0.8px; padding: 8px 12px; background: #ecfdf5; border-radius: 4px; border: 1px solid #d1fae5; margin-bottom: 22px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
-      <span>📅 Lundi 14 septembre 2026 &bull; ⏱️ 4 min de lecture</span>
-      <span class="timestamp-badge" style="background: #ffffff; color: #065f46; padding: 3px 10px; border-radius: 12px; font-weight: 700; font-size: 10px; border: 1px solid #a7f3d0;">
-        🕐 Mis à jour le 14/09/2026 à 00h41
-      </span>
-    </div>
+    <!-- FILET DE MANCHETTE -->
+    <div class="header-divider" style="border-bottom: 2px solid #047857; margin-bottom: 14px;"></div>
 
-    <!-- ONGLETS DE NAVIGATION PAR LES 5 THÈMES OFFICINAUX -->
-    <div class="nav-bar" style="text-align: center; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px; padding: 10px 8px; margin-bottom: 28px; line-height: 2;">
+    <!-- SOMMAIRE DES RUBRIQUES (STYLE L'EXPRESS) -->
+    <nav class="nav-bar" style="text-align: center; padding: 6px 0; margin-bottom: 30px; border-bottom: 1px solid #e2e8f0; line-height: 2;">
       
-  <a href="#theme-1" class="nav-link" style="text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 12px; display: inline-block; margin: 3px 4px; background: #ffffff; color: #047857; border: 1px solid #d1fae5; border-radius: 20px; font-weight: 700; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
-    💊 Médicaments & Traitements
+  <a href="#theme-1" class="nav-link" style="text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; padding: 6px 12px; display: inline-block; margin: 3px 2px; color: #1f2937; font-weight: 700; transition: color 0.15s ease;">
+    Médicaments & Traitements
   </a>
- 
-  <a href="#theme-2" class="nav-link" style="text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 12px; display: inline-block; margin: 3px 4px; background: #ffffff; color: #047857; border: 1px solid #d1fae5; border-radius: 20px; font-weight: 700; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
-    💉 Vaccins & Prévention
+<span class="nav-sep" style="color: #d1d5db; font-size: 11px;">|</span>
+  <a href="#theme-2" class="nav-link" style="text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; padding: 6px 12px; display: inline-block; margin: 3px 2px; color: #1f2937; font-weight: 700; transition: color 0.15s ease;">
+    Vaccins & Prévention
   </a>
- 
-  <a href="#theme-3" class="nav-link" style="text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 12px; display: inline-block; margin: 3px 4px; background: #ffffff; color: #047857; border: 1px solid #d1fae5; border-radius: 20px; font-weight: 700; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
-    ⚖️ Réglementation & Ordre
+<span class="nav-sep" style="color: #d1d5db; font-size: 11px;">|</span>
+  <a href="#theme-3" class="nav-link" style="text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; padding: 6px 12px; display: inline-block; margin: 3px 2px; color: #1f2937; font-weight: 700; transition: color 0.15s ease;">
+    Réglementation & Ordre
   </a>
- 
-  <a href="#theme-4" class="nav-link" style="text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 12px; display: inline-block; margin: 3px 4px; background: #ffffff; color: #047857; border: 1px solid #d1fae5; border-radius: 20px; font-weight: 700; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
-    📑 Conventions & Facturation
+<span class="nav-sep" style="color: #d1d5db; font-size: 11px;">|</span>
+  <a href="#theme-4" class="nav-link" style="text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; padding: 6px 12px; display: inline-block; margin: 3px 2px; color: #1f2937; font-weight: 700; transition: color 0.15s ease;">
+    Conventions & Facturation
   </a>
- 
-  <a href="#theme-5" class="nav-link" style="text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 12px; display: inline-block; margin: 3px 4px; background: #ffffff; color: #047857; border: 1px solid #d1fae5; border-radius: 20px; font-weight: 700; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
-    🏥 Vie de l'Officine & Pratique
+<span class="nav-sep" style="color: #d1d5db; font-size: 11px;">|</span>
+  <a href="#theme-5" class="nav-link" style="text-decoration: none; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; padding: 6px 12px; display: inline-block; margin: 3px 2px; color: #1f2937; font-weight: 700; transition: color 0.15s ease;">
+    Vie de l'Officine & Pratique
   </a>
 
-    </div>
+    </nav>
 
     <!-- GRANDE UNE -->
     
-  <a name="lead-story"></a>
-  <div id="lead-story" class="lead-box" style="background: #ffffff; border: 1px solid #10b981; border-top: 4px solid #059669; padding: 24px; margin-bottom: 34px; border-radius: 6px; box-shadow: 0 2px 8px rgba(5, 150, 105, 0.08); position: relative;">
-    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
-      <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1.2px; background: #ecfdf5; padding: 3px 10px; border-radius: 12px;">
-        ★ LA GRANDE SYNTHÈSE DU JOUR &bull; Source : VIDAL Actus &bull; 📅 12 sept. 2026
-      </span>
-      <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 700; color: #059669;">
-        RECOMMANDÉ PAR SUPRAPHARM
+  <section id="lead-story" class="lead-section" style="margin-bottom: 38px; padding-bottom: 30px; border-bottom: 2px solid #e5e7eb;">
+    <div style="margin-bottom: 8px;">
+      <span class="lead-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1.5px;">
+        À LA UNE &bull; VIDAL ACTUS
       </span>
     </div>
-    <h2 class="lead-title" style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 24px; font-weight: 900; line-height: 1.3; margin: 0 0 14px 0; color: #111827;">
-      <a href="https://www.vidal.fr/actualites/38295-rdc-plus-de-7-000-cas-d-ebola-recenses.html" target="_blank" style="color: inherit; text-decoration: none;">Épidémie d'Ebola en RDC : plus de 7 000 cas confirmés</a>
+    <h2 class="lead-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 28px; font-weight: 800; line-height: 1.28; margin: 0 0 12px 0; color: #0f172a;">
+      <a href="https://www.vidal.fr/actualites/38295-rdc-plus-de-7-000-cas-d-ebola-recenses.html" target="_blank" style="color: inherit; text-decoration: none;">Ebola : plus de 7 000 cas recensés en RDC, l'alerte sanitaire persiste</a>
     </h2>
-    <p class="lead-text" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 18px 0;">
-      L'épidémie d'Ebola en République Démocratique du Congo dépasse les 7 000 cas recensés, soulignant la persistance et la gravité de cette fièvre hémorragique virale. Ce chiffre alarmant rappelle l'importance de la vigilance sanitaire mondiale et des mesures préventives en cas de voyage dans les zones à risque. Pour l'officine, bien qu'il n'y ait pas d'impact direct sur la délivrance de médicaments en France, cette information est cruciale pour la sensibilisation des patients voyageurs et le rappel des bonnes pratiques d'hygiène.
+    <div class="article-meta" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; color: #64748b; margin-bottom: 14px;">
+      Publié le 12 septembre 2026 &bull; Source : VIDAL Actus &bull; Sélection Suprapharm
+    </div>
+    <p class="lead-text" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 16px; line-height: 1.7; color: #334155; margin: 0 0 16px 0;">
+      L'épidémie d'Ebola en République Démocratique du Congo franchit un seuil préoccupant avec plus de 7 000 cas enregistrés. Cette recrudescence souligne l'urgence de la situation sanitaire locale et la nécessité d'une vigilance internationale accrue. Pour l'officine, l'enjeu est d'informer les voyageurs se rendant ou revenant des zones à risque sur les mesures de prévention et les symptômes, tout en rappelant les règles d'hygiène strictes pour limiter toute propagation et protéger la santé publique.
     </p>
     <div>
-      <a href="https://www.vidal.fr/actualites/38295-rdc-plus-de-7-000-cas-d-ebola-recenses.html" target="_blank" class="lead-cta" style="display: inline-block; background: #059669; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; padding: 10px 20px; text-decoration: none; border-radius: 4px; box-shadow: 0 2px 6px rgba(5, 150, 105, 0.25);">
-        En savoir plus sur VIDAL Actus &rarr;
+      <a href="https://www.vidal.fr/actualites/38295-rdc-plus-de-7-000-cas-d-ebola-recenses.html" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 3px;">
+        Consulter l'article complet sur VIDAL Actus
       </a>
     </div>
-  </div>
+  </section>
   
 
-    <!-- SECTIONS THEMES -->
+    <!-- RUBRIQUES THÉMATIQUES -->
     
-    <a name="theme-1"></a>
-    <div id="theme-1" style="margin-bottom: 40px; padding-top: 10px;">
-      <div class="theme-header" style="border-bottom: 2px solid #059669; padding-bottom: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;">
-        <h3 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin: 0; color: inherit;">
-          💊 Médicaments & Traitements
-        </h3>
-        <span style="font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 10px; font-weight: 700; color: #6b7280;">
-          6 article(s)
+    <section id="theme-1" class="rubrique-section" style="margin-bottom: 46px; padding-top: 6px;">
+      <div class="rubrique-header" style="border-bottom: 2px solid #047857; padding-bottom: 8px; margin-bottom: 22px; display: flex; align-items: baseline; justify-content: space-between;">
+        <h2 class="rubrique-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 21px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; margin: 0; color: #047857;">
+          Médicaments & Traitements
+        </h2>
+        <span class="rubrique-count" style="font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px;">
+          6 articles
         </span>
       </div>
 
-      <div>
+      <div class="articles-list">
         
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #059669; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 1px;">
-              💊 Source : VIDAL Actus
+        <article class="press-article" style="margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid #f1f5f9;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              VIDAL Actus
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 12 sept. 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                12 septembre 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="https://www.vidal.fr/actualites/38295-rdc-plus-de-7-000-cas-d-ebola-recenses.html" target="_blank" style="color: inherit; text-decoration: none;">Épidémie d'Ebola en RDC : plus de 7 000 cas confirmés</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            L'épidémie d'Ebola en République Démocratique du Congo dépasse les 7 000 cas recensés, soulignant la persistance et la gravité de cette fièvre hémorragique virale. Ce chiffre alarmant rappelle l'importance de la vigilance sanitaire mondiale et des mesures préventives en cas de voyage dans les zones à risque. Pour l'officine, bien qu'il n'y ait pas d'impact direct sur la délivrance de médicaments en France, cette information est cruciale pour la sensibilisation des patients voyageurs et le rappel des bonnes pratiques d'hygiène.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="https://www.vidal.fr/actualites/38295-rdc-plus-de-7-000-cas-d-ebola-recenses.html" target="_blank" style="color: inherit; text-decoration: none;">Ebola : plus de 7 000 cas recensés en RDC, l'alerte sanitaire persiste</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            L'épidémie d'Ebola en République Démocratique du Congo franchit un seuil préoccupant avec plus de 7 000 cas enregistrés. Cette recrudescence souligne l'urgence de la situation sanitaire locale et la nécessité d'une vigilance internationale accrue. Pour l'officine, l'enjeu est d'informer les voyageurs se rendant ou revenant des zones à risque sur les mesures de prévention et les symptômes, tout en rappelant les règles d'hygiène strictes pour limiter toute propagation et protéger la santé publique.
           </p>
-          <a href="https://www.vidal.fr/actualites/38295-rdc-plus-de-7-000-cas-d-ebola-recenses.html" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur VIDAL Actus &rarr;
+          <a href="https://www.vidal.fr/actualites/38295-rdc-plus-de-7-000-cas-d-ebola-recenses.html" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur VIDAL Actus
           </a>
-        </div>
+        </article>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #059669; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 1px;">
-              💊 Source : VIDAL Actus
+        <article class="press-article" style="margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid #f1f5f9;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              VIDAL Actus
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 12 sept. 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                12 septembre 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="https://www.vidal.fr/actualites/38296-franchises-medicales-le-plafond-annuel-passe-a-140-euros-le-1er-octobre.html" target="_blank" style="color: inherit; text-decoration: none;">Augmentation du plafond annuel des franchises médicales à 140 euros</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            À compter du 1er octobre, le plafond annuel des franchises médicales et de la participation forfaitaire sera revalorisé à 140 euros. Cette mesure réglementaire vise à maîtriser les dépenses de santé, mais impactera directement le reste à charge des patients. Les équipes officinales devront informer et accompagner les patients sur cette modification, qui pourrait générer des questions lors de la délivrance et du calcul des sommes dues, notamment pour les patients à faibles revenus ou ayant des traitements chroniques.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="https://www.vidal.fr/actualites/38296-franchises-medicales-le-plafond-annuel-passe-a-140-euros-le-1er-octobre.html" target="_blank" style="color: inherit; text-decoration: none;">Hausse des franchises médicales : plafond annuel porté à 140 euros dès le 1er octobre</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            À compter du 1er octobre, le plafond annuel des franchises médicales sera revalorisé à 140 euros, impactant directement le reste à charge des patients sur les remboursements de médicaments, actes paramédicaux et transports sanitaires. Cette mesure réglementaire vise à maîtriser les dépenses de santé, mais représente un coût supplémentaire pour les assurés. Les équipes officinales devront anticiper les questions des patients concernant ce changement et son application, notamment en matière d'information et d'orientation vers les mutuelles complémentaires.
           </p>
-          <a href="https://www.vidal.fr/actualites/38296-franchises-medicales-le-plafond-annuel-passe-a-140-euros-le-1er-octobre.html" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur VIDAL Actus &rarr;
+          <a href="https://www.vidal.fr/actualites/38296-franchises-medicales-le-plafond-annuel-passe-a-140-euros-le-1er-octobre.html" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur VIDAL Actus
           </a>
-        </div>
+        </article>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #059669; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 1px;">
-              💊 Source : VIDAL Actus
+        <article class="press-article" style="margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid #f1f5f9;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              VIDAL Actus
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 11 sept. 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                11 septembre 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="https://www.vidal.fr/actualites/38279-microbiote-et-parkinson-une-nouvelle-piste.html" target="_blank" style="color: inherit; text-decoration: none;">Maladie de Parkinson et microbiote intestinal : une piste prometteuse</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            Des recherches récentes explorent un lien potentiel entre le microbiote intestinal et la maladie de Parkinson, suggérant une nouvelle piste dans la compréhension et le traitement de cette pathologie neurodégénérative. Cette avancée scientifique pourrait à terme conduire à des approches thérapeutiques innovantes, ciblant par exemple la composition du microbiote. Pour l'officine, cette information enrichit la connaissance des équipes sur les avancées médicales et permet d'anticiper de futures recommandations ou conseils en matière de santé intestinale.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="https://www.vidal.fr/actualites/38279-microbiote-et-parkinson-une-nouvelle-piste.html" target="_blank" style="color: inherit; text-decoration: none;">Parkinson : le microbiote intestinal, une piste thérapeutique explorée</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            Des études récentes suggèrent une corrélation intrigante entre le microbiote intestinal et la maladie de Parkinson, ouvrant de nouvelles perspectives de recherche sur les mécanismes physiopathologiques et le développement de stratégies thérapeutiques innovantes. Bien que ces travaux soient encore à un stade exploratoire, ils pourraient à terme mener à des approches diagnostiques ou des traitements ciblés. Pour l'officine, il est crucial de suivre ces avancées, car elles pourront potentiellement influencer les conseils aux patients concernant leur hygiène de vie ou l'accompagnement de leur traitement actuel.
           </p>
-          <a href="https://www.vidal.fr/actualites/38279-microbiote-et-parkinson-une-nouvelle-piste.html" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur VIDAL Actus &rarr;
+          <a href="https://www.vidal.fr/actualites/38279-microbiote-et-parkinson-une-nouvelle-piste.html" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur VIDAL Actus
           </a>
-        </div>
+        </article>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #059669; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 1px;">
-              💊 Source : Meddispar
+        <article class="press-article" style="margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid #f1f5f9;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              Meddispar
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 27 août 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                27 août 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="http://www.meddispar.fr//Actualites/2026/TAVNEOS-NE-DOIT-PLUS-ETRE-PRESCRIT-NI-DELIVRE-DEPUIS-LE-04-AOUT-2026" target="_blank" style="color: inherit; text-decoration: none;">Retrait de l'AMM et rappel de tous les lots de TAVNEOS (avacopan)</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            La spécialité TAVNEOS 10 mg (avacopan), gélule, a fait l'objet d'un retrait de son autorisation de mise sur le marché (AMM) dans l'Union Européenne depuis le 4 août 2026, en raison d'un rapport bénéfice/risque devenu défavorable. En conséquence, tous les lots disponibles en France sont rappelés et le médicament ne doit plus être ni prescrit ni délivré. Les équipes officinales doivent impérativement cesser toute dispensation, informer les patients concernés de cette décision et les orienter vers leur médecin pour une réévaluation thérapeutique.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="http://www.meddispar.fr//Actualites/2026/TAVNEOS-NE-DOIT-PLUS-ETRE-PRESCRIT-NI-DELIVRE-DEPUIS-LE-04-AOUT-2026" target="_blank" style="color: inherit; text-decoration: none;">TAVNEOS 10 mg : la spécialité retirée du marché pour rapport bénéfice/risque défavorable</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            La spécialité TAVNEOS 10 mg, gélule, a fait l'objet d'un retrait de son autorisation de mise sur le marché (AMM) au sein de l'Union Européenne depuis le 4 août 2026, en raison d'un rapport bénéfice/risque jugé défavorable. Conséquence directe, tous les lots disponibles en France sont rappelés et le médicament ne peut plus être ni prescrit ni délivré. Les équipes officinales doivent impérativement cesser toute délivrance, gérer le retour des stocks et informer les patients concernés en collaboration avec les prescripteurs pour l'instauration d'une alternative thérapeutique.
           </p>
-          <a href="http://www.meddispar.fr//Actualites/2026/TAVNEOS-NE-DOIT-PLUS-ETRE-PRESCRIT-NI-DELIVRE-DEPUIS-LE-04-AOUT-2026" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur Meddispar &rarr;
+          <a href="http://www.meddispar.fr//Actualites/2026/TAVNEOS-NE-DOIT-PLUS-ETRE-PRESCRIT-NI-DELIVRE-DEPUIS-LE-04-AOUT-2026" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur Meddispar
           </a>
-        </div>
+        </article>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #059669; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 1px;">
-              💊 Source : Meddispar
+        <article class="press-article" style="margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid #f1f5f9;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              Meddispar
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 19 août 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                19 août 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="http://www.meddispar.fr//Actualites/2026/Modification-de-la-liste-des-medicaments-de-medication-officinale-mentionnee-a-l-article-R.-5121-202-du-CSP2" target="_blank" style="color: inherit; text-decoration: none;">Évolution de la liste des médicaments de médication officinale en accès direct</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            Une décision de l'ANSM, datée du 7 juillet 2026, modifie la liste des médicaments de médication officinale autorisés en accès direct, conformément à l'article R. 5121-202 du Code de la Santé Publique. Cette mise à jour concerne notamment des spécialités comme la « Lysopaïne maux de gorge ambroxol menthe 20 mg sans sucre ». Les équipes officinales doivent prendre connaissance de ces ajustements pour garantir la conformité de l'agencement de l'espace de vente et la bonne information des patients sur l'accessibilité de ces produits.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="http://www.meddispar.fr//Actualites/2026/Modification-de-la-liste-des-medicaments-de-medication-officinale-mentionnee-a-l-article-R.-5121-202-du-CSP2" target="_blank" style="color: inherit; text-decoration: none;">Médication officinale : la Lysopaïne Maux de gorge Ambroxol voit son statut modifié</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            Une décision de l'ANSM, datée du 7 juillet 2026, actualise la liste des médicaments de médication officinale disponibles en accès direct. La spécialité "Lysopaïne maux de gorge ambroxol menthe 20 mg sans sucre, pastille édulcorée au sorbitol et au sucralose" est spécifiquement concernée par cette modification. Pour les équipes officinales, cela signifie une potentielle réorganisation de l'espace de vente directe et une attention particulière lors du conseil pour s'assurer que les patients comprennent bien les conditions d'utilisation et le positionnement de ce produit dans le parcours de soin.
           </p>
-          <a href="http://www.meddispar.fr//Actualites/2026/Modification-de-la-liste-des-medicaments-de-medication-officinale-mentionnee-a-l-article-R.-5121-202-du-CSP2" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur Meddispar &rarr;
+          <a href="http://www.meddispar.fr//Actualites/2026/Modification-de-la-liste-des-medicaments-de-medication-officinale-mentionnee-a-l-article-R.-5121-202-du-CSP2" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur Meddispar
           </a>
-        </div>
+        </article>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #059669; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 1px;">
-              💊 Source : Meddispar
+        <article class="press-article" style="margin-bottom: 8px; ">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              Meddispar
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 16 juil. 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                16 juillet 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="http://www.meddispar.fr//Actualites/2026/Un-cadre-de-prescription-compassionnelle-CPC-pour-les-specialites-Methadone-AP-HP" target="_blank" style="color: inherit; text-decoration: none;">Mise en place d'un Cadre de Prescription Compassionnelle pour la Méthadone AP-HP</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            Une décision du 15 mai 2026 instaure un Cadre de Prescription Compassionnelle (CPC) pour les spécialités Méthadone AP-HP. Ce CPC vise le « traitement de fond de douleurs d’origine cancéreuse d’intensité modérée à sévère chez les patients adultes et adolescents à partir de 15 ans ». Cette mesure formalise l'accès à la méthadone pour une indication spécifique. Les équipes officinales doivent être particulièrement attentives à la conformité de ces prescriptions et s'assurer de bien identifier les patients éligibles selon le cadre établi.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="http://www.meddispar.fr//Actualites/2026/Un-cadre-de-prescription-compassionnelle-CPC-pour-les-specialites-Methadone-AP-HP" target="_blank" style="color: inherit; text-decoration: none;">Méthadone AP-HP : un Cadre de Prescription Compassionnelle pour les douleurs cancéreuses</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            Une décision du 15 mai 2026 instaure un Cadre de Prescription Compassionnelle (CPC) pour les spécialités Méthadone AP-HP, ciblant le traitement de fond des douleurs d'origine cancéreuse modérées à sévères chez les adultes et adolescents dès 15 ans. Ce cadre permet l'accès à ce traitement dans des situations cliniques spécifiques ne relevant pas d'une autorisation de mise sur le marché classique. Pour l'officine, cela implique une compréhension rigoureuse des conditions de délivrance particulières liées à un CPC, une vigilance accrue quant au suivi des patients et une collaboration étroite avec les équipes médicales prescripteurs.
           </p>
-          <a href="http://www.meddispar.fr//Actualites/2026/Un-cadre-de-prescription-compassionnelle-CPC-pour-les-specialites-Methadone-AP-HP" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur Meddispar &rarr;
+          <a href="http://www.meddispar.fr//Actualites/2026/Un-cadre-de-prescription-compassionnelle-CPC-pour-les-specialites-Methadone-AP-HP" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur Meddispar
           </a>
-        </div>
+        </article>
       
       </div>
 
-      <div style="text-align: right; margin-top: 8px;">
-        <a href="#top" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280; text-decoration: none;">
-          &uarr; Retour au sommaire
+      <div style="text-align: right; margin-top: 14px;">
+        <a href="#top" class="back-to-top" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #64748b; text-decoration: none;">
+          Retour en haut
         </a>
       </div>
-    </div>
+    </section>
   
-    <a name="theme-2"></a>
-    <div id="theme-2" style="margin-bottom: 40px; padding-top: 10px;">
-      <div class="theme-header" style="border-bottom: 2px solid #0284c7; padding-bottom: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;">
-        <h3 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin: 0; color: inherit;">
-          💉 Vaccins & Prévention
-        </h3>
-        <span style="font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 10px; font-weight: 700; color: #6b7280;">
-          3 article(s)
+    <section id="theme-2" class="rubrique-section" style="margin-bottom: 46px; padding-top: 6px;">
+      <div class="rubrique-header" style="border-bottom: 2px solid #047857; padding-bottom: 8px; margin-bottom: 22px; display: flex; align-items: baseline; justify-content: space-between;">
+        <h2 class="rubrique-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 21px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; margin: 0; color: #047857;">
+          Vaccins & Prévention
+        </h2>
+        <span class="rubrique-count" style="font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px;">
+          3 articles
         </span>
       </div>
 
-      <div>
+      <div class="articles-list">
         
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #0284c7; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #0284c7; text-transform: uppercase; letter-spacing: 1px;">
-              💉 Source : MesVaccins.net
+        <article class="press-article" style="margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid #f1f5f9;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              MesVaccins.net
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 13 sept. 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                13 septembre 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="https://www.mesvaccins.net/web/news/24407-le-pakistan-signale-un-quatrieme-cas-de-poliomyelite-a-poliovirus-sauvage-de-type-1-cette-annee" target="_blank" style="color: inherit; text-decoration: none;">Poliomyélite : un quatrième cas de poliovirus sauvage confirmé au Pakistan</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            Le Pakistan a signalé son quatrième cas de poliomyélite à poliovirus sauvage de type 1 cette année, soulignant la persistance de cette maladie invalidante dans certaines régions du monde. Cette situation rappelle l'importance cruciale de la vaccination antipoliomyélitique pour les populations locales et les voyageurs internationaux. En officine, cette information permet de sensibiliser les patients voyageant vers des zones à risque sur la nécessité de vérifier leur statut vaccinal et, si besoin, de se faire vacciner contre la poliomyélite.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="https://www.mesvaccins.net/web/news/24407-le-pakistan-signale-un-quatrieme-cas-de-poliomyelite-a-poliovirus-sauvage-de-type-1-cette-annee" target="_blank" style="color: inherit; text-decoration: none;">Poliomyélite : un quatrième cas de poliovirus sauvage détecté au Pakistan</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            Le Pakistan a enregistré un quatrième cas de poliomyélite dû au poliovirus sauvage de type 1 cette année, soulignant la persistance de la maladie dans certaines régions du monde et les défis rencontrés par les campagnes d'éradication. Cette information est un rappel de l'importance cruciale de la vaccination et de la surveillance épidémiologique. Les équipes officinales doivent être sensibilisées à ce risque pour informer les voyageurs se rendant dans des zones endémiques sur l'actualisation de leur statut vaccinal et les mesures préventives à adopter.
           </p>
-          <a href="https://www.mesvaccins.net/web/news/24407-le-pakistan-signale-un-quatrieme-cas-de-poliomyelite-a-poliovirus-sauvage-de-type-1-cette-annee" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur MesVaccins.net &rarr;
+          <a href="https://www.mesvaccins.net/web/news/24407-le-pakistan-signale-un-quatrieme-cas-de-poliomyelite-a-poliovirus-sauvage-de-type-1-cette-annee" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur MesVaccins.net
           </a>
-        </div>
+        </article>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #0284c7; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #0284c7; text-transform: uppercase; letter-spacing: 1px;">
-              💉 Source : MesVaccins.net
+        <article class="press-article" style="margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid #f1f5f9;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              MesVaccins.net
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 11 sept. 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                11 septembre 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="https://www.mesvaccins.net/web/news/24404-tension-d-approvisionnement-sur-le-vaccin-m-m-rvaxpro" target="_blank" style="color: inherit; text-decoration: none;">Tension d'approvisionnement sur le vaccin ROR M-M-RVAXPRO</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            Une tension d'approvisionnement est signalée concernant le vaccin ROR M-M-RVAXPRO, utilisé pour la vaccination contre la rougeole, les oreillons et la rubéole. Cette situation peut impacter les programmes de vaccination, notamment chez l'enfant et l'adolescent. Les équipes officinales devront gérer leurs stocks avec rigueur, informer proactivement les patients et les professionnels de santé prescripteurs de cette difficulté, et envisager, en accord avec le médecin, les stratégies de vaccination alternatives ou de report des injections.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="https://www.mesvaccins.net/web/news/24404-tension-d-approvisionnement-sur-le-vaccin-m-m-rvaxpro" target="_blank" style="color: inherit; text-decoration: none;">M-M-RVAXPRO : une tension d'approvisionnement impacte le vaccin ROR</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            Une tension d'approvisionnement est signalée concernant le vaccin M-M-RVAXPRO, utilisé contre la rougeole, les oreillons et la rubéole (ROR). Cette situation peut entraîner des difficultés pour les calendriers de vaccination, notamment chez les jeunes enfants et les adolescents. Pour les équipes officinales, il est essentiel de suivre attentivement les informations de l'ANSM ou du laboratoire, de gérer les stocks avec parcimonie, d'informer clairement les patients ou leurs parents sur les délais éventuels et, si besoin, d'orienter vers les professionnels de santé pour des solutions alternatives ou un ajustement du calendrier vaccinal.
           </p>
-          <a href="https://www.mesvaccins.net/web/news/24404-tension-d-approvisionnement-sur-le-vaccin-m-m-rvaxpro" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur MesVaccins.net &rarr;
+          <a href="https://www.mesvaccins.net/web/news/24404-tension-d-approvisionnement-sur-le-vaccin-m-m-rvaxpro" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur MesVaccins.net
           </a>
-        </div>
+        </article>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #0284c7; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #0284c7; text-transform: uppercase; letter-spacing: 1px;">
-              💉 Source : MesVaccins.net
+        <article class="press-article" style="margin-bottom: 8px; ">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              MesVaccins.net
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 11 sept. 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                11 septembre 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="https://www.mesvaccins.net/web/news/24403-l-oms-approuve-un-vaccin-multidoses-contre-le-vrs-destine-aux-femmes-enceintes-pour-proteger-davantage-de-nourrissons" target="_blank" style="color: inherit; text-decoration: none;">L'OMS valide un vaccin VRS multidoses pour femmes enceintes</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            L'Organisation Mondiale de la Santé (OMS) a approuvé un vaccin multidoses contre le Virus Respiratoire Syncytial (VRS) spécifiquement destiné aux femmes enceintes. L'objectif est de protéger un plus grand nombre de nourrissons contre les infections respiratoires graves via le transfert d'anticorps maternels. Pour l'officine, cette validation signifie l'anticipation de nouvelles recommandations vaccinales. Les équipes devront se préparer à informer et conseiller les futures mères sur ce nouveau mode de prévention, qui représente une avancée majeure en santé publique infantile.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="https://www.mesvaccins.net/web/news/24403-l-oms-approuve-un-vaccin-multidoses-contre-le-vrs-destine-aux-femmes-enceintes-pour-proteger-davantage-de-nourrissons" target="_blank" style="color: inherit; text-decoration: none;">VRS : l'OMS approuve un vaccin multidoses pour les femmes enceintes</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            L'Organisation Mondiale de la Santé (OMS) a validé un nouveau vaccin multidoses ciblant le Virus Respiratoire Syncytial (VRS), spécifiquement destiné aux femmes enceintes afin de protéger leurs nourrissons. Cette avancée majeure offre une stratégie de prévention renforcée contre les infections graves à VRS chez les nouveau-nés grâce à l'immunité passive transférée. Les équipes officinales devront s'informer sur les futures recommandations vaccinales et leur mise en œuvre, afin de pouvoir conseiller efficacement les femmes enceintes et les jeunes parents sur l'intérêt de cette nouvelle approche prophylactique.
           </p>
-          <a href="https://www.mesvaccins.net/web/news/24403-l-oms-approuve-un-vaccin-multidoses-contre-le-vrs-destine-aux-femmes-enceintes-pour-proteger-davantage-de-nourrissons" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur MesVaccins.net &rarr;
+          <a href="https://www.mesvaccins.net/web/news/24403-l-oms-approuve-un-vaccin-multidoses-contre-le-vrs-destine-aux-femmes-enceintes-pour-proteger-davantage-de-nourrissons" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur MesVaccins.net
           </a>
-        </div>
+        </article>
       
       </div>
 
-      <div style="text-align: right; margin-top: 8px;">
-        <a href="#top" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280; text-decoration: none;">
-          &uarr; Retour au sommaire
+      <div style="text-align: right; margin-top: 14px;">
+        <a href="#top" class="back-to-top" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #64748b; text-decoration: none;">
+          Retour en haut
         </a>
       </div>
-    </div>
+    </section>
   
-    <a name="theme-3"></a>
-    <div id="theme-3" style="margin-bottom: 40px; padding-top: 10px;">
-      <div class="theme-header" style="border-bottom: 2px solid #b45309; padding-bottom: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;">
-        <h3 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin: 0; color: inherit;">
-          ⚖️ Réglementation & Ordre
-        </h3>
-        <span style="font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 10px; font-weight: 700; color: #6b7280;">
-          3 article(s)
+    <section id="theme-3" class="rubrique-section" style="margin-bottom: 46px; padding-top: 6px;">
+      <div class="rubrique-header" style="border-bottom: 2px solid #047857; padding-bottom: 8px; margin-bottom: 22px; display: flex; align-items: baseline; justify-content: space-between;">
+        <h2 class="rubrique-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 21px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; margin: 0; color: #047857;">
+          Réglementation & Ordre
+        </h2>
+        <span class="rubrique-count" style="font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px;">
+          3 articles
         </span>
       </div>
 
-      <div>
+      <div class="articles-list">
         
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #b45309; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #b45309; text-transform: uppercase; letter-spacing: 1px;">
-              ⚖️ Source : Ordre des Pharmaciens
+        <article class="press-article" style="margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid #f1f5f9;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              Ordre des Pharmaciens
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 14 sept. 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                14 septembre 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="https://www.ordre.pharmacien.fr/les-communications/focus-sur/les-actualites/fip-2026-les-enseignements-du-modele-quebecois" target="_blank" style="color: inherit; text-decoration: none;">FIP 2026 : Le modèle québécois et son apport pour l'exercice officinal</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            L'Ordre National des Pharmaciens met en lumière les enseignements du modèle québécois en vue du FIP 2026, dans le cadre de ses directives officielles pour l'exercice professionnel. Cette approche étrangère pourrait inspirer l'évolution des missions et des compétences du pharmacien d'officine en France, notamment en matière de suivi pharmaceutique ou de pratiques avancées. Il est essentiel pour les équipes de se tenir informées de ces réflexions afin d'anticiper les futurs développements de la profession et d'adapter leurs pratiques.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="https://www.ordre.pharmacien.fr/les-communications/focus-sur/les-actualites/fip-2026-les-enseignements-du-modele-quebecois" target="_blank" style="color: inherit; text-decoration: none;">FIP 2026 : le modèle québécois, source d'inspiration pour la pharmacie française</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            L'Ordre National des Pharmaciens invite la profession à se pencher sur les enseignements du modèle québécois, en vue du congrès FIP 2026. Cette démarche vise à explorer des pistes d'évolution pour l'exercice officinal en France, s'inspirant des avancées et de l'élargissement des compétences observés au Québec. Pour les équipes en officine, cela signifie une réflexion sur l'élargissement futur de leurs missions, l'optimisation des pratiques et l'adaptation à de nouveaux rôles, renforçant ainsi leur positionnement en tant qu'acteurs clés du système de santé.
           </p>
-          <a href="https://www.ordre.pharmacien.fr/les-communications/focus-sur/les-actualites/fip-2026-les-enseignements-du-modele-quebecois" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur Ordre des Pharmaciens &rarr;
+          <a href="https://www.ordre.pharmacien.fr/les-communications/focus-sur/les-actualites/fip-2026-les-enseignements-du-modele-quebecois" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur Ordre des Pharmaciens
           </a>
-        </div>
+        </article>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #b45309; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #b45309; text-transform: uppercase; letter-spacing: 1px;">
-              ⚖️ Source : Ordre des Pharmaciens
+        <article class="press-article" style="margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid #f1f5f9;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              Ordre des Pharmaciens
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 14 sept. 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                14 septembre 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="https://www.ordre.pharmacien.fr/les-communications/focus-sur/les-actualites/nutrition-quel-role-pour-le-pharmacien-d-officine" target="_blank" style="color: inherit; text-decoration: none;">Le rôle croissant du pharmacien d'officine en nutrition</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            L'Ordre National des Pharmaciens interroge et encourage le rôle du pharmacien d'officine en matière de nutrition, considérant l'importance de ce domaine pour la santé publique et la prévention des maladies. Cette directive officielle vise à renforcer les compétences des équipes officinales dans le conseil nutritionnel. Le pharmacien est appelé à développer son expertise pour guider les patients sur les bonnes pratiques alimentaires, les compléments adaptés et à jouer un rôle clé dans la prise en charge globale des pathologies liées à la nutrition.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="https://www.ordre.pharmacien.fr/les-communications/focus-sur/les-actualites/nutrition-quel-role-pour-le-pharmacien-d-officine" target="_blank" style="color: inherit; text-decoration: none;">Nutrition : l'Ordre s'interroge sur le rôle accru du pharmacien d'officine</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            L'Ordre National des Pharmaciens ouvre la réflexion sur le rôle que pourrait jouer le pharmacien d'officine en matière de nutrition. Cette initiative vise à définir comment les professionnels peuvent davantage s'impliquer dans le conseil, la prévention et l'accompagnement des patients sur les questions diététiques, de la supplémentation aux pathologies spécifiques. Pour les équipes, cela représente une opportunité de développer de nouvelles compétences, d'élargir les services proposés en officine et de renforcer leur expertise en santé publique, offrant un accompagnement holistique aux patients.
           </p>
-          <a href="https://www.ordre.pharmacien.fr/les-communications/focus-sur/les-actualites/nutrition-quel-role-pour-le-pharmacien-d-officine" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur Ordre des Pharmaciens &rarr;
+          <a href="https://www.ordre.pharmacien.fr/les-communications/focus-sur/les-actualites/nutrition-quel-role-pour-le-pharmacien-d-officine" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur Ordre des Pharmaciens
           </a>
-        </div>
+        </article>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #b45309; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #b45309; text-transform: uppercase; letter-spacing: 1px;">
-              ⚖️ Source : Ordre des Pharmaciens
+        <article class="press-article" style="margin-bottom: 8px; ">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              Ordre des Pharmaciens
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 14 sept. 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                14 septembre 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="https://www.ordre.pharmacien.fr/les-communications/focus-sur/les-actualites/chimiotherapies-a-base-de-fluoropyrimidines-capecitabine-et-5-fu-surveiller-les-effets-indesirables-et-adapter-les-doses" target="_blank" style="color: inherit; text-decoration: none;">Suivi des chimiothérapies fluoropyrimidines : vigilance sur les effets indésirables et l'adaptation posologique</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            L'Ordre National des Pharmaciens rappelle l'importance cruciale de la surveillance des effets indésirables et de l'adaptation des doses pour les chimiothérapies à base de fluoropyrimidines (capécitabine et 5-FU). Cette directive souligne le rôle essentiel de l'officine dans l'accompagnement des patients sous ces traitements à marge thérapeutique étroite. Les équipes doivent renforcer le conseil aux patients sur la reconnaissance des toxicités, l'importance de les signaler et la coordination avec le prescripteur pour toute adaptation posologique nécessaire.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="https://www.ordre.pharmacien.fr/les-communications/focus-sur/les-actualites/chimiotherapies-a-base-de-fluoropyrimidines-capecitabine-et-5-fu-surveiller-les-effets-indesirables-et-adapter-les-doses" target="_blank" style="color: inherit; text-decoration: none;">Fluoropyrimidines : l'Ordre alerte sur la surveillance des effets indésirables et l'ajustement des doses</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            L'Ordre National des Pharmaciens émet une directive soulignant l'importance capitale de la surveillance des effets indésirables et de l'adaptation posologique des chimiothérapies à base de fluoropyrimidines (capécitabine et 5-FU). Ces médicaments requièrent une vigilance particulière en raison de leur toxicité potentielle. Les équipes officinales jouent un rôle clé dans l'éducation thérapeutique du patient, l'identification précoce des signes d'alerte et la communication avec les oncologues, afin de garantir la sécurité et l'efficacité du traitement tout en améliorant la qualité de vie des patients.
           </p>
-          <a href="https://www.ordre.pharmacien.fr/les-communications/focus-sur/les-actualites/chimiotherapies-a-base-de-fluoropyrimidines-capecitabine-et-5-fu-surveiller-les-effets-indesirables-et-adapter-les-doses" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur Ordre des Pharmaciens &rarr;
+          <a href="https://www.ordre.pharmacien.fr/les-communications/focus-sur/les-actualites/chimiotherapies-a-base-de-fluoropyrimidines-capecitabine-et-5-fu-surveiller-les-effets-indesirables-et-adapter-les-doses" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur Ordre des Pharmaciens
           </a>
-        </div>
+        </article>
       
       </div>
 
-      <div style="text-align: right; margin-top: 8px;">
-        <a href="#top" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280; text-decoration: none;">
-          &uarr; Retour au sommaire
+      <div style="text-align: right; margin-top: 14px;">
+        <a href="#top" class="back-to-top" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #64748b; text-decoration: none;">
+          Retour en haut
         </a>
       </div>
-    </div>
+    </section>
   
-    <a name="theme-4"></a>
-    <div id="theme-4" style="margin-bottom: 40px; padding-top: 10px;">
-      <div class="theme-header" style="border-bottom: 2px solid #6366f1; padding-bottom: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;">
-        <h3 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin: 0; color: inherit;">
-          📑 Conventions & Facturation
-        </h3>
-        <span style="font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 10px; font-weight: 700; color: #6b7280;">
-          6 article(s)
+    <section id="theme-4" class="rubrique-section" style="margin-bottom: 46px; padding-top: 6px;">
+      <div class="rubrique-header" style="border-bottom: 2px solid #047857; padding-bottom: 8px; margin-bottom: 22px; display: flex; align-items: baseline; justify-content: space-between;">
+        <h2 class="rubrique-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 21px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; margin: 0; color: #047857;">
+          Conventions & Facturation
+        </h2>
+        <span class="rubrique-count" style="font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px;">
+          6 articles
         </span>
       </div>
 
-      <div>
+      <div class="articles-list">
         
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #6366f1; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #6366f1; text-transform: uppercase; letter-spacing: 1px;">
-              📑 Source : USPO
+        <article class="press-article" style="margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid #f1f5f9;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              USPO
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 10 sept. 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                10 septembre 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="https://uspo.fr/contrats-dapprentissage-actualisation-des-niveaux-de-prise-en-charge/" target="_blank" style="color: inherit; text-decoration: none;">Contrats d'apprentissage : Nouveaux niveaux de prise en charge pour les préparateurs en pharmacie</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            Un décret du 29 août 2026 a actualisé les Niveaux de Prise En Charge (NPEC) des contrats d’apprentissage, avec un impact direct sur les formations de préparateur/technicien en pharmacie d’officine. Cette modification réglementaire est cruciale pour les employeurs. Les titulaires d'officine doivent consulter ces nouveaux barèmes pour évaluer les coûts et les aides associées à l'embauche d'apprentis, et ajuster leur budget formation en conséquence, afin de garantir la pérennité de l'apprentissage au sein de leurs équipes.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="https://uspo.fr/contrats-dapprentissage-actualisation-des-niveaux-de-prise-en-charge/" target="_blank" style="color: inherit; text-decoration: none;">Apprentissage en pharmacie : les niveaux de prise en charge des contrats actualisés</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            Un décret du 29 août 2026 actualise les Niveaux de Prise En Charge (NPEC) des contrats d'apprentissage, une mesure qui impacte directement la formation des préparateurs et techniciens en pharmacie d'officine. Cette modification a des répercussions financières pour les titulaires d'officine employant des apprentis. Il est essentiel pour les employeurs de prendre connaissance de ces nouveaux barèmes afin d'optimiser la gestion de leurs contrats d'apprentissage et de continuer à soutenir l'intégration professionnelle des jeunes talents dans la profession.
           </p>
-          <a href="https://uspo.fr/contrats-dapprentissage-actualisation-des-niveaux-de-prise-en-charge/" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur USPO &rarr;
+          <a href="https://uspo.fr/contrats-dapprentissage-actualisation-des-niveaux-de-prise-en-charge/" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur USPO
           </a>
-        </div>
+        </article>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #6366f1; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #6366f1; text-transform: uppercase; letter-spacing: 1px;">
-              📑 Source : USPO
+        <article class="press-article" style="margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid #f1f5f9;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              USPO
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 10 sept. 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                10 septembre 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="https://uspo.fr/sante-sexuelle-feuille-de-route/" target="_blank" style="color: inherit; text-decoration: none;">Publication de la feuille de route 2026-2030 pour la santé sexuelle</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            Le ministère de la Santé a dévoilé sa feuille de route 2026-2030 dédiée aux enjeux de santé sexuelle, visant à renforcer la prévention et l'accès aux soins. Cette initiative nationale souligne le rôle grandissant des pharmaciens dans ce domaine. Les équipes officinales sont invitées à s'approprier ces orientations pour mieux accompagner les patients sur des sujets sensibles comme la contraception, la prévention des IST et le dépistage, et à anticiper les éventuelles nouvelles missions qui pourraient en découler.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="https://uspo.fr/sante-sexuelle-feuille-de-route/" target="_blank" style="color: inherit; text-decoration: none;">Santé sexuelle : le ministère dévoile sa feuille de route 2026-2030</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            Le ministère de la Santé a publié sa feuille de route stratégique pour la santé sexuelle couvrant la période 2026-2030. Ce document cadre les actions prioritaires en matière de prévention, dépistage et prise en charge. Pour les équipes officinales, cela signifie un rôle potentiellement accru dans l'accompagnement des patients sur ces questions sensibles : délivrance de contraceptifs, conseil sur les IST, orientation vers les structures adaptées. L'officine doit se tenir prête à renforcer son expertise pour répondre aux enjeux de santé publique définis par cette feuille de route.
           </p>
-          <a href="https://uspo.fr/sante-sexuelle-feuille-de-route/" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur USPO &rarr;
+          <a href="https://uspo.fr/sante-sexuelle-feuille-de-route/" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur USPO
           </a>
-        </div>
+        </article>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #6366f1; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #6366f1; text-transform: uppercase; letter-spacing: 1px;">
-              📑 Source : USPO
+        <article class="press-article" style="margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid #f1f5f9;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              USPO
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 10 sept. 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                10 septembre 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="https://uspo.fr/traitements-du-diabete-novonordisk-plusieurs-arrets-de-commercialisation/" target="_blank" style="color: inherit; text-decoration: none;">Novo Nordisk : Arrêts de commercialisation multiples pour des traitements du diabète</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            Le laboratoire Novo Nordisk a annoncé l'arrêt de commercialisation de plusieurs traitements du diabète d'ici la fin de l'année 2026. Cette décision aura des conséquences majeures pour de nombreux patients diabétiques. Les équipes officinales doivent dès à présent identifier les patients concernés, anticiper les ruptures de stock potentielles et, en étroite collaboration avec les prescripteurs, organiser la transition vers des traitements alternatifs afin de garantir la continuité des soins et éviter toute interruption.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="https://uspo.fr/traitements-du-diabete-novonordisk-plusieurs-arrets-de-commercialisation/" target="_blank" style="color: inherit; text-decoration: none;">Diabète : plusieurs traitements Novo Nordisk arrêtés d'ici fin 2026</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            Le laboratoire Novo Nordisk a annoncé l'arrêt de commercialisation de plusieurs de ses traitements contre le diabète, avec une prise d'effet prévue d'ici la fin de l'année 2026. Cette décision, regrettée par l'USPO, aura des conséquences significatives sur la gestion des patients diabétiques. Les équipes officinales devront anticiper ces changements, identifier les patients concernés, collaborer étroitement avec les prescripteurs pour l'adaptation des traitements et assurer un accompagnement pédagogique essentiel pour éviter toute rupture de soin et rassurer les patients.
           </p>
-          <a href="https://uspo.fr/traitements-du-diabete-novonordisk-plusieurs-arrets-de-commercialisation/" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur USPO &rarr;
+          <a href="https://uspo.fr/traitements-du-diabete-novonordisk-plusieurs-arrets-de-commercialisation/" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur USPO
           </a>
-        </div>
+        </article>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #6366f1; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #6366f1; text-transform: uppercase; letter-spacing: 1px;">
-              📑 Source : FSPF
+        <article class="press-article" style="margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid #f1f5f9;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              FSPF
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 11 sept. 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                11 septembre 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="https://www.fspf.fr/alerte-de-lansm-sur-les-contraceptifs-a-base-de-desogestrel-consultez-notre-fiche-pratique/" target="_blank" style="color: inherit; text-decoration: none;">Contraceptifs à désogestrel : alerte de l'ANSM et recommandations</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            Suite aux résultats d'une étude d'EPI-PHARE, l'ANSM émet une alerte sur les contraceptifs à base de désogestrel et s'apprête à informer 1,5 million de patientes par courrier. Les équipes officinales doivent impérativement prendre connaissance de la fiche pratique associée pour maîtriser les recommandations de l'ANSM. Elles devront anticiper les questions des patientes, les rassurer et, si nécessaire, les orienter vers leur médecin pour une réévaluation de leur contraception.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="https://www.fspf.fr/alerte-de-lansm-sur-les-contraceptifs-a-base-de-desogestrel-consultez-notre-fiche-pratique/" target="_blank" style="color: inherit; text-decoration: none;">Désogestrel : alerte de l'ANSM après l'étude EPI-PHARE, 1,5 million de patientes concernées</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            Suite aux résultats de l'étude EPI-PHARE, l'ANSM s'apprête à alerter 1,5 million de patientes utilisant des contraceptifs à base de désogestrel. Cette démarche vise à informer les utilisatrices sur d'éventuels risques ou recommandations actualisées. Les équipes officinales doivent impérativement prendre connaissance de cette alerte, se référer à la fiche pratique de la FSPF et se préparer à répondre aux interrogations des patientes. Leur rôle sera crucial pour le conseil, la rassurance et, si nécessaire, l'orientation vers le prescripteur pour une réévaluation du traitement contraceptif.
           </p>
-          <a href="https://www.fspf.fr/alerte-de-lansm-sur-les-contraceptifs-a-base-de-desogestrel-consultez-notre-fiche-pratique/" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur FSPF &rarr;
+          <a href="https://www.fspf.fr/alerte-de-lansm-sur-les-contraceptifs-a-base-de-desogestrel-consultez-notre-fiche-pratique/" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur FSPF
           </a>
-        </div>
+        </article>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #6366f1; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #6366f1; text-transform: uppercase; letter-spacing: 1px;">
-              📑 Source : FSPF
+        <article class="press-article" style="margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid #f1f5f9;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              FSPF
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 8 sept. 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                8 septembre 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="https://www.fspf.fr/carte-vitale-pour-les-mineurs-les-modalites-de-delivrance-enfin-publiees/" target="_blank" style="color: inherit; text-decoration: none;">Modalités de délivrance de la Carte Vitale pour les mineurs de 12 ans et plus</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            Un arrêté du 28 août, paru au Journal Officiel, précise les conditions de délivrance de la Carte Vitale pour les mineurs âgés d’au moins 12 ans. Cette mesure, en application de l'article R. 161-33-2 du Code de la Sécurité Sociale, vise à renforcer l'autonomie des jeunes dans la gestion de leurs droits santé. Les équipes officinales doivent s'informer de ces nouvelles modalités pour une prise en charge fluide lors de la présentation d'une Carte Vitale par un patient mineur, facilitant ainsi leur parcours de soins.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="https://www.fspf.fr/carte-vitale-pour-les-mineurs-les-modalites-de-delivrance-enfin-publiees/" target="_blank" style="color: inherit; text-decoration: none;">Carte Vitale des mineurs : les modalités de délivrance pour les 12 ans et plus sont fixées</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            Un arrêté, publié au Journal officiel du 28 août, vient préciser les conditions de délivrance de la Carte Vitale pour les mineurs âgés d'au moins 12 ans, concrétisant une mesure en vigueur depuis janvier 2023. Cette clarification réglementaire simplifie les démarches pour les jeunes et leurs familles. Pour les équipes officinales, il est essentiel de maîtriser ces nouvelles modalités afin d'assurer une facturation fluide, de vérifier l'identité des porteurs de carte et de répondre aux questions des parents et des adolescents concernant l'autonomie liée à l'utilisation de leur propre Carte Vitale.
           </p>
-          <a href="https://www.fspf.fr/carte-vitale-pour-les-mineurs-les-modalites-de-delivrance-enfin-publiees/" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur FSPF &rarr;
+          <a href="https://www.fspf.fr/carte-vitale-pour-les-mineurs-les-modalites-de-delivrance-enfin-publiees/" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur FSPF
           </a>
-        </div>
+        </article>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #6366f1; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #6366f1; text-transform: uppercase; letter-spacing: 1px;">
-              📑 Source : FSPF
+        <article class="press-article" style="margin-bottom: 8px; ">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              FSPF
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 7 sept. 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                7 septembre 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="https://www.fspf.fr/comment-calculer-la-remuneration-de-vos-apprentis-decouvrez-le-nouvel-outil-propose-par-la-fspf/" target="_blank" style="color: inherit; text-decoration: none;">Nouvel outil FSPF pour le calcul de la rémunération des apprentis préparateurs</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            Face à la complexité du calcul de la rémunération des élèves préparateurs/techniciens en pharmacie, la FSPF propose un nouvel outil pratique. Celui-ci vise à simplifier la détermination des salaires, en tenant compte des multiples critères (type de contrat, âge, diplôme, année de formation) qui influencent cette rémunération. Cet instrument est une aide précieuse pour les titulaires d'officine afin d'assurer une gestion administrative rigoureuse et conforme à la législation, facilitant l'intégration des apprentis.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="https://www.fspf.fr/comment-calculer-la-remuneration-de-vos-apprentis-decouvrez-le-nouvel-outil-propose-par-la-fspf/" target="_blank" style="color: inherit; text-decoration: none;">Rémunération des apprentis préparateurs : un nouvel outil FSPF pour simplifier le calcul</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            Face à la complexité du calcul de la rémunération des élèves préparateurs et techniciens en pharmacie, la FSPF propose un nouvel outil pratique. Ce dispositif vise à simplifier la détermination du salaire, en tenant compte des multiples critères comme le type de contrat, l'âge de l'apprenti, son diplôme et l'année de formation. Cet outil représente un soutien précieux pour les titulaires et adjoints, leur permettant d'assurer une rémunération juste et conforme à la réglementation, et de mieux gérer leurs équipes tout en valorisant l'apprentissage en officine.
           </p>
-          <a href="https://www.fspf.fr/comment-calculer-la-remuneration-de-vos-apprentis-decouvrez-le-nouvel-outil-propose-par-la-fspf/" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur FSPF &rarr;
+          <a href="https://www.fspf.fr/comment-calculer-la-remuneration-de-vos-apprentis-decouvrez-le-nouvel-outil-propose-par-la-fspf/" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur FSPF
           </a>
-        </div>
+        </article>
       
       </div>
 
-      <div style="text-align: right; margin-top: 8px;">
-        <a href="#top" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280; text-decoration: none;">
-          &uarr; Retour au sommaire
+      <div style="text-align: right; margin-top: 14px;">
+        <a href="#top" class="back-to-top" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #64748b; text-decoration: none;">
+          Retour en haut
         </a>
       </div>
-    </div>
+    </section>
   
-    <a name="theme-5"></a>
-    <div id="theme-5" style="margin-bottom: 40px; padding-top: 10px;">
-      <div class="theme-header" style="border-bottom: 2px solid #10b981; padding-bottom: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;">
-        <h3 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin: 0; color: inherit;">
-          🏥 Vie de l'Officine & Pratique
-        </h3>
-        <span style="font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 10px; font-weight: 700; color: #6b7280;">
-          6 article(s)
+    <section id="theme-5" class="rubrique-section" style="margin-bottom: 46px; padding-top: 6px;">
+      <div class="rubrique-header" style="border-bottom: 2px solid #047857; padding-bottom: 8px; margin-bottom: 22px; display: flex; align-items: baseline; justify-content: space-between;">
+        <h2 class="rubrique-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 21px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; margin: 0; color: #047857;">
+          Vie de l'Officine & Pratique
+        </h2>
+        <span class="rubrique-count" style="font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px;">
+          6 articles
         </span>
       </div>
 
-      <div>
+      <div class="articles-list">
         
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #10b981; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #10b981; text-transform: uppercase; letter-spacing: 1px;">
-              🏥 Source : Le Moniteur des Pharmacies
+        <article class="press-article" style="margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid #f1f5f9;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              Le Moniteur des Pharmacies
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 13 sept. 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                13 septembre 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="https://www.lemoniteurdespharmacies.fr/business/rh-et-management/carriere/management-la-reconnaissance-un-investissement-rentable" target="_blank" style="color: inherit; text-decoration: none;">Management : L'importance de la reconnaissance au travail en officine</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            L'article du Moniteur des Pharmacies met en lumière l'importance de la reconnaissance au travail comme un investissement managérial rentable, contredisant les idées reçues. Souligner le travail bien fait des équipes en officine est crucial pour la motivation, l'engagement et la fidélisation des collaborateurs. Les titulaires et adjoints sont encouragés à adopter des pratiques de reconnaissance active pour renforcer la cohésion d'équipe, améliorer le climat social et, in fine, optimiser la performance globale de l'officine.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="https://www.lemoniteurdespharmacies.fr/business/rh-et-management/carriere/management-la-reconnaissance-un-investissement-rentable" target="_blank" style="color: inherit; text-decoration: none;">Management : la reconnaissance des équipes, un investissement rentable pour l'officine</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            Le Moniteur des Pharmacies met en lumière l'importance de la reconnaissance au sein des équipes officinales, la présentant comme un levier managérial puissant et un investissement rentable. Loin des idées reçues, féliciter un travail bien fait stimule la motivation, la fidélisation et l'engagement des collaborateurs. Les titulaires et adjoints sont invités à intégrer cette pratique essentielle à leur quotidien. Adopter une culture de la reconnaissance permet non seulement d'améliorer le climat social de l'officine, mais aussi d'optimiser la performance globale de l'équipe.
           </p>
-          <a href="https://www.lemoniteurdespharmacies.fr/business/rh-et-management/carriere/management-la-reconnaissance-un-investissement-rentable" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur Le Moniteur des Pharmacies &rarr;
+          <a href="https://www.lemoniteurdespharmacies.fr/business/rh-et-management/carriere/management-la-reconnaissance-un-investissement-rentable" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur Le Moniteur des Pharmacies
           </a>
-        </div>
+        </article>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #10b981; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #10b981; text-transform: uppercase; letter-spacing: 1px;">
-              🏥 Source : Le Moniteur des Pharmacies
+        <article class="press-article" style="margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid #f1f5f9;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              Le Moniteur des Pharmacies
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 13 sept. 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                13 septembre 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="https://www.lemoniteurdespharmacies.fr/conseils/fiches-pratiques/quelles-sont-les-contre-indications-et-les-interactions-medicamenteuses-du-minoxidil-par-voie-topique" target="_blank" style="color: inherit; text-decoration: none;">Minoxidil topique : Contre-indications et interactions médicamenteuses</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            Le minoxidil par voie topique est un traitement courant de l'alopécie androgénétique. L'article détaille ses contre-indications et interactions médicamenteuses, essentielles à connaître pour une délivrance sécurisée. Les équipes officinales doivent impérativement interroger les patients sur leurs antécédents médicaux (notamment cardiovasculaires) et leurs traitements concomitants avant toute dispensation. Un conseil rigoureux est nécessaire pour informer des effets indésirables potentiels et s'assurer de la bonne observance du traitement.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="https://www.lemoniteurdespharmacies.fr/conseils/fiches-pratiques/quelles-sont-les-contre-indications-et-les-interactions-medicamenteuses-du-minoxidil-par-voie-topique" target="_blank" style="color: inherit; text-decoration: none;">Minoxidil topique : contre-indications et interactions médicamenteuses à maîtriser</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            Le Moniteur des Pharmacies rappelle l'importance pour les équipes officinales de maîtriser les contre-indications et interactions médicamenteuses du minoxidil par voie topique, un traitement courant de l'alopécie androgénétique. Malgré son efficacité, une utilisation inappropriée peut entraîner des risques pour le patient. Les pharmaciens et préparateurs doivent être vigilants lors du conseil, notamment sur les antécédents cardiovasculaires, l'utilisation concomitante d'autres médicaments et les réactions cutanées, afin d'assurer la sécurité d'emploi et d'optimiser l'efficacité du traitement par une information juste et complète.
           </p>
-          <a href="https://www.lemoniteurdespharmacies.fr/conseils/fiches-pratiques/quelles-sont-les-contre-indications-et-les-interactions-medicamenteuses-du-minoxidil-par-voie-topique" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur Le Moniteur des Pharmacies &rarr;
+          <a href="https://www.lemoniteurdespharmacies.fr/conseils/fiches-pratiques/quelles-sont-les-contre-indications-et-les-interactions-medicamenteuses-du-minoxidil-par-voie-topique" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur Le Moniteur des Pharmacies
           </a>
-        </div>
+        </article>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #10b981; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #10b981; text-transform: uppercase; letter-spacing: 1px;">
-              🏥 Source : Le Moniteur des Pharmacies
+        <article class="press-article" style="margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid #f1f5f9;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              Le Moniteur des Pharmacies
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 13 sept. 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                13 septembre 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="https://www.lemoniteurdespharmacies.fr/therapeutique/produits/autres/diarrhees-sous-antibiotiques-novabiotic-la-nutrition-infantile-des-lage-de-6-mois" target="_blank" style="color: inherit; text-decoration: none;">NovaBiotic : Solution nutritionnelle pour diarrhées post-antibiotiques chez l'enfant dès 6 mois</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            NovaBiotic est présenté comme une option diététique temporaire pour les nourrissons et enfants de plus de 6 mois souffrant de diarrhées associées aux antibiotiques. Conçu pour être utilisé en alternance avec le lait habituel, ce produit vise à maintenir un apport nutritionnel adéquat. Les équipes officinales doivent connaître cette solution pour conseiller efficacement les parents. Il est primordial d'expliquer le mode d'emploi, l'importance de l'hydratation et le rôle de NovaBiotic dans la gestion du confort digestif de l'enfant.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="https://www.lemoniteurdespharmacies.fr/therapeutique/produits/autres/diarrhees-sous-antibiotiques-novabiotic-la-nutrition-infantile-des-lage-de-6-mois" target="_blank" style="color: inherit; text-decoration: none;">NovaBiotic : une option diététique pour les diarrhées post-antibiotiques chez l'enfant dès 6 mois</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            Le Moniteur des Pharmacies présente NovaBiotic, une nouvelle option diététique temporaire destinée aux nourrissons et enfants dès 6 mois souffrant de diarrhées associées aux antibiotiques. Ce produit, conçu pour être utilisé en alternance avec le lait habituel, vise à maintenir un apport nutritionnel adéquat pendant la phase aiguë. Les équipes officinales sont appelées à conseiller les parents sur son utilisation appropriée, à en expliquer les bénéfices et à s'assurer qu'il s'inscrit dans une prise en charge globale, tout en rappelant les signes nécessitant une consultation médicale urgente.
           </p>
-          <a href="https://www.lemoniteurdespharmacies.fr/therapeutique/produits/autres/diarrhees-sous-antibiotiques-novabiotic-la-nutrition-infantile-des-lage-de-6-mois" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur Le Moniteur des Pharmacies &rarr;
+          <a href="https://www.lemoniteurdespharmacies.fr/therapeutique/produits/autres/diarrhees-sous-antibiotiques-novabiotic-la-nutrition-infantile-des-lage-de-6-mois" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur Le Moniteur des Pharmacies
           </a>
-        </div>
+        </article>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #10b981; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #10b981; text-transform: uppercase; letter-spacing: 1px;">
-              🏥 Source : Le Quotidien du Pharmacien
+        <article class="press-article" style="margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid #f1f5f9;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              Le Quotidien du Pharmacien
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 13 sept. 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                13 septembre 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="http://www.lequotidiendupharmacien.fr/derniers-jours-pour-participer-la-grand-consultation-sante-du-shift-project" target="_blank" style="color: inherit; text-decoration: none;">Shift Project : Ultimes jours pour participer à la consultation santé climat</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            La Grande consultation santé du Shift Project, portant sur les liens entre santé, énergie et changement climatique, arrive à son terme le 20 septembre 2026. Près de 3 000 pharmaciens ont déjà apporté leur contribution à cette enquête nationale majeure. Les professionnels de l'officine n'ayant pas encore participé sont invités à le faire sans tarder, afin de faire entendre leur voix sur ces enjeux cruciaux pour l'avenir de notre système de santé et l'adaptation des pratiques officinales.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="http://www.lequotidiendupharmacien.fr/derniers-jours-pour-participer-la-grand-consultation-sante-du-shift-project" target="_blank" style="color: inherit; text-decoration: none;">Santé, énergie, climat : derniers jours pour participer à la consultation du Shift Project</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            La Grande Consultation Santé du Shift Project, explorant les liens cruciaux entre santé, énergie et changement climatique, entre dans sa dernière ligne droite. Les professionnels de santé, dont près de 3 000 pharmaciens déjà mobilisés, ont jusqu'au 20 septembre 2026 pour y apporter leur contribution. Il est essentiel pour les équipes officinales de participer à cette enquête nationale, afin de faire entendre la voix de la profession sur ces enjeux majeurs de santé publique et d'environnement, et d'influencer les réflexions futures sur la transition écologique du secteur.
           </p>
-          <a href="http://www.lequotidiendupharmacien.fr/derniers-jours-pour-participer-la-grand-consultation-sante-du-shift-project" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur Le Quotidien du Pharmacien &rarr;
+          <a href="http://www.lequotidiendupharmacien.fr/derniers-jours-pour-participer-la-grand-consultation-sante-du-shift-project" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur Le Quotidien du Pharmacien
           </a>
-        </div>
+        </article>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #10b981; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #10b981; text-transform: uppercase; letter-spacing: 1px;">
-              🏥 Source : Le Quotidien du Pharmacien
+        <article class="press-article" style="margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid #f1f5f9;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              Le Quotidien du Pharmacien
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 11 sept. 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                11 septembre 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="http://www.lequotidiendupharmacien.fr/exercice-pro/negociations-conventionnelles-la-fspf-veut-passer-la-vitesse-superieure" target="_blank" style="color: inherit; text-decoration: none;">Négociations conventionnelles : La FSPF presse pour une accélération</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            La FSPF, bien que globalement satisfaite de la lettre de cadrage ministérielle du 9 septembre, appelle à une accélération des négociations conventionnelles avec la Cnam et les syndicats. Jugeant que « trop de temps a été perdu », le syndicat souhaite l'ouverture immédiate des discussions, sans attendre les résultats de l'enquête de représentativité. Cette actualité est capitale pour les équipes officinales, car elle préfigure les futures orientations de la profession en matière de missions et de rémunération.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="http://www.lequotidiendupharmacien.fr/exercice-pro/negociations-conventionnelles-la-fspf-veut-passer-la-vitesse-superieure" target="_blank" style="color: inherit; text-decoration: none;">Négociations conventionnelles : la FSPF exige une accélération des discussions</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            La FSPF, globalement satisfaite de la lettre de cadrage du 9 septembre de la ministre de la Santé, déplore la lenteur des processus et appelle à une accélération des négociations conventionnelles. Le syndicat presse l'ouverture des discussions sans attendre l'issue de l'enquête de représentativité. Pour les équipes officinales, l'enjeu est majeur : ces négociations détermineront l'évolution des rémunérations, l'élargissement des missions et l'amélioration des conditions d'exercice. Il est donc crucial de suivre ces avancées syndicales qui impacteront directement la vie de l'officine.
           </p>
-          <a href="http://www.lequotidiendupharmacien.fr/exercice-pro/negociations-conventionnelles-la-fspf-veut-passer-la-vitesse-superieure" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur Le Quotidien du Pharmacien &rarr;
+          <a href="http://www.lequotidiendupharmacien.fr/exercice-pro/negociations-conventionnelles-la-fspf-veut-passer-la-vitesse-superieure" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur Le Quotidien du Pharmacien
           </a>
-        </div>
+        </article>
       
-        <div class="article-card" style="background: #fafafa; border: 1px solid #e5e7eb; border-left: 4px solid #10b981; border-radius: 4px; padding: 18px; margin-bottom: 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
-            <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10px; font-weight: 800; color: #10b981; text-transform: uppercase; letter-spacing: 1px;">
-              🏥 Source : Le Quotidien du Pharmacien
+        <article class="press-article" style="margin-bottom: 8px; ">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+            <span class="source-tag" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+              Le Quotidien du Pharmacien
             </span>
             
-              <span class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280;">
-                📅 11 sept. 2026
-              </span>
+              <time class="article-date" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b;">
+                11 septembre 2026
+              </time>
             
           </div>
-          <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 18px; font-weight: 800; line-height: 1.35; margin: 0 0 10px 0; color: #111827;">
-            <a href="http://www.lequotidiendupharmacien.fr/exercice-pro/vaccination-hpv-linca-encourage-les-pharmaciens-aller-vers-les-jeunes" target="_blank" style="color: inherit; text-decoration: none;">Vaccination HPV : L'Inca incite les pharmaciens à la sensibilisation des jeunes</a>
-          </h4>
-          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #374151; margin: 0 0 14px 0;">
-            L'Institut National du Cancer (Inca) exhorte les pharmaciens à intensifier leurs actions de sensibilisation auprès des parents et des jeunes jusqu'à 26 ans concernant la vaccination contre les papillomavirus humains (HPV). L'Inca rappelle que les vaccins sont administrables directement à l'officine. Cette mission de santé publique est essentielle pour améliorer la couverture vaccinale et prévenir les cancers liés au HPV. Les équipes doivent donc être proactives dans le conseil et l'information des patients.
+          <h3 class="article-title" style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 19px; font-weight: 700; line-height: 1.35; margin: 0 0 10px 0; color: #0f172a;">
+            <a href="http://www.lequotidiendupharmacien.fr/exercice-pro/vaccination-hpv-linca-encourage-les-pharmaciens-aller-vers-les-jeunes" target="_blank" style="color: inherit; text-decoration: none;">Vaccination HPV : l'Inca exhorte les pharmaciens à cibler jeunes et parents</a>
+          </h3>
+          <p class="article-snippet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.65; color: #334155; margin: 0 0 12px 0;">
+            L'Institut National du Cancer (Inca) lance un appel aux pharmaciens pour qu'ils intensifient leurs efforts de sensibilisation auprès des jeunes jusqu'à 26 ans et de leurs parents concernant la vaccination contre les papillomavirus humains (HPV). Il est crucial d'informer que cette vaccination peut désormais être réalisée directement à l'officine. Les équipes sont invitées à adopter une approche proactive dans le conseil, contribuant ainsi à l'amélioration de la couverture vaccinale et à la prévention des cancers liés au HPV, un enjeu majeur de santé publique.
           </p>
-          <a href="http://www.lequotidiendupharmacien.fr/exercice-pro/vaccination-hpv-linca-encourage-les-pharmaciens-aller-vers-les-jeunes" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline;">
-            En savoir plus sur Le Quotidien du Pharmacien &rarr;
+          <a href="http://www.lequotidiendupharmacien.fr/exercice-pro/vaccination-hpv-linca-encourage-les-pharmaciens-aller-vers-les-jeunes" target="_blank" class="editorial-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #047857; text-decoration: underline; text-underline-offset: 2px;">
+            Lire sur Le Quotidien du Pharmacien
           </a>
-        </div>
+        </article>
       
       </div>
 
-      <div style="text-align: right; margin-top: 8px;">
-        <a href="#top" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280; text-decoration: none;">
-          &uarr; Retour au sommaire
+      <div style="text-align: right; margin-top: 14px;">
+        <a href="#top" class="back-to-top" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #64748b; text-decoration: none;">
+          Retour en haut
         </a>
       </div>
-    </div>
+    </section>
   
 
-    <!-- LIEN VERSION WEB -->
-    <div class="web-cta-box" style="text-align: center; margin: 30px 0 16px 0; padding: 20px; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 6px;">
-      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; color: #065f46; margin-bottom: 10px; font-weight: 600;">
-        Consultez l'édition complète mise à jour en continu sur votre portail d'officine :
+    <!-- ENCART CONSULTATION WEB -->
+    <div class="web-edition-box" style="text-align: center; margin: 36px 0 24px 0; padding: 22px 20px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 4px;">
+      <div style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 15px; font-weight: 700; color: #047857; margin-bottom: 6px;">
+        Édition numérique Suprapharm Quotidien
       </div>
-      <a href="https://news.suprapharm.fr" target="_blank" style="display: inline-block; background: #059669; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px; font-weight: 700; text-decoration: none; padding: 12px 26px; border-radius: 4px; box-shadow: 0 2px 6px rgba(5,150,105,0.3);">
-        🌐 Ouvrir en direct sur news.suprapharm.fr &rarr;
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; color: #64748b; margin-bottom: 14px;">
+        Veille actualisée en continu pour l'ensemble des pharmacies du groupement
+      </div>
+      <a href="https://news.suprapharm.fr" target="_blank" style="display: inline-block; background: #047857; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; text-decoration: none; padding: 10px 22px; border-radius: 3px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+        Consulter sur news.suprapharm.fr
       </a>
     </div>
 
-    <!-- FOOTER AVEC LOGO SUPRAPHARM (CAPTURE 2) & DISCLAIMER LÉGAL -->
-    <div class="footer-colophon" style="border-top: 2px solid #a7f3d0; padding-top: 22px; margin-top: 24px; text-align: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #6b7280; line-height: 1.6;">
-      <div style="margin-bottom: 12px;">
-        <img src="https://news.suprapharm.fr/logo.png" alt="Logo Suprapharm" style="max-width: 240px; width: 100%; height: auto; display: inline-block; vertical-align: middle;" />
+    <!-- COLOPHON & DISCLAIMER LÉGAL -->
+    <footer class="footer-colophon" style="border-top: 1px solid #e2e8f0; padding-top: 24px; margin-top: 20px; text-align: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; color: #64748b; line-height: 1.6;">
+      <div style="margin-bottom: 14px;">
+        <img src="https://news.suprapharm.fr/logo.png" alt="Suprapharm" style="max-width: 180px; width: 100%; height: auto; display: inline-block;" />
       </div>
-      <p style="margin: 0 0 6px 0; font-weight: 800; color: #047857; letter-spacing: 0.5px;">
+      <p style="margin: 0 0 6px 0; font-weight: 700; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
         Le groupement officinal à votre écoute
       </p>
-      <p style="margin: 0; font-size: 10px; color: #777777; max-width: 580px; margin: 0 auto; line-height: 1.4;">
-        Revue de presse et résumés d'actualité à titre informatif à partir de sources publiques. Les marques citées demeurent la propriété exclusive de leurs médias respectifs.
+      <p style="margin: 0 auto; font-size: 10px; color: #94a3b8; max-width: 560px; line-height: 1.4;">
+        Revue de presse et résumés d'actualité à titre informatif à partir de sources publiques. Les marques et contenus cités demeurent la propriété exclusive de leurs médias respectifs.
       </p>
-    </div>
+    </footer>
 
   </div>
 
-  <!-- SCRIPT INTERACTIF POUR LE SITE WEB : BASCULE THEME -->
+  <!-- SCRIPT SWITCHER THEME SANS ICÔNE -->
   <script>
     (function() {
       function applyTheme(isDark) {
-        var icon = document.getElementById('themeToggleIcon');
         var text = document.getElementById('themeToggleText');
         if (isDark) {
           document.body.classList.add('dark');
           document.body.classList.remove('light');
-          if (icon) icon.textContent = '☀️';
           if (text) text.textContent = 'Mode clair';
         } else {
           document.body.classList.add('light');
           document.body.classList.remove('dark');
-          if (icon) icon.textContent = '🌙';
           if (text) text.textContent = 'Mode sombre';
         }
       }
