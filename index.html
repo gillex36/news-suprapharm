@@ -37,77 +37,113 @@
       }
     }
 
-    /* Mode Sombre Automatique */
+    /* Styles Mode Sombre (Manuel via bouton ou automatique) */
+    body.dark {
+      background-color: #0b0f19 !important;
+      color: #e2e8f0 !important;
+    }
+    body.dark .digest-container {
+      background-color: #111827 !important;
+      border-color: #374151 !important;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.6) !important;
+    }
+    body.dark .masthead-title, body.dark .lead-title, body.dark h1, body.dark h2, body.dark h3, body.dark h4 {
+      color: #f9fafb !important;
+    }
+    body.dark .masthead-subtitle {
+      color: #9ca3af !important;
+    }
+    body.dark .masthead-border {
+      border-color: #4b5563 !important;
+    }
+    body.dark .meta-bar {
+      border-color: #374151 !important;
+      color: #9ca3af !important;
+    }
+    body.dark .timestamp-badge {
+      background-color: #1f2937 !important;
+      color: #60a5fa !important;
+      border: 1px solid #374151 !important;
+    }
+    body.dark .nav-bar {
+      background-color: #1f2937 !important;
+      border-color: #374151 !important;
+    }
+    body.dark .nav-link {
+      color: #e5e7eb !important;
+    }
+    body.dark .lead-box {
+      background-color: #111827 !important;
+      border-color: #374151 !important;
+    }
+    body.dark .lead-text {
+      color: #d1d5db !important;
+    }
+    body.dark .article-card {
+      background-color: #1f2937 !important;
+      border-color: #374151 !important;
+    }
+    body.dark .article-snippet {
+      color: #9ca3af !important;
+    }
+    body.dark .article-link {
+      color: #60a5fa !important;
+    }
+    body.dark .analysis-box {
+      background-color: #1f2937 !important;
+      border-left-color: #60a5fa !important;
+    }
+    body.dark .analysis-bullet {
+      color: #e5e7eb !important;
+    }
+    body.dark .theme-header {
+      border-bottom-color: #4b5563 !important;
+    }
+    body.dark .web-cta-box {
+      background-color: #1f2937 !important;
+      border-color: #374151 !important;
+    }
+    body.dark .footer-colophon {
+      border-top-color: #374151 !important;
+      color: #6b7280 !important;
+    }
+    body.dark .theme-toggle-btn {
+      background: #1f2937 !important;
+      color: #f9fafb !important;
+      border-color: #4b5563 !important;
+    }
+
+    /* Mode Sombre Automatique du système (si pas forcé en clair) */
     @media (prefers-color-scheme: dark) {
-      body {
+      body:not(.light) {
         background-color: #0b0f19 !important;
         color: #e2e8f0 !important;
       }
-      .digest-container {
+      body:not(.light) .digest-container {
         background-color: #111827 !important;
         border-color: #374151 !important;
         box-shadow: 0 4px 20px rgba(0,0,0,0.6) !important;
       }
-      .masthead-title, .lead-title, h1, h2, h3, h4 {
+      body:not(.light) .masthead-title, body:not(.light) .lead-title, body:not(.light) h1, body:not(.light) h2, body:not(.light) h3, body:not(.light) h4 {
         color: #f9fafb !important;
       }
-      .masthead-subtitle {
-        color: #9ca3af !important;
-      }
-      .masthead-border {
-        border-color: #4b5563 !important;
-      }
-      .meta-bar {
-        border-color: #374151 !important;
-        color: #9ca3af !important;
-      }
-      .timestamp-badge {
-        background-color: #1f2937 !important;
-        color: #60a5fa !important;
-        border: 1px solid #374151 !important;
-      }
-      .nav-bar {
-        background-color: #1f2937 !important;
-        border-color: #374151 !important;
-      }
-      .nav-link {
-        color: #e5e7eb !important;
-      }
-      .lead-box {
-        background-color: #111827 !important;
-        border-color: #374151 !important;
-      }
-      .lead-text {
-        color: #d1d5db !important;
-      }
-      .article-card {
-        background-color: #1f2937 !important;
-        border-color: #374151 !important;
-      }
-      .article-snippet {
-        color: #9ca3af !important;
-      }
-      .article-link {
-        color: #60a5fa !important;
-      }
-      .analysis-box {
-        background-color: #1f2937 !important;
-        border-left-color: #60a5fa !important;
-      }
-      .analysis-bullet {
-        color: #e5e7eb !important;
-      }
-      .theme-header {
-        border-bottom-color: #4b5563 !important;
-      }
-      .web-cta-box {
-        background-color: #1f2937 !important;
-        border-color: #374151 !important;
-      }
-      .footer-colophon {
-        border-top-color: #374151 !important;
-        color: #6b7280 !important;
-      }
+      body:not(.light) .masthead-subtitle { color: #9ca3af !important; }
+      body:not(.light) .masthead-border { border-color: #4b5563 !important; }
+      body:not(.light) .meta-bar { border-color: #374151 !important; color: #9ca3af !important; }
+      body:not(.light) .timestamp-badge { background-color: #1f2937 !important; color: #60a5fa !important; border: 1px solid #374151 !important; }
+      body:not(.light) .nav-bar { background-color: #1f2937 !important; border-color: #374151 !important; }
+      body:not(.light) .nav-link { color: #e5e7eb !important; }
+      body:not(.light) .lead-box { background-color: #111827 !important; border-color: #374151 !important; }
+      body:not(.light) .lead-text { color: #d1d5db !important; }
+      body:not(.light) .article-card { background-color: #1f2937 !important; border-color: #374151 !important; }
+      body:not(.light) .article-snippet { color: #9ca3af !important; }
+      body:not(.light) .article-link { color: #60a5fa !important; }
+      body:not(.light) .analysis-box { background-color: #1f2937 !important; border-left-color: #60a5fa !important; }
+      body:not(.light) .analysis-bullet { color: #e5e7eb !important; }
+      body:not(.light) .theme-header { border-bottom-color: #4b5563 !important; }
+      body:not(.light) .web-cta-box { background-color: #1f2937 !important; border-color: #374151 !important; }
+      body:not(.light) .footer-colophon { border-top-color: #374151 !important; color: #6b7280 !important; }
+      body:not(.light) .theme-toggle-btn { background: #1f2937 !important; color: #f9fafb !important; border-color: #4b5563 !important; }
     }
   </style>
 </head>
@@ -115,6 +151,13 @@
   <a name="top"></a>
   <div class="digest-container" style="max-width: 680px; margin: 0 auto; background: #ffffff; border: 1px solid #d1d5db; padding: 28px 32px; box-shadow: 0 4px 12px rgba(0,0,0,0.06);">
     
+    <!-- BOUTON BASCULE THÈME EN HAUT À DROITE -->
+    <div style="display: flex; justify-content: flex-end; margin-bottom: 14px;">
+      <button id="themeToggleBtn" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Basculer thème sombre/clair" style="cursor: pointer; background: #ffffff; color: #111111; border: 1px solid #d1d5db; padding: 5px 12px; border-radius: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: all 0.2s ease;">
+        <span id="themeToggleIcon">🌙</span> <span id="themeToggleText">Mode sombre</span>
+      </button>
+    </div>
+
     <!-- MASTHEAD THE TIMES -->
     <div style="text-align: center; margin-bottom: 20px;">
       <div class="masthead-border" style="border-top: 3px double #111111; border-bottom: 1px solid #111111; padding: 14px 0; margin-bottom: 8px;">
@@ -127,7 +170,7 @@
       </div>
       <div class="meta-bar" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.8px; padding: 6px 0; border-bottom: 1px solid #e5e5e5; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
         <span>Dimanche 13 septembre 2026 &bull; Temps de lecture : 4 min</span>
-        <span class="timestamp-badge" style="background: #f3f4f6; color: #374151; padding: 2px 8px; border-radius: 12px; font-weight: 700; font-size: 10px;">🕐 Mis à jour le 13/09/2026 à 23h53</span>
+        <span class="timestamp-badge" style="background: #f3f4f6; color: #374151; padding: 2px 8px; border-radius: 12px; font-weight: 700; font-size: 10px;">🕐 Mis à jour le 13/09/2026 à 23h58</span>
       </div>
     </div>
 
@@ -168,10 +211,10 @@
       ★ LA GRANDE SYNTHÈSE &bull; Source : Le Moniteur des Pharmacies
     </div>
     <h2 class="lead-title" style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 24px; font-weight: 900; line-height: 1.25; margin: 0 0 14px 0; color: #111111;">
-      <a href="https://www.lemoniteurdespharmacies.fr/business/rh-et-management/carriere/management-la-reconnaissance-un-investissement-rentable" target="_blank" style="color: inherit; text-decoration: none;">Management : la reconnaissance, un investissement rentable</a>
+      <a href="https://www.lemoniteurdespharmacies.fr/business/rh-et-management/carriere/management-la-reconnaissance-un-investissement-rentable" target="_blank" style="color: inherit; text-decoration: none;">La reconnaissance des employés : un levier essentiel de performance en officine</a>
     </h2>
     <p class="lead-text" style="font-family: Georgia, serif; font-size: 15px; line-height: 1.6; color: #333333; margin: 0 0 18px 0;">
-      « Je ne vais pas le féliciter pour un travail pour lequel il est payé » ; « Tant que je ne dis rien, c’est que tout va bien » : autant de phrases que l’on entend parfois de la bouche de certains managers qui se tirent, sans le savoir, une balle dans ...
+      Un article de management met en lumière l'importance de la reconnaissance des collaborateurs comme facteur de rentabilité. Il s'oppose aux idées reçues de certains dirigeants qui pensent que « Tant que je ne dis rien, c’est que tout va bien », soulignant les bénéfices d'une valorisation active du travail.
     </p>
     <div>
       <a href="https://www.lemoniteurdespharmacies.fr/business/rh-et-management/carriere/management-la-reconnaissance-un-investissement-rentable" target="_blank" style="display: inline-block; background: #111111; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; padding: 10px 18px; text-decoration: none; border-radius: 2px;">
@@ -192,6 +235,15 @@
       </div>
 
       
+        <div class="analysis-box" style="background: #fdfbf7; border-left: 3px solid #111111; padding: 14px 18px; margin-bottom: 20px; font-family: Georgia, serif;">
+          <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #555555; margin-bottom: 8px;">
+            L'analyse de la rédaction
+          </div>
+          <ul style="margin: 0; padding-left: 18px;">
+            <li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Performance sportive** : La finale de la Coupe du monde de basket féminin illustre la montée en puissance du sport français malgré la défaite, soulignant l'importance de l'expérience en haute compétition pour les futures victoires.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Stratégie politique** : Marine Le Pen cherche à redynamiser sa base électorale en revenant sur les thèmes sociaux chers à sa campagne présidentielle, signalant une offensive sur le pouvoir d'achat et le logement.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Arbitrages budgétaires** : Le gouvernement envisage une contribution significative des retraités pour assainir les finances publiques d'ici 2027, une décision politiquement sensible qui engage un débat sur la solidarité intergénérationnelle.</li>
+          </ul>
+        </div>
+      
 
       <div>
         
@@ -202,10 +254,10 @@
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111111;">
-            <a href="https://www.franceinfo.fr/sports/basket/coupe-du-monde/pas-de-premier-titre-pour-l-equipe-de-france-battue-par-les-etats-unis-en-finale-de-la-coupe-du-monde-de-basket_8191088.html#xtor=RSS-3-[lestitres]" target="_blank" style="color: inherit; text-decoration: none;">Pas de premier titre mondial pour l’équipe de France, battue par les Etats-Unis en finale de la Coupe du monde de basket</a>
+            <a href="https://www.franceinfo.fr/sports/basket/coupe-du-monde/pas-de-premier-titre-pour-l-equipe-de-france-battue-par-les-etats-unis-en-finale-de-la-coupe-du-monde-de-basket_8191088.html#xtor=RSS-3-[lestitres]" target="_blank" style="color: inherit; text-decoration: none;">La France s'incline en finale du Mondial de basket, les États-Unis conservent leur titre</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            Les Bleues, qui disputaient leur première finale mondiale, n’ont pas réussi à renverser les Américaines, dimanche soir.
+            L'équipe de France féminine de basket n'est pas parvenue à remporter son premier titre mondial, s'inclinant face à l'armada américaine. Malgré cette défaite en finale, les Bleues signent une performance historique pour le basket français.
           </p>
           <a href="https://www.franceinfo.fr/sports/basket/coupe-du-monde/pas-de-premier-titre-pour-l-equipe-de-france-battue-par-les-etats-unis-en-finale-de-la-coupe-du-monde-de-basket_8191088.html#xtor=RSS-3-[lestitres]" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0d5bb5; text-decoration: underline;">
             En savoir plus sur Franceinfo &rarr;
@@ -219,10 +271,10 @@
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111111;">
-            <a href="https://www.franceinfo.fr/politique/marine-le-pen/reportage-nous-nous-devons-plus-que-jamais-de-mener-la-bataille-sociale-en-meeting-a-henin-beaumont-marine-le-pen-tente-de-retrouver-les-accents-de-sa-campagne-presidentielle-de-2022_8189702.html#xtor=RSS-3-[lestitres]" target="_blank" style="color: inherit; text-decoration: none;">"Nous nous devons plus que jamais de mener la bataille sociale" : en meeting à Hénin-Beaumont, Marine Le Pen tente de retrouver les accents de sa campagne présidentielle de 2022</a>
+            <a href="https://www.franceinfo.fr/politique/marine-le-pen/reportage-nous-nous-devons-plus-que-jamais-de-mener-la-bataille-sociale-en-meeting-a-henin-beaumont-marine-le-pen-tente-de-retrouver-les-accents-de-sa-campagne-presidentielle-de-2022_8189702.html#xtor=RSS-3-[lestitres]" target="_blank" style="color: inherit; text-decoration: none;">Marine Le Pen relance son offensive sociale depuis Hénin-Beaumont</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            La candidate du RN a effectué sa rentrée politique dimanche dans son fief du Pas-de-Calais. Elle a choisi d'évoquer la question du logement, promettant de continuer à parler de pouvoir d'achat.
+            Lors de son meeting de rentrée politique, Marine Le Pen a tenté de renouer avec les thèmes forts de sa campagne présidentielle de 2022. La leader du Rassemblement National a affirmé que « Nous nous devons plus que jamais de mener la bataille sociale », en mettant l'accent sur le logement et le pouvoir d'achat.
           </p>
           <a href="https://www.franceinfo.fr/politique/marine-le-pen/reportage-nous-nous-devons-plus-que-jamais-de-mener-la-bataille-sociale-en-meeting-a-henin-beaumont-marine-le-pen-tente-de-retrouver-les-accents-de-sa-campagne-presidentielle-de-2022_8189702.html#xtor=RSS-3-[lestitres]" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0d5bb5; text-decoration: underline;">
             En savoir plus sur Franceinfo &rarr;
@@ -236,10 +288,10 @@
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111111;">
-            <a href="https://www.lefigaro.fr/conjoncture/desindexation-des-pensions-evolution-de-l-abattement-fiscal-l-offensive-de-sebastien-lecornu-sur-le-dossier-explosif-des-retraites-20260913" target="_blank" style="color: inherit; text-decoration: none;">Désindexation des pensions, évolution de l’abattement fiscal… L’offensive de Sébastien Lecornu sur le dossier explosif des retraites</a>
+            <a href="https://www.lefigaro.fr/conjoncture/desindexation-des-pensions-evolution-de-l-abattement-fiscal-l-offensive-de-sebastien-lecornu-sur-le-dossier-explosif-des-retraites-20260913" target="_blank" style="color: inherit; text-decoration: none;">Retraites : le gouvernement prépare une contribution des seniors pour redresser les comptes publics</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            DÉCRYPTAGE - Le gouvernement veut faire contribuer les retraités à hauteur de 6 milliards d’euros dans le budget 2027, en vue de redresser les finances publiques.
+            Le ministre Sébastien Lecornu s'attaque au délicat dossier des retraites avec l'objectif de faire participer les seniors à l'effort budgétaire. L'exécutif espère ainsi mobiliser 6 milliards d'euros auprès des retraités d'ici 2027 afin d'améliorer les finances de l'État.
           </p>
           <a href="https://www.lefigaro.fr/conjoncture/desindexation-des-pensions-evolution-de-l-abattement-fiscal-l-offensive-de-sebastien-lecornu-sur-le-dossier-explosif-des-retraites-20260913" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0d5bb5; text-decoration: underline;">
             En savoir plus sur Le Figaro &rarr;
@@ -264,6 +316,15 @@
       </div>
 
       
+        <div class="analysis-box" style="background: #fdfbf7; border-left: 3px solid #111111; padding: 14px 18px; margin-bottom: 20px; font-family: Georgia, serif;">
+          <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #555555; margin-bottom: 8px;">
+            L'analyse de la rédaction
+          </div>
+          <ul style="margin: 0; padding-left: 18px;">
+            <li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Dynamiques de marché** : Le marché de l'IA fait face à une vigilance accrue de Wall Street alors que des figures majeures appellent à une régulation, illustrant la tension entre innovation rapide et nécessité de gouvernance.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Politique sociale et économique** : Les déclarations du ministre du Travail sur l'effort demandé aux retraités révèlent la complexité des ajustements budgétaires, cherchant un équilibre entre contraintes financières et acceptabilité sociale.</li>
+          </ul>
+        </div>
+      
 
       <div>
         
@@ -274,10 +335,10 @@
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111111;">
-            <a href="https://fr.news.yahoo.com/sport/ligue-1-au-bout-ladieu-210836456.html" target="_blank" style="color: inherit; text-decoration: none;">Ligue 1: au bout de l'adieu à Éric Roy, le PSG s'offre son premier succès à Brest</a>
+            <a href="https://fr.news.yahoo.com/sport/ligue-1-au-bout-ladieu-210836456.html" target="_blank" style="color: inherit; text-decoration: none;">Le Paris Saint-Germain décroche sa première victoire à Brest en Ligue 1</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            
+            Le Paris Saint-Germain a enregistré son premier succès de la saison en Ligue 1 lors de son déplacement à Brest. Ce match s'est déroulé dans un contexte marqué par l'hommage à Éric Roy.
           </p>
           <a href="https://fr.news.yahoo.com/sport/ligue-1-au-bout-ladieu-210836456.html" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0d5bb5; text-decoration: underline;">
             En savoir plus sur Yahoo Finance FR &rarr;
@@ -291,10 +352,10 @@
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111111;">
-            <a href="https://fr.finance.yahoo.com/actualites/commerce-l-ia-%C3%A0-wall-205604627.html" target="_blank" style="color: inherit; text-decoration: none;">Le commerce de l’IA à Wall Street sous surveillance alors qu’Altman et Musk appellent à ralentir son développement</a>
+            <a href="https://fr.finance.yahoo.com/actualites/commerce-l-ia-%C3%A0-wall-205604627.html" target="_blank" style="color: inherit; text-decoration: none;">L'essor de l'IA sur Wall Street questionné par des appels à la prudence</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            
+            Le secteur de l'intelligence artificielle est sous étroite surveillance à Wall Street, malgré son dynamisme commercial. Des personnalités influentes comme Sam Altman et Elon Musk ont en effet exprimé la nécessité de ralentir son développement pour mieux en maîtriser les risques.
           </p>
           <a href="https://fr.finance.yahoo.com/actualites/commerce-l-ia-%C3%A0-wall-205604627.html" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0d5bb5; text-decoration: underline;">
             En savoir plus sur Yahoo Finance FR &rarr;
@@ -308,10 +369,10 @@
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111111;">
-            <a href="https://www.bfmtv.com/economie/patrimoine/retraite/la-desindexation-je-n-aime-pas-lache-le-ministre-du-travail-jean-pierre-farandou-qui-ne-trouve-pourtant-pas-illogique-de-faire-appel-a-un-effort-des-retraites_AD-202609130208.html" target="_blank" style="color: inherit; text-decoration: none;">"La désindexation, je n'aime pas", lâche le ministre du Travail Jean-Pierre Farandou ... Qui ne trouve pourtant "pas illogique de faire appel à un effort des retraités"</a>
+            <a href="https://www.bfmtv.com/economie/patrimoine/retraite/la-desindexation-je-n-aime-pas-lache-le-ministre-du-travail-jean-pierre-farandou-qui-ne-trouve-pourtant-pas-illogique-de-faire-appel-a-un-effort-des-retraites_AD-202609130208.html" target="_blank" style="color: inherit; text-decoration: none;">Le ministre du Travail évalue la contribution des retraités au budget 2027</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            Sur Europe1/Cnews ce dimanche 13 septembre, le ministre du Travail Jean-Pierre Farandou a estimé qu'il n'était "pas illogique" de demander un effort aux retraités dans le cadre de la préparation du budget 2027, et appelé à ouvrir le débat sur de nouv...
+            Le ministre du Travail, Jean-Pierre Farandou, a réagi aux propositions d'ajustement des pensions, déclarant que « La désindexation, je n'aime pas ». Cependant, il a jugé « pas illogique de faire appel à un effort des retraités » dans la perspective du budget 2027, ouvrant ainsi le débat sur de nouvelles pistes de financement.
           </p>
           <a href="https://www.bfmtv.com/economie/patrimoine/retraite/la-desindexation-je-n-aime-pas-lache-le-ministre-du-travail-jean-pierre-farandou-qui-ne-trouve-pourtant-pas-illogique-de-faire-appel-a-un-effort-des-retraites_AD-202609130208.html" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0d5bb5; text-decoration: underline;">
             En savoir plus sur BFM Bourse &rarr;
@@ -336,6 +397,15 @@
       </div>
 
       
+        <div class="analysis-box" style="background: #fdfbf7; border-left: 3px solid #111111; padding: 14px 18px; margin-bottom: 20px; font-family: Georgia, serif;">
+          <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #555555; margin-bottom: 8px;">
+            L'analyse de la rédaction
+          </div>
+          <ul style="margin: 0; padding-left: 18px;">
+            <li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Défis de l'adoption** : Le succès fulgurant d'offres IA comme Astra d'OpenAI met en lumière l'engouement du public mais aussi les défis logistiques et techniques liés à la gestion d'une demande exponentielle.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Expansion des écosystèmes IA** : L'intégration native de Gemini sur Windows par Google marque une étape clé dans l'accessibilité des assistants IA, renforçant la concurrence entre les géants technologiques pour la domination des plateformes.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Transformation du marché du travail** : L'impact des agents IA sur le marché freelance révèle une segmentation croissante des missions, poussant les professionnels vers des rôles à plus forte valeur ajoutée pour se distinguer des capacités automatisées.</li>
+          </ul>
+        </div>
+      
 
       <div>
         
@@ -346,10 +416,10 @@
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111111;">
-            <a href="https://siecledigital.fr/2026/09/11/openai-victime-du-succes-dastra-labonnement-chatgpt-a-200-dollars-suspendu/" target="_blank" style="color: inherit; text-decoration: none;">OpenAI victime du succès d’Astra, l’abonnement ChatGPT à 200 dollars suspendu</a>
+            <a href="https://siecledigital.fr/2026/09/11/openai-victime-du-succes-dastra-labonnement-chatgpt-a-200-dollars-suspendu/" target="_blank" style="color: inherit; text-decoration: none;">OpenAI suspend temporairement l'accès à son abonnement ChatGPT Astra face à une demande record</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            Astra a été dévoilé il y a une semaine seulement, mais OpenAI doit déjà revoir l’accès à son offre à 200 dollars. Son lancement a suscité une demande particulièrement forte auprès des utilisateurs. Depuis le 10 septembre, il n’est plus possible de so...
+            L'offre haut de gamme Astra de ChatGPT, lancée par OpenAI il y a tout juste une semaine, connaît un succès fulgurant. Cette popularité inattendue a contraint la société à suspendre momentanément les nouvelles souscriptions à son abonnement à 200 dollars.
           </p>
           <a href="https://siecledigital.fr/2026/09/11/openai-victime-du-succes-dastra-labonnement-chatgpt-a-200-dollars-suspendu/" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0d5bb5; text-decoration: underline;">
             En savoir plus sur Siècle Digital &rarr;
@@ -363,10 +433,10 @@
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111111;">
-            <a href="https://siecledigital.fr/2026/09/11/google-lance-une-application-gemini-native-sur-windows/" target="_blank" style="color: inherit; text-decoration: none;">Google lance une application Gemini native sur Windows</a>
+            <a href="https://siecledigital.fr/2026/09/11/google-lance-une-application-gemini-native-sur-windows/" target="_blank" style="color: inherit; text-decoration: none;">Gemini de Google s'invite nativement sur Windows pour une meilleure accessibilité</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            Six mois après son arrivée sur Mac, Google annonce le lancement de l’application Gemini sur Windows. Il sera possible de l’interroger via un raccourci clavier. Gemini dispose de son application native sur Windows Si Google avait déjà lancé une applic...
+            Google renforce la présence de son assistant IA Gemini en lançant une application native dédiée pour Windows. Cette nouvelle version, disponible via un raccourci clavier, arrive six mois après la sortie de son homologue sur Mac.
           </p>
           <a href="https://siecledigital.fr/2026/09/11/google-lance-une-application-gemini-native-sur-windows/" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0d5bb5; text-decoration: underline;">
             En savoir plus sur Siècle Digital &rarr;
@@ -380,10 +450,10 @@
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111111;">
-            <a href="https://www.leptidigital.fr/gestion-entreprise/redacteurs-devs-seo-impacts-tjm-freelances-agents-ia-91549/?utm_source=rss&utm_medium=rss&utm_campaign=redacteurs-devs-seo-impacts-tjm-freelances-agents-ia" target="_blank" style="color: inherit; text-decoration: none;">Rédacteurs, devs, SEO : ce qui arrive vraiment aux TJM freelances depuis les agents IA</a>
+            <a href="https://www.leptidigital.fr/gestion-entreprise/redacteurs-devs-seo-impacts-tjm-freelances-agents-ia-91549/?utm_source=rss&utm_medium=rss&utm_campaign=redacteurs-devs-seo-impacts-tjm-freelances-agents-ia" target="_blank" style="color: inherit; text-decoration: none;">L'intelligence artificielle remodèle le marché des freelances digitaux</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            Le marché du freelance digital ne s’effondre pas mais il se scinde. D’un côté, les missions courtes et standardisées que les clients confient désormais à un modèle IA. De l’autre, des projets plus longs, mieux payés, et des acheteurs qui imposent un ...
+            Le secteur du freelance numérique est en pleine mutation sous l'influence des agents IA, sans pour autant s'effondrer. On observe une nette division du marché : les tâches courtes et répétitives sont de plus en plus attribuées aux intelligences artificielles, tandis que les projets complexes et valorisants restent l'apanage des experts humains.
           </p>
           <a href="https://www.leptidigital.fr/gestion-entreprise/redacteurs-devs-seo-impacts-tjm-freelances-agents-ia-91549/?utm_source=rss&utm_medium=rss&utm_campaign=redacteurs-devs-seo-impacts-tjm-freelances-agents-ia" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0d5bb5; text-decoration: underline;">
             En savoir plus sur Leptidigital &rarr;
@@ -408,6 +478,15 @@
       </div>
 
       
+        <div class="analysis-box" style="background: #fdfbf7; border-left: 3px solid #111111; padding: 14px 18px; margin-bottom: 20px; font-family: Georgia, serif;">
+          <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #555555; margin-bottom: 8px;">
+            L'analyse de la rédaction
+          </div>
+          <ul style="margin: 0; padding-left: 18px;">
+            <li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Évolution des standards matériels** : La hausse des exigences en RAM pour Windows 11 d'ici 2026 souligne une accélération de l'obsolescence programmée des équipements, incitant les utilisateurs à anticiper leurs besoins futurs.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Innovation de niche** : Les nouvelles tablettes E-Ink, comme la Paperslate Pro, tentent de concilier technologie et expérience utilisateur traditionnelle, mais rencontrent des limites de performance qui freinent leur adoption massive.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Marché des accessoires** : Les événements promotionnels comme les French Days continuent de stimuler l'achat de périphériques technologiques, illustrant la dynamique du marché grand public pour les gadgets connectés.</li>
+          </ul>
+        </div>
+      
 
       <div>
         
@@ -418,10 +497,10 @@
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111111;">
-            <a href="https://www.lesnumeriques.com/casque-gaming-micro/french-days-le-casque-bluetooth-a-conduction-osseuse-l6-pro-de-zenimax-passe-sous-les-40-n261792.html" target="_blank" style="color: inherit; text-decoration: none;">Actualité : French Days - Le casque Bluetooth à conduction osseuse L6 Pro de Zenimax passe sous les 40 €</a>
+            <a href="https://www.lesnumeriques.com/casque-gaming-micro/french-days-le-casque-bluetooth-a-conduction-osseuse-l6-pro-de-zenimax-passe-sous-les-40-n261792.html" target="_blank" style="color: inherit; text-decoration: none;">French Days : Le casque Zenimax L6 Pro à conduction osseuse voit son prix chuter</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            
+            À l'occasion des French Days, le casque Bluetooth à conduction osseuse L6 Pro de la marque Zenimax bénéficie d'une promotion significative. Son tarif est désormais inférieur à 40 euros, offrant une opportunité pour les amateurs de technologie audio.
           </p>
           <a href="https://www.lesnumeriques.com/casque-gaming-micro/french-days-le-casque-bluetooth-a-conduction-osseuse-l6-pro-de-zenimax-passe-sous-les-40-n261792.html" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0d5bb5; text-decoration: underline;">
             En savoir plus sur Les Numériques &rarr;
@@ -435,10 +514,10 @@
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111111;">
-            <a href="https://www.lesnumeriques.com/ordinateur-portable/non-8-go-de-ram-ce-n-est-vraiment-pas-suffisant-pour-windows-11-en-2026-n261766.html" target="_blank" style="color: inherit; text-decoration: none;">Actualité : Non, 8 Go de RAM, ce n’est vraiment pas suffisant pour Windows 11 en 2026</a>
+            <a href="https://www.lesnumeriques.com/ordinateur-portable/non-8-go-de-ram-ce-n-est-vraiment-pas-suffisant-pour-windows-11-en-2026-n261766.html" target="_blank" style="color: inherit; text-decoration: none;">Windows 11 exigera plus de mémoire vive d'ici 2026 : 8 Go de RAM ne suffiront plus</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            Pendant des années, nous pensions avoir assurément dit adieu aux configurations étriquées. Les 16 Go de mémoire vive s'étaient imposés comme la norme, y compris sur les PC portables vendus sous les 800 €. Pourtant, en 2026, coup de théâtre dans les r...
+            Les experts alertent sur l'insuffisance future de 8 Go de mémoire vive pour faire fonctionner Windows 11 de manière optimale en 2026. Cette prévision indique une évolution rapide des besoins matériels, poussant les utilisateurs à envisager des configurations plus robustes.
           </p>
           <a href="https://www.lesnumeriques.com/ordinateur-portable/non-8-go-de-ram-ce-n-est-vraiment-pas-suffisant-pour-windows-11-en-2026-n261766.html" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0d5bb5; text-decoration: underline;">
             En savoir plus sur Les Numériques &rarr;
@@ -452,10 +531,10 @@
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111111;">
-            <a href="https://www.frandroid.com/test/3170433_test-de-la-paperslate-pro-une-tablette-e-ink-prometteuse-mais-freinee-par-ses-propres-lenteurs" target="_blank" style="color: inherit; text-decoration: none;">Test de la Paperslate Pro : une tablette E-Ink prometteuse mais freinée par ses propres lenteurs</a>
+            <a href="https://www.frandroid.com/test/3170433_test-de-la-paperslate-pro-une-tablette-e-ink-prometteuse-mais-freinee-par-ses-propres-lenteurs" target="_blank" style="color: inherit; text-decoration: none;">La tablette E-Ink Paperslate Pro testée : une proposition innovante mais perfectible</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            La Paperslate Pro est un bloc-notes numérique à encre électronique, pensé pour remplacer le bon vieux carnet papier, sans les distractions d'une tablette classique. Nous l'avons mise à l'épreuve : que vaut cette proposition sur un marché très concurr...
+            La Paperslate Pro, une tablette numérique à encre électronique, se positionne comme une alternative au carnet papier traditionnel. Bien que prometteuse dans son concept, l'appareil souffre néanmoins de lenteurs qui limitent son potentiel d sur un marché concurrentiel.
           </p>
           <a href="https://www.frandroid.com/test/3170433_test-de-la-paperslate-pro-une-tablette-e-ink-prometteuse-mais-freinee-par-ses-propres-lenteurs" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0d5bb5; text-decoration: underline;">
             En savoir plus sur Frandroid &rarr;
@@ -480,6 +559,15 @@
       </div>
 
       
+        <div class="analysis-box" style="background: #fdfbf7; border-left: 3px solid #111111; padding: 14px 18px; margin-bottom: 20px; font-family: Georgia, serif;">
+          <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #555555; margin-bottom: 8px;">
+            L'analyse de la rédaction
+          </div>
+          <ul style="margin: 0; padding-left: 18px;">
+            <li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Révélations cinématographiques** : Le Festival de Deauville met en lumière de nouvelles œuvres et talents, consolidant son rôle de plateforme pour la découverte de pépites du cinéma américain indépendant.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Impact de la reconnaissance** : L'expérience d'acteurs émergents dans des productions majeures comme « Anatomie d'une chute » souligne la puissance formatrice du succès critique et son influence sur les carrières naissantes.</li>
+          </ul>
+        </div>
+      
 
       <div>
         
@@ -490,10 +578,10 @@
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111111;">
-            <a href="https://www.telerama.fr/cinema/festival-de-deauville-les-remarques-club-kid-et-meli-melo-doublement-recompenses-7032874.php" target="_blank" style="color: inherit; text-decoration: none;">Festival de Deauville : les remarqués “Club Kid” et “Méli-Mélo” doublement récompensés</a>
+            <a href="https://www.telerama.fr/cinema/festival-de-deauville-les-remarques-club-kid-et-meli-melo-doublement-recompenses-7032874.php" target="_blank" style="color: inherit; text-decoration: none;">Le Festival de Deauville consacre "Club Kid" et "Méli-Mélo" avec plusieurs distinctions</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            “Club Kid”, de Jordan Firstman, a été couronné du Grand Prix et du Prix du public, lors de la 52ᵉ édition du Festival du cinéma américain. “Méli-Mélo” a reçu le Prix du jury ex aequo avec “If I Go Will They Miss Me”, ainsi que celui de la critique.
+            La 52e édition du Festival du cinéma américain de Deauville a vu deux films se démarquer avec de multiples récompenses. "Club Kid", réalisé par Jordan Firstman, a remporté le Grand Prix et le Prix du public, tandis que "Méli-Mélo" a été doublement primé du Prix du jury et de la critique.
           </p>
           <a href="https://www.telerama.fr/cinema/festival-de-deauville-les-remarques-club-kid-et-meli-melo-doublement-recompenses-7032874.php" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0d5bb5; text-decoration: underline;">
             En savoir plus sur Télérama Cinéma &rarr;
@@ -507,10 +595,10 @@
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111111;">
-            <a href="https://www.telerama.fr/cinema/jouer-dans-anatomie-d-une-chute-m-a-permis-de-comprendre-que-c-etait-un-vrai-travail-7032873.php" target="_blank" style="color: inherit; text-decoration: none;">“Jouer dans ‘Anatomie d’une chute’ m’a permis de comprendre que c’était un vrai travail”</a>
+            <a href="https://www.telerama.fr/cinema/jouer-dans-anatomie-d-une-chute-m-a-permis-de-comprendre-que-c-etait-un-vrai-travail-7032873.php" target="_blank" style="color: inherit; text-decoration: none;">Milo Machado-Graner témoigne de l'impact d'"Anatomie d'une chute" sur sa carrière</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            VIDÉO – Milo Machado-Graner est à l’affiche d’“Adieu monde cruel”, de Félix de Givry, actuellement en salles. L’acteur et étudiant de 18 ans nous raconte comment le film de Justine Triet, qui l’a révélé, a changé sa vie.
+            Le jeune acteur Milo Machado-Graner, actuellement à l'affiche d'« Adieu monde cruel », revient sur l'expérience transformative de son rôle dans le film oscarisé « Anatomie d’une chute ». Il confie que ce rôle lui a « permis de comprendre que c’était un vrai travail », marquant un tournant décisif dans sa perception de sa vocation.
           </p>
           <a href="https://www.telerama.fr/cinema/jouer-dans-anatomie-d-une-chute-m-a-permis-de-comprendre-que-c-etait-un-vrai-travail-7032873.php" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0d5bb5; text-decoration: underline;">
             En savoir plus sur Télérama Cinéma &rarr;
@@ -535,6 +623,15 @@
       </div>
 
       
+        <div class="analysis-box" style="background: #fdfbf7; border-left: 3px solid #111111; padding: 14px 18px; margin-bottom: 20px; font-family: Georgia, serif;">
+          <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #555555; margin-bottom: 8px;">
+            L'analyse de la rédaction
+          </div>
+          <ul style="margin: 0; padding-left: 18px;">
+            <li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Optimisation managériale** : La reconnaissance des employés est identifiée comme un levier stratégique dans le secteur officinal, montrant qu'un bon management est un investissement rentable pour la performance et le bien-être au travail.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Enjeux de santé publique** : La crise d'Ebola en RDC, l'évolution des franchises médicales et l'appel à la vaccination HPV par les pharmaciens illustrent la diversité des défis de santé publique, de l'urgence épidémique à la prévention des maladies chroniques.</li><li class="analysis-bullet" style="margin-bottom: 8px; font-size: 14px; line-height: 1.5; color: #2b2b2b;">*Rôle élargi du pharmacien** : Les discussions sur les négociations conventionnelles et l'incitation à la participation aux consultations sur santé-climat-énergie confirment l'évolution du pharmacien vers un rôle de professionnel de santé de première ligne, actif dans la prévention et le débat sociétal.</li>
+          </ul>
+        </div>
+      
 
       <div>
         
@@ -545,10 +642,10 @@
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111111;">
-            <a href="https://www.lemoniteurdespharmacies.fr/business/rh-et-management/carriere/management-la-reconnaissance-un-investissement-rentable" target="_blank" style="color: inherit; text-decoration: none;">Management : la reconnaissance, un investissement rentable</a>
+            <a href="https://www.lemoniteurdespharmacies.fr/business/rh-et-management/carriere/management-la-reconnaissance-un-investissement-rentable" target="_blank" style="color: inherit; text-decoration: none;">La reconnaissance des employés : un levier essentiel de performance en officine</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            « Je ne vais pas le féliciter pour un travail pour lequel il est payé » ; « Tant que je ne dis rien, c’est que tout va bien » : autant de phrases que l’on entend parfois de la bouche de certains managers qui se tirent, sans le savoir, une balle dans ...
+            Un article de management met en lumière l'importance de la reconnaissance des collaborateurs comme facteur de rentabilité. Il s'oppose aux idées reçues de certains dirigeants qui pensent que « Tant que je ne dis rien, c’est que tout va bien », soulignant les bénéfices d'une valorisation active du travail.
           </p>
           <a href="https://www.lemoniteurdespharmacies.fr/business/rh-et-management/carriere/management-la-reconnaissance-un-investissement-rentable" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0d5bb5; text-decoration: underline;">
             En savoir plus sur Le Moniteur des Pharmacies &rarr;
@@ -562,10 +659,10 @@
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111111;">
-            <a href="https://www.lemoniteurdespharmacies.fr/conseils/fiches-pratiques/quelles-sont-les-contre-indications-et-les-interactions-medicamenteuses-du-minoxidil-par-voie-topique" target="_blank" style="color: inherit; text-decoration: none;">Quelles sont les contre-indications et les interactions médicamenteuses du minoxidil par voie topique ?</a>
+            <a href="https://www.lemoniteurdespharmacies.fr/conseils/fiches-pratiques/quelles-sont-les-contre-indications-et-les-interactions-medicamenteuses-du-minoxidil-par-voie-topique" target="_blank" style="color: inherit; text-decoration: none;">Minoxidil topique : précautions d'emploi et interactions à connaître</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            L’alopécie androgénétique est la cause la plus fréquente de perte de cheveux. Le minoxidil, dont le mécanisme d’action n’est pas totalement connu, agit notamment en stimulant et en prolongeant la phase de croissance anagène. Il accélère également le ...
+            Un point détaillé sur le minoxidil par voie topique informe sur ses contre-indications et interactions médicamenteuses potentielles. Ce traitement, souvent utilisé pour l'alopécie androgénétique, voit son efficacité liée à la stimulation de la phase de croissance des cheveux, malgré un mécanisme d'action encore partiellement élucidé.
           </p>
           <a href="https://www.lemoniteurdespharmacies.fr/conseils/fiches-pratiques/quelles-sont-les-contre-indications-et-les-interactions-medicamenteuses-du-minoxidil-par-voie-topique" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0d5bb5; text-decoration: underline;">
             En savoir plus sur Le Moniteur des Pharmacies &rarr;
@@ -579,10 +676,10 @@
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111111;">
-            <a href="https://www.lemoniteurdespharmacies.fr/therapeutique/produits/autres/diarrhees-sous-antibiotiques-novabiotic-la-nutrition-infantile-des-lage-de-6-mois" target="_blank" style="color: inherit; text-decoration: none;">Diarrhées sous antibiotiques : NovaBiotic, la nutrition infantile dès l’âge de 6 mois</a>
+            <a href="https://www.lemoniteurdespharmacies.fr/therapeutique/produits/autres/diarrhees-sous-antibiotiques-novabiotic-la-nutrition-infantile-des-lage-de-6-mois" target="_blank" style="color: inherit; text-decoration: none;">NovaBiotic : une solution diététique pour les diarrhées infantiles liées aux antibiotiques</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            NovaBiotic se présente comme une option diététique temporaire pour les nourrissons et enfants dès 6 mois confrontés à des diarrhées associées à la prise d’antibiotiques. Conçu pour être utilisé en alternance avec le lait classique, il vise à mainteni...
+            NovaBiotic est introduit comme une nouvelle option diététique destinée aux nourrissons et jeunes enfants à partir de 6 mois souffrant de diarrhées associées aux traitements antibiotiques. Ce produit est conçu pour être utilisé de manière temporaire, en complément de l'alimentation lactée habituelle, pour aider à gérer ces troubles.
           </p>
           <a href="https://www.lemoniteurdespharmacies.fr/therapeutique/produits/autres/diarrhees-sous-antibiotiques-novabiotic-la-nutrition-infantile-des-lage-de-6-mois" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0d5bb5; text-decoration: underline;">
             En savoir plus sur Le Moniteur des Pharmacies &rarr;
@@ -596,10 +693,10 @@
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111111;">
-            <a href="https://www.vidal.fr/actualites/38295-rdc-plus-de-7-000-cas-d-ebola-recenses.html" target="_blank" style="color: inherit; text-decoration: none;">RDC : plus de 7 000 cas d'Ebola recensés</a>
+            <a href="https://www.vidal.fr/actualites/38295-rdc-plus-de-7-000-cas-d-ebola-recenses.html" target="_blank" style="color: inherit; text-decoration: none;">La République Démocratique du Congo enregistre plus de 7 000 cas d'Ebola</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            
+            La République Démocratique du Congo fait face à une recrudescence de l'épidémie d'Ebola, avec un bilan alarmant de plus de 7 000 cas confirmés. Cette situation souligne l'urgence d'une réponse sanitaire renforcée dans la région.
           </p>
           <a href="https://www.vidal.fr/actualites/38295-rdc-plus-de-7-000-cas-d-ebola-recenses.html" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0d5bb5; text-decoration: underline;">
             En savoir plus sur VIDAL Actus &rarr;
@@ -613,10 +710,10 @@
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111111;">
-            <a href="https://www.vidal.fr/actualites/38296-franchises-medicales-le-plafond-annuel-passe-a-140-euros-le-1er-octobre.html" target="_blank" style="color: inherit; text-decoration: none;">Franchises médicales : le plafond annuel passe à 140 euros le 1er octobre</a>
+            <a href="https://www.vidal.fr/actualites/38296-franchises-medicales-le-plafond-annuel-passe-a-140-euros-le-1er-octobre.html" target="_blank" style="color: inherit; text-decoration: none;">Plafonnement des franchises médicales : une augmentation à 140 euros dès octobre</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            
+            Le plafond annuel des franchises médicales connaîtra une augmentation significative, passant à 140 euros à compter du 1er octobre. Cette mesure impactera directement les dépenses de santé supportées par les patients.
           </p>
           <a href="https://www.vidal.fr/actualites/38296-franchises-medicales-le-plafond-annuel-passe-a-140-euros-le-1er-octobre.html" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0d5bb5; text-decoration: underline;">
             En savoir plus sur VIDAL Actus &rarr;
@@ -630,10 +727,10 @@
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111111;">
-            <a href="https://www.vidal.fr/actualites/38279-microbiote-et-parkinson-une-nouvelle-piste.html" target="_blank" style="color: inherit; text-decoration: none;">Microbiote et Parkinson : une nouvelle piste ?</a>
+            <a href="https://www.vidal.fr/actualites/38279-microbiote-et-parkinson-une-nouvelle-piste.html" target="_blank" style="color: inherit; text-decoration: none;">La maladie de Parkinson : de nouvelles recherches explorent le rôle du microbiote intestinal</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            
+            Des études récentes ouvrent une nouvelle voie de recherche prometteuse concernant la maladie de Parkinson. Elles suggèrent un lien potentiel et inexploré entre la pathologie neurodégénérative et l'équilibre du microbiote intestinal.
           </p>
           <a href="https://www.vidal.fr/actualites/38279-microbiote-et-parkinson-une-nouvelle-piste.html" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0d5bb5; text-decoration: underline;">
             En savoir plus sur VIDAL Actus &rarr;
@@ -647,11 +744,10 @@
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111111;">
-            <a href="http://www.lequotidiendupharmacien.fr/derniers-jours-pour-participer-la-grand-consultation-sante-du-shift-project" target="_blank" style="color: inherit; text-decoration: none;">Derniers jours pour participer à la Grand consultation santé du Shift Project</a>
+            <a href="http://www.lequotidiendupharmacien.fr/derniers-jours-pour-participer-la-grand-consultation-sante-du-shift-project" target="_blank" style="color: inherit; text-decoration: none;">Santé et climat : les professionnels de la santé appelés à participer à la consultation du Shift Project</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            Les professionnels de santé ont jusqu’au 20 septembre 2026 pour participer à l’enquête nationale du Shift Project consacrée aux liens entre santé, énergie et changement climatique. Près de 3 000 pharmaciens ont déjà participé.
-C’est la dernière phase...
+            Le Shift Project invite les professionnels de santé à prendre part à sa grande consultation nationale sur les interconnexions entre la santé, l'énergie et le changement climatique. La date limite de participation est fixée au 20 septembre 2026, avec déjà près de 3 000 pharmaciens ayant contribué.
           </p>
           <a href="http://www.lequotidiendupharmacien.fr/derniers-jours-pour-participer-la-grand-consultation-sante-du-shift-project" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0d5bb5; text-decoration: underline;">
             En savoir plus sur Le Quotidien du Pharmacien &rarr;
@@ -665,10 +761,10 @@ C’est la dernière phase...
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111111;">
-            <a href="http://www.lequotidiendupharmacien.fr/exercice-pro/negociations-conventionnelles-la-fspf-veut-passer-la-vitesse-superieure" target="_blank" style="color: inherit; text-decoration: none;">Négociations conventionnelles : la FSPF veut passer à la vitesse supérieure</a>
+            <a href="http://www.lequotidiendupharmacien.fr/exercice-pro/negociations-conventionnelles-la-fspf-veut-passer-la-vitesse-superieure" target="_blank" style="color: inherit; text-decoration: none;">La FSPF presse pour l'accélération des négociations conventionnelles en pharmacie</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            Globalement satisfaite du contenu de la lettre de cadrage adressée le 9 septembre par la ministre de la Santé à la Cnam et aux syndicats, la FSPF estime néanmoins qu’assez de temps a été perdu : elle demande l'ouverture des négociations conventionnel...
+            La Fédération des Syndicats Pharmaceutiques de France (FSPF) se déclare satisfaite du cadre des négociations conventionnelles proposé par la ministre de la Santé. Néanmoins, elle insiste sur l'urgence d'ouvrir ces discussions sans délai, estimant que trop de temps a déjà été perdu.
           </p>
           <a href="http://www.lequotidiendupharmacien.fr/exercice-pro/negociations-conventionnelles-la-fspf-veut-passer-la-vitesse-superieure" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0d5bb5; text-decoration: underline;">
             En savoir plus sur Le Quotidien du Pharmacien &rarr;
@@ -682,11 +778,10 @@ C’est la dernière phase...
             </span>
           </div>
           <h4 style="font-family: 'Times New Roman', Times, Georgia, serif; font-size: 17px; font-weight: 800; line-height: 1.3; margin: 0 0 8px 0; color: #111111;">
-            <a href="http://www.lequotidiendupharmacien.fr/exercice-pro/vaccination-hpv-linca-encourage-les-pharmaciens-aller-vers-les-jeunes" target="_blank" style="color: inherit; text-decoration: none;">Vaccination HPV : l’Inca encourage les pharmaciens à aller vers les jeunes</a>
+            <a href="http://www.lequotidiendupharmacien.fr/exercice-pro/vaccination-hpv-linca-encourage-les-pharmaciens-aller-vers-les-jeunes" target="_blank" style="color: inherit; text-decoration: none;">L'Inca sollicite les pharmaciens pour promouvoir la vaccination HPV auprès des jeunes</a>
           </h4>
           <p class="article-snippet" style="font-family: Georgia, serif; font-size: 13px; line-height: 1.5; color: #4b5563; margin: 0 0 12px 0;">
-            L’Institut national du cancer (Inca) invite les pharmaciens à sensibiliser les parents et les jeunes jusqu’à 26 ans à la vaccination contre le HPV, et à les informer qu’ils peuvent être vaccinés à l’officine.
-Si la couverture vaccinale contre les can...
+            L'Institut national du cancer (Inca) lance un appel aux pharmaciens pour qu'ils intensifient leurs efforts de sensibilisation autour de la vaccination contre le HPV. L'objectif est d'informer activement les parents et les jeunes jusqu'à 26 ans sur l'importance de cette prévention et la possibilité de se faire vacciner directement en officine.
           </p>
           <a href="http://www.lequotidiendupharmacien.fr/exercice-pro/vaccination-hpv-linca-encourage-les-pharmaciens-aller-vers-les-jeunes" target="_blank" class="article-link" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; font-weight: 700; color: #0d5bb5; text-decoration: underline;">
             En savoir plus sur Le Quotidien du Pharmacien &rarr;
@@ -722,5 +817,43 @@ Si la couverture vaccinale contre les can...
     </div>
 
   </div>
+
+  <!-- SCRIPT INTERACTIF POUR LE SITE WEB : BASCULE THEME -->
+  <script>
+    (function() {
+      function applyTheme(isDark) {
+        var icon = document.getElementById('themeToggleIcon');
+        var text = document.getElementById('themeToggleText');
+        if (isDark) {
+          document.body.classList.add('dark');
+          document.body.classList.remove('light');
+          if (icon) icon.textContent = '☀️';
+          if (text) text.textContent = 'Mode clair';
+        } else {
+          document.body.classList.add('light');
+          document.body.classList.remove('dark');
+          if (icon) icon.textContent = '🌙';
+          if (text) text.textContent = 'Mode sombre';
+        }
+      }
+
+      window.toggleTheme = function() {
+        var isCurrentlyDark = document.body.classList.contains('dark') || 
+          (!document.body.classList.contains('light') && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        var newIsDark = !isCurrentlyDark;
+        try {
+          localStorage.setItem('daily_digest_theme', newIsDark ? 'dark' : 'light');
+        } catch(e) {}
+        applyTheme(newIsDark);
+      };
+
+      try {
+        var saved = localStorage.getItem('daily_digest_theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var isDark = saved === 'dark' || (!saved && prefersDark);
+        applyTheme(isDark);
+      } catch(e) {}
+    })();
+  </script>
 </body>
 </html>
